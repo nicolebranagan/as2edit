@@ -65,6 +65,9 @@ namespace as2edit
             types.Add(tileType.Clear.ToString());
             types.Add(tileType.Solid.ToString());
             tileTypeList.DataSource = types;
+
+            startX.Text = this.currentMap.startX.ToString();
+            startY.Text = this.currentMap.startY.ToString();
         }
 
         void DisassembleTileset()
@@ -140,15 +143,18 @@ namespace as2edit
         {
             int x = (int)Math.Floor((double)e.X / 32);
             int y = (int)Math.Floor((double)e.Y / 32);
-            statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
-            if ((e.Button == MouseButtons.Left))
+            if (x >= 0 && y >= 0 && x < (32 * Map.width) && y < (32 * Map.height))
             {
-                currentMap.tileMap[(Map.width * y) + x] = currentTile.ID;
-                quickDraw(x, y);
-            }
-            else if ((e.Button == MouseButtons.Right))
-            {
-                currentTile = mapTiles[currentMap.tileMap[(Map.width * y) + x]];
+                statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
+                if ((e.Button == MouseButtons.Left))
+                {
+                    currentMap.tileMap[(Map.width * y) + x] = currentTile.ID;
+                    quickDraw(x, y);
+                }
+                else if ((e.Button == MouseButtons.Right))
+                {
+                    currentTile = mapTiles[currentMap.tileMap[(Map.width * y) + x]];
+                }
             }
         }
 
@@ -177,7 +183,25 @@ namespace as2edit
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            int tryX; int tryY;
+            bool checkX = int.TryParse(startX.Text, out tryX);
+            bool checkY = int.TryParse(startY.Text, out tryY);
+            if (checkX && checkY)
+            {
+                this.currentMap.startX = tryX;
+                this.currentMap.startY = tryY;
+            }
+
             Main.currentFile.map = this.currentMap;
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < (Map.width * Map.height); i++)
+            {
+                currentMap.tileMap[i] = currentTile.ID;
+            }
+            DrawMap();
         }
     }
 
