@@ -19,6 +19,7 @@ namespace as2edit
         Bitmap tileset;
         Bitmap[] tiles;
         MapTile[] mapTiles;
+        bool awaitingNewObjects = false;
 
         MapTile _currentTile;
         MapTile currentTile
@@ -68,6 +69,7 @@ namespace as2edit
 
             startX.Text = this.currentMap.startX.ToString();
             startY.Text = this.currentMap.startY.ToString();
+            
         }
 
         void DisassembleTileset()
@@ -128,6 +130,7 @@ namespace as2edit
             }
 
             mapBox.Image = imageMap;
+            drawObjects();
         }
 
         void quickDraw(int x, int y)
@@ -137,6 +140,33 @@ namespace as2edit
             int i = (Map.width) * y + x;
             g.DrawImage(tiles[currentMap.tileMap[i]], x * 32, y * 32);
             mapBox.Image = mapImage;
+            drawObjects();
+        }
+
+        void drawObjects()
+        {
+            if (seeObjectCheck.Checked)
+            {
+                Bitmap mapImage = (Bitmap)mapBox.Image;
+                Graphics g = Graphics.FromImage(mapImage);
+                foreach (MapObject m in this.currentMap.objects)
+                {
+                    g.DrawRectangle(new Pen(Color.Red, 3), m.x * 32, m.y * 32, 32, 32);
+                }
+                mapBox.Image = mapImage;
+            }
+        }
+
+        public void getNewObjectList(List<MapObject> objList)
+        {
+            this.currentMap.objects = objList;
+            drawObjects();
+            DrawMap();
+        }
+
+        public void gotNewObjects()
+        {
+            awaitingNewObjects = false;
         }
 
         private void mapBox_MouseMove(object sender, MouseEventArgs e)
@@ -148,8 +178,26 @@ namespace as2edit
                 statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
                 if ((e.Button == MouseButtons.Left))
                 {
-                    currentMap.tileMap[(Map.width * y) + x] = currentTile.ID;
-                    quickDraw(x, y);
+                    bool foundObject = false;
+                    if (!awaitingNewObjects && seeObjectCheck.Checked)
+                    {
+                        foreach (MapObject m in currentMap.objects)
+                        {
+                            if ((m.x == x) && (m.y == y))
+                            {
+                                foundObject = true;
+                                MapObjectDialog mod = new MapObjectDialog(this, currentMap.objects, m);
+                                mod.Show();
+                                awaitingNewObjects = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!foundObject)
+                    {
+                        currentMap.tileMap[(Map.width * y) + x] = currentTile.ID;
+                        quickDraw(x, y);
+                    }
                 }
                 else if ((e.Button == MouseButtons.Right))
                 {
@@ -202,6 +250,25 @@ namespace as2edit
                 currentMap.tileMap[i] = currentTile.ID;
             }
             DrawMap();
+        }
+
+        private void seeObjectCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            drawObjects();
+            if (!seeObjectCheck.Checked)
+            {
+                DrawMap();
+            }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            if (!awaitingNewObjects)
+            {
+                MapObjectDialog mod = new MapObjectDialog(this, currentMap.objects);
+                awaitingNewObjects = true;
+                mod.Show();
+            }
         }
     }
 

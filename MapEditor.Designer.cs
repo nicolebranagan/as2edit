@@ -34,35 +34,37 @@
             this.tilesPanel = new System.Windows.Forms.Panel();
             this.tilesBox = new System.Windows.Forms.PictureBox();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.seeObjectCheck = new System.Windows.Forms.CheckBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.startGroup = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.startX = new System.Windows.Forms.TextBox();
+            this.startY = new System.Windows.Forms.TextBox();
+            this.clearButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.tileTypeList = new System.Windows.Forms.ListBox();
             this.currentTileLabel = new System.Windows.Forms.Label();
             this.currentTileBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.startGroup = new System.Windows.Forms.GroupBox();
-            this.startY = new System.Windows.Forms.TextBox();
-            this.startX = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.mapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
             this.controlPanel.SuspendLayout();
+            this.startGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.startGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.mapPanel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.tilesPanel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.controlPanel, 1, 0);
@@ -80,9 +82,9 @@
             this.mapPanel.AutoScroll = true;
             this.mapPanel.Controls.Add(this.mapBox);
             this.mapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mapPanel.Location = new System.Drawing.Point(272, 3);
+            this.mapPanel.Location = new System.Drawing.Point(267, 3);
             this.mapPanel.Name = "mapPanel";
-            this.mapPanel.Size = new System.Drawing.Size(609, 584);
+            this.mapPanel.Size = new System.Drawing.Size(614, 584);
             this.mapPanel.TabIndex = 2;
             this.mapPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mapPanel_Paint);
             // 
@@ -118,6 +120,8 @@
             // 
             // controlPanel
             // 
+            this.controlPanel.Controls.Add(this.seeObjectCheck);
+            this.controlPanel.Controls.Add(this.addButton);
             this.controlPanel.Controls.Add(this.startGroup);
             this.controlPanel.Controls.Add(this.clearButton);
             this.controlPanel.Controls.Add(this.saveButton);
@@ -127,8 +131,86 @@
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlPanel.Location = new System.Drawing.Point(67, 3);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(199, 584);
+            this.controlPanel.Size = new System.Drawing.Size(194, 584);
             this.controlPanel.TabIndex = 4;
+            // 
+            // seeObjectCheck
+            // 
+            this.seeObjectCheck.AutoSize = true;
+            this.seeObjectCheck.Location = new System.Drawing.Point(26, 345);
+            this.seeObjectCheck.Name = "seeObjectCheck";
+            this.seeObjectCheck.Size = new System.Drawing.Size(108, 21);
+            this.seeObjectCheck.TabIndex = 1;
+            this.seeObjectCheck.Text = "View objects";
+            this.seeObjectCheck.UseVisualStyleBackColor = true;
+            this.seeObjectCheck.CheckedChanged += new System.EventHandler(this.seeObjectCheck_CheckedChanged);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(26, 316);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(108, 23);
+            this.addButton.TabIndex = 2;
+            this.addButton.Text = "Add Object...";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // startGroup
+            // 
+            this.startGroup.Controls.Add(this.label1);
+            this.startGroup.Controls.Add(this.label2);
+            this.startGroup.Controls.Add(this.startX);
+            this.startGroup.Controls.Add(this.startY);
+            this.startGroup.Location = new System.Drawing.Point(17, 386);
+            this.startGroup.Name = "startGroup";
+            this.startGroup.Size = new System.Drawing.Size(166, 100);
+            this.startGroup.TabIndex = 4;
+            this.startGroup.TabStop = false;
+            this.startGroup.Text = "Starting Coordinates";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "X:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Y:";
+            // 
+            // startX
+            // 
+            this.startX.Location = new System.Drawing.Point(41, 30);
+            this.startX.Name = "startX";
+            this.startX.Size = new System.Drawing.Size(100, 22);
+            this.startX.TabIndex = 6;
+            this.startX.Text = "0";
+            // 
+            // startY
+            // 
+            this.startY.Location = new System.Drawing.Point(41, 58);
+            this.startY.Name = "startY";
+            this.startY.Size = new System.Drawing.Size(100, 22);
+            this.startY.TabIndex = 5;
+            this.startY.Text = "0";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(17, 516);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 3;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // saveButton
             // 
@@ -184,63 +266,6 @@
             this.statusBarLabel.Size = new System.Drawing.Size(74, 20);
             this.statusBarLabel.Text = "Initialized";
             // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(17, 516);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 3;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // startGroup
-            // 
-            this.startGroup.Controls.Add(this.label1);
-            this.startGroup.Controls.Add(this.label2);
-            this.startGroup.Controls.Add(this.startX);
-            this.startGroup.Controls.Add(this.startY);
-            this.startGroup.Location = new System.Drawing.Point(17, 386);
-            this.startGroup.Name = "startGroup";
-            this.startGroup.Size = new System.Drawing.Size(166, 100);
-            this.startGroup.TabIndex = 4;
-            this.startGroup.TabStop = false;
-            this.startGroup.Text = "Starting Coordinates";
-            // 
-            // startY
-            // 
-            this.startY.Location = new System.Drawing.Point(41, 58);
-            this.startY.Name = "startY";
-            this.startY.Size = new System.Drawing.Size(100, 22);
-            this.startY.TabIndex = 5;
-            this.startY.Text = "0";
-            // 
-            // startX
-            // 
-            this.startX.Location = new System.Drawing.Point(41, 30);
-            this.startX.Name = "startX";
-            this.startX.Size = new System.Drawing.Size(100, 22);
-            this.startX.TabIndex = 6;
-            this.startX.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "X:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Y:";
-            // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -259,11 +284,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).EndInit();
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
+            this.startGroup.ResumeLayout(false);
+            this.startGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.startGroup.ResumeLayout(false);
-            this.startGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +314,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox startX;
         private System.Windows.Forms.TextBox startY;
+        private System.Windows.Forms.CheckBox seeObjectCheck;
+        private System.Windows.Forms.Button addButton;
     }
 }

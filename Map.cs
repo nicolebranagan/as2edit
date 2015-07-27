@@ -17,6 +17,8 @@ namespace as2edit
         public int startX = 0;
         public int startY = 0;
 
+        public List<MapObject> objects = new List<MapObject>();
+
         public Map Clone()
         {
             Map newMap = new Map();
@@ -25,6 +27,9 @@ namespace as2edit
             this.key.CopyTo(newMap.key, 0);
             newMap.startX = this.startX;
             newMap.startY = this.startY;
+
+            newMap.objects = this.objects; // not a proper clone, tbd
+
             return newMap;
         }
     }
