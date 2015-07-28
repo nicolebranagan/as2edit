@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace as2edit
 {
+    [XmlInclude(typeof(MapTeleporter))]
     public abstract class MapObject
     {
         public int x, y;
@@ -14,6 +16,9 @@ namespace as2edit
     public class MapTeleporter : MapObject
     {
         public int dest, destscreen, destx, desty; // if dest = -1, stay on map
+
+        public MapTeleporter()
+        {; }
 
         public MapTeleporter(int x, int y, int dest, int destscreen, int destx, int desty)
         {

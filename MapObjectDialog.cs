@@ -25,6 +25,19 @@ namespace as2edit
 
             if (toEdit == null)
                 deleteButton.Enabled = false;
+            else
+            {
+                xBox.Text = toEdit.x.ToString();
+                yBox.Text = toEdit.y.ToString();
+                if (toEdit is MapTeleporter)
+                {
+                    MapTeleporter mT = (MapTeleporter)toEdit;
+                    TeleporterxBox.Text = mT.destx.ToString();
+                    TeleporteryBox.Text = mT.desty.ToString();
+                    TeleporterScreenBox.Text = mT.destscreen.ToString();
+                    // TODO: Handle adventures
+                }
+            }
         }
 
         private void MapObjectDialog_Load(object sender, EventArgs e)
