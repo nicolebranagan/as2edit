@@ -15,17 +15,18 @@ namespace as2edit
 
     public class MapTeleporter : MapObject
     {
-        public int dest, destscreen, destx, desty; // if dest = -1, stay on map
+        public int dest, destroomX, destroomY, destx, desty; // if dest = -1, stay on map
 
         public MapTeleporter()
         {; }
 
-        public MapTeleporter(int x, int y, int dest, int destscreen, int destx, int desty)
+        public MapTeleporter(int x, int y, int dest, int destroomX, int destroomY, int destx, int desty)
         {
             this.x = x;
             this.y = y;
             this.dest = dest;
-            this.destscreen = destscreen;
+            this.destroomX = destroomX;
+            this.destroomY = destroomY;
             this.destx = destx;
             this.desty = desty;
         }

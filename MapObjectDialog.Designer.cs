@@ -37,17 +37,17 @@
             this.typeBox = new System.Windows.Forms.GroupBox();
             this.teleportRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.roomGrid = new System.Windows.Forms.PictureBox();
+            this.TeleporteryBox = new System.Windows.Forms.TextBox();
+            this.TeleporterxBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.TeleporterDestList = new System.Windows.Forms.ListBox();
             this.teleporterToMapCheck = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TeleporterxBox = new System.Windows.Forms.TextBox();
-            this.TeleporteryBox = new System.Windows.Forms.TextBox();
-            this.TeleporterScreenBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,93 +128,86 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TeleporterScreenBox);
+            this.groupBox1.Controls.Add(this.roomGrid);
             this.groupBox1.Controls.Add(this.TeleporteryBox);
             this.groupBox1.Controls.Add(this.TeleporterxBox);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TeleporterDestList);
             this.groupBox1.Controls.Add(this.teleporterToMapCheck);
             this.groupBox1.Location = new System.Drawing.Point(212, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 106);
+            this.groupBox1.Size = new System.Drawing.Size(315, 183);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MapTeleporter";
+            // 
+            // roomGrid
+            // 
+            this.roomGrid.Location = new System.Drawing.Point(171, 24);
+            this.roomGrid.Name = "roomGrid";
+            this.roomGrid.Size = new System.Drawing.Size(128, 128);
+            this.roomGrid.TabIndex = 13;
+            this.roomGrid.TabStop = false;
+            this.roomGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.roomGrid_MouseClick);
+            // 
+            // TeleporteryBox
+            // 
+            this.TeleporteryBox.Location = new System.Drawing.Point(31, 155);
+            this.TeleporteryBox.Name = "TeleporteryBox";
+            this.TeleporteryBox.Size = new System.Drawing.Size(100, 22);
+            this.TeleporteryBox.TabIndex = 9;
+            this.TeleporteryBox.Text = "0";
+            // 
+            // TeleporterxBox
+            // 
+            this.TeleporterxBox.Location = new System.Drawing.Point(31, 126);
+            this.TeleporterxBox.Name = "TeleporterxBox";
+            this.TeleporterxBox.Size = new System.Drawing.Size(100, 22);
+            this.TeleporterxBox.TabIndex = 8;
+            this.TeleporterxBox.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 17);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Y:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 17);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "X:";
             // 
             // TeleporterDestList
             // 
             this.TeleporterDestList.Enabled = false;
             this.TeleporterDestList.FormattingEnabled = true;
             this.TeleporterDestList.ItemHeight = 16;
-            this.TeleporterDestList.Location = new System.Drawing.Point(3, 18);
+            this.TeleporterDestList.Location = new System.Drawing.Point(6, 24);
             this.TeleporterDestList.Name = "TeleporterDestList";
-            this.TeleporterDestList.Size = new System.Drawing.Size(159, 52);
+            this.TeleporterDestList.Size = new System.Drawing.Size(159, 68);
             this.TeleporterDestList.TabIndex = 1;
+            this.TeleporterDestList.SelectedIndexChanged += new System.EventHandler(this.TeleporterDestList_SelectedIndexChanged);
             // 
             // teleporterToMapCheck
             // 
             this.teleporterToMapCheck.AutoSize = true;
             this.teleporterToMapCheck.Checked = true;
             this.teleporterToMapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.teleporterToMapCheck.Location = new System.Drawing.Point(6, 71);
+            this.teleporterToMapCheck.Location = new System.Drawing.Point(6, 99);
             this.teleporterToMapCheck.Name = "teleporterToMapCheck";
             this.teleporterToMapCheck.Size = new System.Drawing.Size(116, 21);
             this.teleporterToMapCheck.TabIndex = 0;
             this.teleporterToMapCheck.Text = "Leads to map";
             this.teleporterToMapCheck.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "X:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(168, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 17);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Y:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(168, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Screen:";
-            // 
-            // TeleporterxBox
-            // 
-            this.TeleporterxBox.Location = new System.Drawing.Point(195, 15);
-            this.TeleporterxBox.Name = "TeleporterxBox";
-            this.TeleporterxBox.Size = new System.Drawing.Size(100, 22);
-            this.TeleporterxBox.TabIndex = 8;
-            this.TeleporterxBox.Text = "0";
-            // 
-            // TeleporteryBox
-            // 
-            this.TeleporteryBox.Location = new System.Drawing.Point(195, 44);
-            this.TeleporteryBox.Name = "TeleporteryBox";
-            this.TeleporteryBox.Size = new System.Drawing.Size(100, 22);
-            this.TeleporteryBox.TabIndex = 9;
-            this.TeleporteryBox.Text = "0";
-            // 
-            // TeleporterScreenBox
-            // 
-            this.TeleporterScreenBox.Location = new System.Drawing.Point(224, 72);
-            this.TeleporterScreenBox.Name = "TeleporterScreenBox";
-            this.TeleporterScreenBox.Size = new System.Drawing.Size(71, 22);
-            this.TeleporterScreenBox.TabIndex = 10;
-            this.TeleporterScreenBox.Text = "0";
+            this.teleporterToMapCheck.CheckedChanged += new System.EventHandler(this.teleporterToMapCheck_CheckedChanged);
             // 
             // deleteButton
             // 
@@ -248,6 +241,7 @@
             this.typeBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,12 +260,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox TeleporterDestList;
         private System.Windows.Forms.CheckBox teleporterToMapCheck;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TeleporterScreenBox;
         private System.Windows.Forms.TextBox TeleporteryBox;
         private System.Windows.Forms.TextBox TeleporterxBox;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.PictureBox roomGrid;
     }
 }

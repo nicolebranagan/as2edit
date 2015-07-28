@@ -16,6 +16,8 @@ namespace as2edit
         List<MapObject> objectList;
         MapObject toEdit;
 
+        int roomX = -1; int roomY = -1;
+
         public MapObjectDialog(MapEditor caller, List<MapObject> objectList, MapObject toEdit = null)
         {
             this.caller = caller;
@@ -34,10 +36,66 @@ namespace as2edit
                     MapTeleporter mT = (MapTeleporter)toEdit;
                     TeleporterxBox.Text = mT.destx.ToString();
                     TeleporteryBox.Text = mT.desty.ToString();
-                    TeleporterScreenBox.Text = mT.destscreen.ToString();
                     // TODO: Handle adventures
                 }
             }
+
+            List<string> adventures = new List<string>();
+            for (int i = 0; i < Main.currentFile.adventures.Count; i++)
+            {
+                adventures.Add(String.Concat("Adventure #", i));
+            }
+            TeleporterDestList.DataSource = adventures;
+
+            ClearRoomGrid();
+        }
+
+        void ClearRoomGrid()
+        {
+            int x, y, square = 8;
+            bool check; Color currentColor;
+            Bitmap mapGrid = new Bitmap(128, 128);
+            Graphics g = Graphics.FromImage(mapGrid);
+            for (int i = 0; i < 16 * 16; i++)
+            {
+                x = i % 16;
+                y = i / 16;
+                check = (x % 2 == 0);
+                if (y % 2 == 0)
+                    check = !check;
+                currentColor = check ? Color.Gray : Color.DarkGray;
+                g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
+            }
+            roomGrid.Image = mapGrid;
+        }
+
+        void DrawRoomGrid(Adventure currentAdventure)
+        {
+            int square = 8;
+            Bitmap mapGrid = new Bitmap(128, 128);
+            Graphics g = Graphics.FromImage(mapGrid);
+
+            int x, y;
+            bool check;
+            Color currentColor;
+
+            for (int i = 0; i < 16 * 16; i++)
+            {
+                x = i % 16;
+                y = i / 16;
+                check = (x % 2 == 0);
+                if (y % 2 == 0)
+                    check = !check;
+                if (currentAdventure.rooms[x, y] != null)
+                    currentColor = check ? Color.Red : Color.DarkRed;
+                else
+                    currentColor = check ? Color.Gray : Color.DarkGray;
+                if ((x == roomX) && (y == roomY))
+                    currentColor = Color.Cyan;
+                g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
+            }
+
+            roomGrid.Image = mapGrid;
         }
 
         private void MapObjectDialog_Load(object sender, EventArgs e)
@@ -51,7 +109,7 @@ namespace as2edit
 
             if (teleportRadio.Checked)
             {
-                int dest, destx, desty, destscreen;
+                int dest, destx, desty;
 
                 bool dummy = int.TryParse(xBox.Text, out x);
                 if (!dummy) x = 0;
@@ -62,10 +120,18 @@ namespace as2edit
                 dummy = int.TryParse(TeleporteryBox.Text, out desty);
                 if (!dummy) desty = 0;
 
-                dest = -1; // Map
-                destscreen = 0;
-                // At the moment, assume all teleporters are on map
-                MapTeleporter newObject = new MapTeleporter(x, y, dest, destscreen, destx, desty);
+                if (teleporterToMapCheck.Checked)
+                    dest = -1; // Map
+                else
+                {
+                    if ((roomX == -1) || (roomY == -1))
+                    {
+                        MessageBox.Show("Must select a room", "Error");
+                        return;
+                    }
+                    dest = TeleporterDestList.SelectedIndex;
+                }
+                MapTeleporter newObject = new MapTeleporter(x, y, dest, roomX, roomY, destx, desty);
                 objectList.Add(newObject);
                 if (this.toEdit != null)
                 {
@@ -94,6 +160,39 @@ namespace as2edit
         private void MapObjectDialog_FormClosed(object sender, FormClosedEventArgs e)
         {
             caller.gotNewObjects();
+        }
+
+        private void teleporterToMapCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            TeleporterDestList.Enabled = !(teleporterToMapCheck.Checked);
+            if (!TeleporterDestList.Enabled)
+            {
+                ClearRoomGrid();
+                roomX = -1;
+                roomY = -1;
+            }
+        }
+
+        private void TeleporterDestList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DrawRoomGrid(Main.currentFile.adventures[TeleporterDestList.SelectedIndex]);
+        }
+
+        private void roomGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = (int)Math.Floor((double)e.X / 8);
+            int y = (int)Math.Floor((double)e.Y / 8);
+            if (!teleporterToMapCheck.Checked && x >= 0 && y >= 0 && x < (16) && y < (16))
+            {
+                Adventure currentAdventure = Main.currentFile.adventures[TeleporterDestList.SelectedIndex];
+                if (currentAdventure.rooms[x, y] != null)
+                {
+                    roomX = x;
+                    roomY = y;
+                }
+
+                DrawRoomGrid(currentAdventure);
+            }
         }
     }
 }
