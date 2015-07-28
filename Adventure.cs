@@ -8,7 +8,9 @@ namespace as2edit
 {
     public class Adventure
     {
-        public int id;
-        public List<Room> rooms = new List<Room>();
+        public int tileset;
+        public int[] key = { };
+        public Room[,] rooms = new Room[16, 16];
+        public Room templateRoom = new Room();
     }
 }

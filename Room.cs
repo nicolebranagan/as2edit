@@ -8,6 +8,13 @@ namespace as2edit
 {
     public class Room
     {
-        public int id;
+        public int[] tileMap = new int[25*13];
+        
+        public Room copyRoom()
+        {
+            Room newRoom = new Room();
+            this.tileMap.CopyTo(newRoom.tileMap, 0);
+            return newRoom;
+        }
     }
 }

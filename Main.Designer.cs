@@ -42,6 +42,7 @@
             this.advButton.TabIndex = 0;
             this.advButton.Text = "Adventure Editor";
             this.advButton.UseVisualStyleBackColor = true;
+            this.advButton.Click += new System.EventHandler(this.advButton_Click);
             // 
             // mapButton
             // 

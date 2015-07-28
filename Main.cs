@@ -61,5 +61,11 @@ namespace as2edit
                 Main.currentFile = wF;
             }
         }
+
+        private void advButton_Click(object sender, EventArgs e)
+        {
+            AdventureEditor adv = new AdventureEditor();
+            adv.Show();
+        }
     }
 }

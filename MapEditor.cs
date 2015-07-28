@@ -15,7 +15,6 @@ namespace as2edit
     public partial class MapEditor : Form
     {
         Map currentMap;
-        TextureBrush nullBrush;
         Bitmap tileset;
         Bitmap[] tiles;
         MapTile[] mapTiles;
@@ -46,14 +45,7 @@ namespace as2edit
             mapBox.SizeMode = PictureBoxSizeMode.AutoSize;
             currentMap = Main.currentFile.map.Clone();
 
-            Bitmap nullBitmap = new Bitmap(32, 32);
-            Graphics g = Graphics.FromImage(nullBitmap);
-            g.FillRectangle(new SolidBrush(Color.DarkGray), 0, 0, 16, 16);
-            g.FillRectangle(new SolidBrush(Color.Gray), 16, 0, 16, 16);
-            g.FillRectangle(new SolidBrush(Color.DarkGray), 16, 16, 16, 16);
-            g.FillRectangle(new SolidBrush(Color.Gray), 0, 16, 16, 16);
 
-            nullBrush = new TextureBrush(nullBitmap);
 
             Initialize();
             DisassembleTileset();
