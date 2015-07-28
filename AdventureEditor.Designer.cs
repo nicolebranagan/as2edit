@@ -67,7 +67,7 @@
             this.tilesPanel.Controls.Add(this.tilesBox);
             this.tilesPanel.Location = new System.Drawing.Point(797, 0);
             this.tilesPanel.Name = "tilesPanel";
-            this.tilesPanel.Size = new System.Drawing.Size(59, 559);
+            this.tilesPanel.Size = new System.Drawing.Size(59, 591);
             this.tilesPanel.TabIndex = 1;
             this.tilesPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tilesPanel_MouseMove);
             // 

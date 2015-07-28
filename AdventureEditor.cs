@@ -242,6 +242,7 @@ namespace as2edit
         private void advList_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentAdventure = Main.currentFile.adventures[advList.SelectedIndex];
+            roomX = -1; roomY = -1;
             ClearMap();
             DrawRoomGrid();
             DisassembleTileset();
