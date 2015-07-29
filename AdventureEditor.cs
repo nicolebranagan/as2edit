@@ -32,7 +32,15 @@ namespace as2edit
             {
                 currentTileBox.Image = tiles[value];
                 _currentTile = value;
+                tileTypeList.SelectedIndex = currentAdventure.key[value];
             }
+        }
+
+        enum tileType
+        {
+            Clear = 0,
+            Solid = 1,
+            Crevasse = 2
         }
 
         public AdventureEditor()
@@ -51,6 +59,12 @@ namespace as2edit
                 adventures.Add(String.Concat("Adventure #", i));
             }
             advList.DataSource = adventures;
+
+            List<string> types = new List<string>();
+            types.Add(tileType.Clear.ToString());
+            types.Add(tileType.Solid.ToString());
+            types.Add(tileType.Crevasse.ToString());
+            tileTypeList.DataSource = types;
         }
 
         void ClearMap()
@@ -143,7 +157,7 @@ namespace as2edit
                     tiles[count] = new Bitmap(tileset.Clone(cropRect, tileset.PixelFormat));
                     count = count + 1;
                 }
-            currentTile = 0;
+            //currentTile = 0;
 
             Bitmap tileList = new Bitmap(32, (width * height * 32));
             Graphics g = Graphics.FromImage(tileList);
@@ -293,6 +307,11 @@ namespace as2edit
         {
             this.currentAdventure.templateRoom = currentRoom.copyRoom();
             statusBarLabel.Text = "Made new room template.";
+        }
+
+        private void tileTypeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentAdventure.key[currentTile] = tileTypeList.SelectedIndex;
         }
     }
 }

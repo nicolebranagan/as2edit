@@ -43,6 +43,8 @@
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
             this.templateButton = new System.Windows.Forms.Button();
+            this.tileOptions = new System.Windows.Forms.GroupBox();
+            this.tileTypeList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -50,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).BeginInit();
             this.roomOptions.SuspendLayout();
+            this.tileOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // advBox
@@ -100,7 +103,7 @@
             // 
             // currentTileBox
             // 
-            this.currentTileBox.Location = new System.Drawing.Point(612, 422);
+            this.currentTileBox.Location = new System.Drawing.Point(6, 21);
             this.currentTileBox.Name = "currentTileBox";
             this.currentTileBox.Size = new System.Drawing.Size(32, 32);
             this.currentTileBox.TabIndex = 3;
@@ -195,11 +198,33 @@
             this.templateButton.UseVisualStyleBackColor = true;
             this.templateButton.Click += new System.EventHandler(this.templateButton_Click);
             // 
+            // tileOptions
+            // 
+            this.tileOptions.Controls.Add(this.tileTypeList);
+            this.tileOptions.Controls.Add(this.currentTileBox);
+            this.tileOptions.Location = new System.Drawing.Point(591, 422);
+            this.tileOptions.Name = "tileOptions";
+            this.tileOptions.Size = new System.Drawing.Size(200, 151);
+            this.tileOptions.TabIndex = 14;
+            this.tileOptions.TabStop = false;
+            this.tileOptions.Text = "Current Tile";
+            // 
+            // tileTypeList
+            // 
+            this.tileTypeList.FormattingEnabled = true;
+            this.tileTypeList.ItemHeight = 16;
+            this.tileTypeList.Location = new System.Drawing.Point(6, 59);
+            this.tileTypeList.Name = "tileTypeList";
+            this.tileTypeList.Size = new System.Drawing.Size(120, 84);
+            this.tileTypeList.TabIndex = 4;
+            this.tileTypeList.SelectedIndexChanged += new System.EventHandler(this.tileTypeList_SelectedIndexChanged);
+            // 
             // AdventureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 603);
+            this.Controls.Add(this.tileOptions);
             this.Controls.Add(this.roomOptions);
             this.Controls.Add(this.roomGrid);
             this.Controls.Add(this.delAdvBox);
@@ -207,7 +232,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.advList);
-            this.Controls.Add(this.currentTileBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tilesPanel);
             this.Controls.Add(this.advBox);
@@ -222,6 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
             this.roomOptions.ResumeLayout(false);
+            this.tileOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +269,7 @@
         private System.Windows.Forms.PictureBox roomGrid;
         private System.Windows.Forms.GroupBox roomOptions;
         private System.Windows.Forms.Button templateButton;
+        private System.Windows.Forms.GroupBox tileOptions;
+        private System.Windows.Forms.ListBox tileTypeList;
     }
 }
