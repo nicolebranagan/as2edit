@@ -42,6 +42,7 @@ namespace as2edit
             Solid = 1,
             Crevasse = 2,
             Injury = 3,
+            Warp = 4,
         }
 
         public AdventureEditor()
@@ -67,7 +68,7 @@ namespace as2edit
             types.Add(tileType.Solid.ToString());
             types.Add(tileType.Crevasse.ToString());
             types.Add(tileType.Injury.ToString());
-
+            types.Add(tileType.Warp.ToString());
             tileTypeList.DataSource = types;
         }
 
