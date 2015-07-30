@@ -38,7 +38,7 @@
             // 
             this.advButton.Location = new System.Drawing.Point(12, 54);
             this.advButton.Name = "advButton";
-            this.advButton.Size = new System.Drawing.Size(124, 40);
+            this.advButton.Size = new System.Drawing.Size(141, 40);
             this.advButton.TabIndex = 0;
             this.advButton.Text = "Adventure Editor";
             this.advButton.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             // 
             this.mapButton.Location = new System.Drawing.Point(12, 12);
             this.mapButton.Name = "mapButton";
-            this.mapButton.Size = new System.Drawing.Size(124, 36);
+            this.mapButton.Size = new System.Drawing.Size(141, 36);
             this.mapButton.TabIndex = 1;
             this.mapButton.Text = "Map Editor";
             this.mapButton.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             // 
             this.outButton.Location = new System.Drawing.Point(12, 312);
             this.outButton.Name = "outButton";
-            this.outButton.Size = new System.Drawing.Size(124, 39);
+            this.outButton.Size = new System.Drawing.Size(141, 39);
             this.outButton.TabIndex = 2;
             this.outButton.Text = "Save to XML";
             this.outButton.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             // 
             this.openButton.Location = new System.Drawing.Point(12, 267);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(124, 39);
+            this.openButton.Size = new System.Drawing.Size(141, 39);
             this.openButton.TabIndex = 3;
             this.openButton.Text = "Open XML";
             this.openButton.UseVisualStyleBackColor = true;

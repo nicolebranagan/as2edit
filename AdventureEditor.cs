@@ -40,11 +40,13 @@ namespace as2edit
         {
             Clear = 0,
             Solid = 1,
-            Crevasse = 2
+            Crevasse = 2,
+            Injury = 3,
         }
 
         public AdventureEditor()
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             InitializeComponent();
 
             Initialize();
@@ -64,6 +66,8 @@ namespace as2edit
             types.Add(tileType.Clear.ToString());
             types.Add(tileType.Solid.ToString());
             types.Add(tileType.Crevasse.ToString());
+            types.Add(tileType.Injury.ToString());
+
             tileTypeList.DataSource = types;
         }
 
@@ -311,7 +315,8 @@ namespace as2edit
 
         private void tileTypeList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentAdventure.key[currentTile] = tileTypeList.SelectedIndex;
+            if (currentAdventure != null)
+                currentAdventure.key[currentTile] = tileTypeList.SelectedIndex;
         }
     }
 }
