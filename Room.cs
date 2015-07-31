@@ -9,6 +9,7 @@ namespace as2edit
     public class Room
     {
         public int[] tileMap = new int[25*13];
+        public List<StoredObject> storedObjects = new List<StoredObject>();
         
         public Room copyRoom()
         {

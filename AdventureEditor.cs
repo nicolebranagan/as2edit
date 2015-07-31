@@ -209,6 +209,11 @@ namespace as2edit
             advBox.Image = mapImage;
         }
 
+        public void getNewObjects(List<StoredObject> objectList)
+        {
+
+        }
+
         private void tilesPanel_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -322,6 +327,12 @@ namespace as2edit
         {
             if (currentAdventure != null)
                 currentAdventure.key[currentTile] = tileTypeList.SelectedIndex;
+        }
+
+        private void objectButton_Click(object sender, EventArgs e)
+        {
+            AdventureObjectDialog aod = new AdventureObjectDialog(this, currentRoom);
+            aod.Show();
         }
     }
 }

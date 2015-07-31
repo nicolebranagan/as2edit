@@ -45,6 +45,7 @@
             this.templateButton = new System.Windows.Forms.Button();
             this.tileOptions = new System.Windows.Forms.GroupBox();
             this.tileTypeList = new System.Windows.Forms.ListBox();
+            this.objectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -149,7 +150,7 @@
             // 
             // delRoomBox
             // 
-            this.delRoomBox.Location = new System.Drawing.Point(6, 122);
+            this.delRoomBox.Location = new System.Drawing.Point(6, 21);
             this.delRoomBox.Name = "delRoomBox";
             this.delRoomBox.Size = new System.Drawing.Size(57, 23);
             this.delRoomBox.TabIndex = 10;
@@ -178,6 +179,7 @@
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.objectButton);
             this.roomOptions.Controls.Add(this.templateButton);
             this.roomOptions.Controls.Add(this.delRoomBox);
             this.roomOptions.Enabled = false;
@@ -190,7 +192,7 @@
             // 
             // templateButton
             // 
-            this.templateButton.Location = new System.Drawing.Point(69, 122);
+            this.templateButton.Location = new System.Drawing.Point(6, 77);
             this.templateButton.Name = "templateButton";
             this.templateButton.Size = new System.Drawing.Size(125, 23);
             this.templateButton.TabIndex = 11;
@@ -218,6 +220,16 @@
             this.tileTypeList.Size = new System.Drawing.Size(120, 84);
             this.tileTypeList.TabIndex = 4;
             this.tileTypeList.SelectedIndexChanged += new System.EventHandler(this.tileTypeList_SelectedIndexChanged);
+            // 
+            // objectButton
+            // 
+            this.objectButton.Location = new System.Drawing.Point(6, 48);
+            this.objectButton.Name = "objectButton";
+            this.objectButton.Size = new System.Drawing.Size(90, 23);
+            this.objectButton.TabIndex = 12;
+            this.objectButton.Text = "Objects...";
+            this.objectButton.UseVisualStyleBackColor = true;
+            this.objectButton.Click += new System.EventHandler(this.objectButton_Click);
             // 
             // AdventureEditor
             // 
@@ -271,5 +283,6 @@
         private System.Windows.Forms.Button templateButton;
         private System.Windows.Forms.GroupBox tileOptions;
         private System.Windows.Forms.ListBox tileTypeList;
+        private System.Windows.Forms.Button objectButton;
     }
 }
