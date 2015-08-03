@@ -42,10 +42,11 @@
             this.delAdvBox = new System.Windows.Forms.Button();
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
+            this.objectButton = new System.Windows.Forms.Button();
             this.templateButton = new System.Windows.Forms.Button();
             this.tileOptions = new System.Windows.Forms.GroupBox();
             this.tileTypeList = new System.Windows.Forms.ListBox();
-            this.objectButton = new System.Windows.Forms.Button();
+            this.codeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -150,7 +151,7 @@
             // 
             // delRoomBox
             // 
-            this.delRoomBox.Location = new System.Drawing.Point(6, 21);
+            this.delRoomBox.Location = new System.Drawing.Point(137, 122);
             this.delRoomBox.Name = "delRoomBox";
             this.delRoomBox.Size = new System.Drawing.Size(57, 23);
             this.delRoomBox.TabIndex = 10;
@@ -179,6 +180,7 @@
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.codeButton);
             this.roomOptions.Controls.Add(this.objectButton);
             this.roomOptions.Controls.Add(this.templateButton);
             this.roomOptions.Controls.Add(this.delRoomBox);
@@ -190,9 +192,19 @@
             this.roomOptions.TabStop = false;
             this.roomOptions.Text = "Room Options";
             // 
+            // objectButton
+            // 
+            this.objectButton.Location = new System.Drawing.Point(6, 21);
+            this.objectButton.Name = "objectButton";
+            this.objectButton.Size = new System.Drawing.Size(90, 23);
+            this.objectButton.TabIndex = 12;
+            this.objectButton.Text = "Objects...";
+            this.objectButton.UseVisualStyleBackColor = true;
+            this.objectButton.Click += new System.EventHandler(this.objectButton_Click);
+            // 
             // templateButton
             // 
-            this.templateButton.Location = new System.Drawing.Point(6, 77);
+            this.templateButton.Location = new System.Drawing.Point(6, 122);
             this.templateButton.Name = "templateButton";
             this.templateButton.Size = new System.Drawing.Size(125, 23);
             this.templateButton.TabIndex = 11;
@@ -221,15 +233,15 @@
             this.tileTypeList.TabIndex = 4;
             this.tileTypeList.SelectedIndexChanged += new System.EventHandler(this.tileTypeList_SelectedIndexChanged);
             // 
-            // objectButton
+            // codeButton
             // 
-            this.objectButton.Location = new System.Drawing.Point(6, 48);
-            this.objectButton.Name = "objectButton";
-            this.objectButton.Size = new System.Drawing.Size(90, 23);
-            this.objectButton.TabIndex = 12;
-            this.objectButton.Text = "Objects...";
-            this.objectButton.UseVisualStyleBackColor = true;
-            this.objectButton.Click += new System.EventHandler(this.objectButton_Click);
+            this.codeButton.Location = new System.Drawing.Point(6, 50);
+            this.codeButton.Name = "codeButton";
+            this.codeButton.Size = new System.Drawing.Size(75, 23);
+            this.codeButton.TabIndex = 13;
+            this.codeButton.Text = "Code";
+            this.codeButton.UseVisualStyleBackColor = true;
+            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
             // 
             // AdventureEditor
             // 
@@ -284,5 +296,6 @@
         private System.Windows.Forms.GroupBox tileOptions;
         private System.Windows.Forms.ListBox tileTypeList;
         private System.Windows.Forms.Button objectButton;
+        private System.Windows.Forms.Button codeButton;
     }
 }

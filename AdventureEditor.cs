@@ -334,5 +334,24 @@ namespace as2edit
             AdventureObjectDialog aod = new AdventureObjectDialog(this, currentRoom);
             aod.Show();
         }
+
+        private void codeButton_Click(object sender, EventArgs e)
+        {
+            string text = @"
+function onLoad() {
+}
+
+function update() {
+}";
+            if (currentRoom.code != null)
+                text = currentRoom.code;
+            CodeDialog cD = new CodeDialog(newRoomCode, text);
+            cD.Show();
+        }
+
+        void newRoomCode(string code)
+        {
+            currentRoom.code = code;
+        }
     }
 }

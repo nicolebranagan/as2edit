@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace as2edit
@@ -34,6 +35,9 @@ namespace as2edit
             saveFileDialog1.Filter = "XML Worldfile|*.xml|All Files|*.*";
             saveFileDialog1.Title = "Save Worldfile";
             saveFileDialog1.ShowDialog();
+
+            XmlWriterSettings ws = new XmlWriterSettings();
+            ws.NewLineHandling = NewLineHandling.Entitize;
 
             if (saveFileDialog1.FileName != "")
             {
