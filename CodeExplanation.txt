@@ -1,0 +1,11 @@
+Room codes must be in javascript format. The following variables are exposed and set each cycle:
+playerX - player's x coordinate (in tilemap form)
+playerY - player's y coordinate (in tilemap form)
+
+The following functions are available:
+void spawnKey(int x, int y)
+- Spawn a key at a given x and y coordinate. Plays the "Aspect" chime.
+void setFlag(string flag, bool value)
+- Sets a boolean flag. Flags are adventure-wide but are reset upon exiting.
+bool getFlag(string flag)
+- Returns a boolean flag. If not yet set, returns "false".

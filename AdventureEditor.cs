@@ -337,12 +337,8 @@ namespace as2edit
 
         private void codeButton_Click(object sender, EventArgs e)
         {
-            string text = @"
-function onLoad() {
-}
-
-function update() {
-}";
+            string text = @"function onLoad() { }
+function update() { }";
             if (currentRoom.code != null)
                 text = currentRoom.code;
             CodeDialog cD = new CodeDialog(newRoomCode, text);

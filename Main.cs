@@ -60,8 +60,9 @@ namespace as2edit
             {
                 XmlSerializer xS = new XmlSerializer(typeof(Worldfile));
                 FileStream fS = new FileStream(openFileDialog1.FileName, FileMode.Open);
+                XmlTextReader xTR = new XmlTextReader(fS);
                 Worldfile wF;
-                wF = (Worldfile)xS.Deserialize(fS);
+                wF = (Worldfile)xS.Deserialize(xTR);
                 Main.currentFile = wF;
             }
         }
