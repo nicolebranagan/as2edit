@@ -27,6 +27,11 @@ namespace as2edit
             foreach (StoredObject obj in objectList)
                 objLabels.Add(obj.ToString());
             objectListBox.DataSource = objLabels;
+
+            List<string> enemies = new List<string>();
+            foreach (BestiaryEntry bE in Main.currentFile.bestiary)
+                enemies.Add(bE.ToString());
+            enemyList.DataSource = enemies;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -49,6 +54,11 @@ namespace as2edit
                 newObject.type = StoredObject.ObjectType.heart;
             else if (goldkeyRadio.Checked)
                 newObject.type = StoredObject.ObjectType.goldkey;
+            else if (enemyRadio.Checked)
+            {
+                newObject.type = StoredObject.ObjectType.enemy;
+                newObject.enemyType = enemyList.SelectedIndex;
+            }
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -73,18 +83,30 @@ namespace as2edit
                 keyRadio.Checked = true;
                 heartRadio.Checked = false;
                 goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
                 keyRadio.Checked = false;
                 heartRadio.Checked = true;
                 goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
                 keyRadio.Checked = false;
                 heartRadio.Checked = false;
                 goldkeyRadio.Checked = true;
+                enemyRadio.Checked = false;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.enemy)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = true;
+
+                enemyList.SelectedIndex = toEdit.enemyType;
             }
         }
 
@@ -98,6 +120,11 @@ namespace as2edit
             foreach (StoredObject obj in objectList)
                 objLabels.Add(obj.ToString());
             objectListBox.DataSource = objLabels;
+        }
+
+        private void enemyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            enemyList.Enabled = enemyRadio.Checked;
         }
     }
 }

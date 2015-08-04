@@ -30,6 +30,7 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.goldkeyRadio = new System.Windows.Forms.RadioButton();
             this.heartRadio = new System.Windows.Forms.RadioButton();
             this.keyRadio = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
@@ -40,13 +41,14 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.goldkeyRadio = new System.Windows.Forms.RadioButton();
+            this.enemyRadio = new System.Windows.Forms.RadioButton();
+            this.enemyList = new System.Windows.Forms.ListBox();
             this.typeBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(84, 218);
+            this.deleteButton.Location = new System.Drawing.Point(84, 290);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 17;
@@ -56,15 +58,27 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.enemyList);
+            this.typeBox.Controls.Add(this.enemyRadio);
             this.typeBox.Controls.Add(this.goldkeyRadio);
             this.typeBox.Controls.Add(this.heartRadio);
             this.typeBox.Controls.Add(this.keyRadio);
             this.typeBox.Location = new System.Drawing.Point(165, 65);
             this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(188, 147);
+            this.typeBox.Size = new System.Drawing.Size(188, 220);
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
+            // 
+            // goldkeyRadio
+            // 
+            this.goldkeyRadio.AutoSize = true;
+            this.goldkeyRadio.Location = new System.Drawing.Point(3, 72);
+            this.goldkeyRadio.Name = "goldkeyRadio";
+            this.goldkeyRadio.Size = new System.Drawing.Size(87, 21);
+            this.goldkeyRadio.TabIndex = 2;
+            this.goldkeyRadio.Text = "Gold Key";
+            this.goldkeyRadio.UseVisualStyleBackColor = true;
             // 
             // heartRadio
             // 
@@ -90,7 +104,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(297, 218);
+            this.okButton.Location = new System.Drawing.Point(278, 290);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 14;
@@ -138,12 +152,12 @@
             this.objectListBox.ItemHeight = 16;
             this.objectListBox.Location = new System.Drawing.Point(3, 9);
             this.objectListBox.Name = "objectListBox";
-            this.objectListBox.Size = new System.Drawing.Size(156, 196);
+            this.objectListBox.Size = new System.Drawing.Size(156, 276);
             this.objectListBox.TabIndex = 18;
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(3, 218);
+            this.editButton.Location = new System.Drawing.Point(3, 290);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 19;
@@ -153,7 +167,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(165, 218);
+            this.addButton.Location = new System.Drawing.Point(165, 290);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 20;
@@ -161,21 +175,32 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // goldkeyRadio
+            // enemyRadio
             // 
-            this.goldkeyRadio.AutoSize = true;
-            this.goldkeyRadio.Location = new System.Drawing.Point(3, 72);
-            this.goldkeyRadio.Name = "goldkeyRadio";
-            this.goldkeyRadio.Size = new System.Drawing.Size(87, 21);
-            this.goldkeyRadio.TabIndex = 2;
-            this.goldkeyRadio.Text = "Gold Key";
-            this.goldkeyRadio.UseVisualStyleBackColor = true;
+            this.enemyRadio.AutoSize = true;
+            this.enemyRadio.Location = new System.Drawing.Point(3, 99);
+            this.enemyRadio.Name = "enemyRadio";
+            this.enemyRadio.Size = new System.Drawing.Size(72, 21);
+            this.enemyRadio.TabIndex = 3;
+            this.enemyRadio.Text = "Enemy";
+            this.enemyRadio.UseVisualStyleBackColor = true;
+            this.enemyRadio.CheckedChanged += new System.EventHandler(this.enemyRadio_CheckedChanged);
+            // 
+            // enemyList
+            // 
+            this.enemyList.Enabled = false;
+            this.enemyList.FormattingEnabled = true;
+            this.enemyList.ItemHeight = 16;
+            this.enemyList.Location = new System.Drawing.Point(27, 126);
+            this.enemyList.Name = "enemyList";
+            this.enemyList.Size = new System.Drawing.Size(155, 84);
+            this.enemyList.TabIndex = 4;
             // 
             // AdventureObjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 246);
+            this.ClientSize = new System.Drawing.Size(361, 320);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.objectListBox);
@@ -210,5 +235,7 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.RadioButton heartRadio;
         private System.Windows.Forms.RadioButton goldkeyRadio;
+        private System.Windows.Forms.ListBox enemyList;
+        private System.Windows.Forms.RadioButton enemyRadio;
     }
 }

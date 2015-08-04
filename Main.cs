@@ -72,5 +72,11 @@ namespace as2edit
             AdventureEditor adv = new AdventureEditor();
             adv.Show();
         }
+
+        private void bestButton_Click(object sender, EventArgs e)
+        {
+            BestiaryEditor bE = new BestiaryEditor();
+            bE.Show();
+        }
     }
 }

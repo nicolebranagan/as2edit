@@ -273,6 +273,7 @@
             this.ClientSize = new System.Drawing.Size(884, 610);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MapEditor";
             this.Text = "Map Editor";
             this.tableLayoutPanel1.ResumeLayout(false);

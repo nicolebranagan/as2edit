@@ -271,6 +271,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tilesPanel);
             this.Controls.Add(this.advBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdventureEditor";
             this.Text = "AdventureEditor";
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).EndInit();

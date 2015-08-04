@@ -10,12 +10,14 @@ namespace as2edit
     {
         public float x, y;
         public ObjectType type;
+        public int enemyType;
 
         public enum ObjectType
         {
             key = 0,
             heart = 1,
             goldkey = 2,
+            enemy = 3,
         }
 
         public override string ToString()
@@ -26,6 +28,8 @@ namespace as2edit
                 return string.Concat("Heart at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.goldkey)
                 return string.Concat("Gold Key at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.enemy)
+                return string.Concat(Main.currentFile.bestiary[enemyType], " at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }

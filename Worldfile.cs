@@ -10,5 +10,6 @@ namespace as2edit
     {
         public Map map = new Map();
         public List<Adventure> adventures = new List<Adventure>();
+        public List<BestiaryEntry> bestiary = new List<BestiaryEntry>();
     }
 }

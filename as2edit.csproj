@@ -60,6 +60,13 @@
     <Compile Include="AdventureObjectDialog.Designer.cs">
       <DependentUpon>AdventureObjectDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BestiaryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestiaryEditor.Designer.cs">
+      <DependentUpon>BestiaryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BestiaryEntry.cs" />
     <Compile Include="CodeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdventureObjectDialog.resx">
       <DependentUpon>AdventureObjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestiaryEditor.resx">
+      <DependentUpon>BestiaryEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CodeDialog.resx">
       <DependentUpon>CodeDialog.cs</DependentUpon>

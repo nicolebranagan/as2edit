@@ -32,6 +32,7 @@
             this.mapButton = new System.Windows.Forms.Button();
             this.outButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
+            this.bestButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // advButton
@@ -74,15 +75,27 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
+            // bestButton
+            // 
+            this.bestButton.Location = new System.Drawing.Point(12, 100);
+            this.bestButton.Name = "bestButton";
+            this.bestButton.Size = new System.Drawing.Size(141, 40);
+            this.bestButton.TabIndex = 4;
+            this.bestButton.Text = "Bestiary Editor";
+            this.bestButton.UseVisualStyleBackColor = true;
+            this.bestButton.Click += new System.EventHandler(this.bestButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 363);
+            this.Controls.Add(this.bestButton);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.outButton);
             this.Controls.Add(this.mapButton);
             this.Controls.Add(this.advButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main";
             this.Text = "Aspect Star 2 Editor";
             this.ResumeLayout(false);
@@ -95,6 +108,7 @@
         private System.Windows.Forms.Button mapButton;
         private System.Windows.Forms.Button outButton;
         private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.Button bestButton;
     }
 }
 
