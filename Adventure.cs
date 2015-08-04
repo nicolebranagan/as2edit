@@ -13,6 +13,7 @@ namespace as2edit
         public int tileset;
         public int[] key = { };
         public Room templateRoom = new Room();
+        public string name = "";
         
         [XmlIgnore]
         public Room[,] rooms = new Room[16, 16];

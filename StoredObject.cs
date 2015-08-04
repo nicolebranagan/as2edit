@@ -14,12 +14,18 @@ namespace as2edit
         public enum ObjectType
         {
             key = 0,
+            heart = 1,
+            goldkey = 2,
         }
 
         public override string ToString()
         {
             if (type == ObjectType.key)
-                return String.Concat("Key at X:", x.ToString(), ", Y:", y.ToString());
+                return string.Concat("Key at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.heart)
+                return string.Concat("Heart at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.goldkey)
+                return string.Concat("Gold Key at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }

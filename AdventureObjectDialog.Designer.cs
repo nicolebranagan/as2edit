@@ -30,6 +30,7 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.heartRadio = new System.Windows.Forms.RadioButton();
             this.keyRadio = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
             this.yBox = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.goldkeyRadio = new System.Windows.Forms.RadioButton();
             this.typeBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +56,8 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.goldkeyRadio);
+            this.typeBox.Controls.Add(this.heartRadio);
             this.typeBox.Controls.Add(this.keyRadio);
             this.typeBox.Location = new System.Drawing.Point(165, 65);
             this.typeBox.Name = "typeBox";
@@ -61,6 +65,16 @@
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
+            // 
+            // heartRadio
+            // 
+            this.heartRadio.AutoSize = true;
+            this.heartRadio.Location = new System.Drawing.Point(3, 45);
+            this.heartRadio.Name = "heartRadio";
+            this.heartRadio.Size = new System.Drawing.Size(64, 21);
+            this.heartRadio.TabIndex = 1;
+            this.heartRadio.Text = "Heart";
+            this.heartRadio.UseVisualStyleBackColor = true;
             // 
             // keyRadio
             // 
@@ -147,6 +161,16 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // goldkeyRadio
+            // 
+            this.goldkeyRadio.AutoSize = true;
+            this.goldkeyRadio.Location = new System.Drawing.Point(3, 72);
+            this.goldkeyRadio.Name = "goldkeyRadio";
+            this.goldkeyRadio.Size = new System.Drawing.Size(87, 21);
+            this.goldkeyRadio.TabIndex = 2;
+            this.goldkeyRadio.Text = "Gold Key";
+            this.goldkeyRadio.UseVisualStyleBackColor = true;
+            // 
             // AdventureObjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,5 +208,7 @@
         private System.Windows.Forms.ListBox objectListBox;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.RadioButton heartRadio;
+        private System.Windows.Forms.RadioButton goldkeyRadio;
     }
 }

@@ -43,12 +43,15 @@ namespace as2edit
             newObject.x = dummy * 32;
             float.TryParse(yBox.Text, out dummy);
             newObject.y = dummy * 32;
-            if (keyRadio.Enabled)
-            {
+            if (keyRadio.Checked)
                 newObject.type = StoredObject.ObjectType.key;
-                newObject.x = newObject.x + 16;
-                newObject.y = newObject.y + 16;
-            }
+            else if (heartRadio.Checked)
+                newObject.type = StoredObject.ObjectType.heart;
+            else if (goldkeyRadio.Checked)
+                newObject.type = StoredObject.ObjectType.goldkey;
+
+            newObject.x = newObject.x + 16;
+            newObject.y = newObject.y + 16;
 
             if (toEdit != null)
                 objectList.Remove(toEdit);
@@ -63,11 +66,25 @@ namespace as2edit
         private void editButton_Click(object sender, EventArgs e)
         {
             toEdit = objectList[objectListBox.SelectedIndex];
-            xBox.Text = (toEdit.x / 32 - 16).ToString();
-            yBox.Text = (toEdit.y / 32 - 16).ToString();
+            xBox.Text = ((toEdit.x - 16) / 32).ToString();
+            yBox.Text = ((toEdit.y - 16) / 32).ToString();
             if (toEdit.type == StoredObject.ObjectType.key)
             {
-                keyRadio.Enabled = true;
+                keyRadio.Checked = true;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.heart)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = true;
+                goldkeyRadio.Checked = false;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.goldkey)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = true;
             }
         }
 

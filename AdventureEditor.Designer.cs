@@ -42,11 +42,12 @@
             this.delAdvBox = new System.Windows.Forms.Button();
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
+            this.codeButton = new System.Windows.Forms.Button();
             this.objectButton = new System.Windows.Forms.Button();
             this.templateButton = new System.Windows.Forms.Button();
             this.tileOptions = new System.Windows.Forms.GroupBox();
             this.tileTypeList = new System.Windows.Forms.ListBox();
-            this.codeButton = new System.Windows.Forms.Button();
+            this.renameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -117,7 +118,7 @@
             this.advList.ItemHeight = 16;
             this.advList.Location = new System.Drawing.Point(12, 442);
             this.advList.Name = "advList";
-            this.advList.Size = new System.Drawing.Size(120, 100);
+            this.advList.Size = new System.Drawing.Size(156, 132);
             this.advList.TabIndex = 4;
             this.advList.SelectedIndexChanged += new System.EventHandler(this.advList_SelectedIndexChanged);
             // 
@@ -133,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(135, 422);
+            this.label2.Location = new System.Drawing.Point(248, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 7;
@@ -141,9 +142,9 @@
             // 
             // addAdvBox
             // 
-            this.addAdvBox.Location = new System.Drawing.Point(12, 547);
+            this.addAdvBox.Location = new System.Drawing.Point(174, 442);
             this.addAdvBox.Name = "addAdvBox";
-            this.addAdvBox.Size = new System.Drawing.Size(57, 23);
+            this.addAdvBox.Size = new System.Drawing.Size(71, 23);
             this.addAdvBox.TabIndex = 8;
             this.addAdvBox.Text = "Add";
             this.addAdvBox.UseVisualStyleBackColor = true;
@@ -161,9 +162,9 @@
             // 
             // delAdvBox
             // 
-            this.delAdvBox.Location = new System.Drawing.Point(75, 547);
+            this.delAdvBox.Location = new System.Drawing.Point(174, 472);
             this.delAdvBox.Name = "delAdvBox";
-            this.delAdvBox.Size = new System.Drawing.Size(57, 23);
+            this.delAdvBox.Size = new System.Drawing.Size(71, 23);
             this.delAdvBox.TabIndex = 11;
             this.delAdvBox.Text = "Delete";
             this.delAdvBox.UseVisualStyleBackColor = true;
@@ -171,7 +172,7 @@
             // 
             // roomGrid
             // 
-            this.roomGrid.Location = new System.Drawing.Point(138, 442);
+            this.roomGrid.Location = new System.Drawing.Point(251, 443);
             this.roomGrid.Name = "roomGrid";
             this.roomGrid.Size = new System.Drawing.Size(128, 128);
             this.roomGrid.TabIndex = 12;
@@ -185,12 +186,22 @@
             this.roomOptions.Controls.Add(this.templateButton);
             this.roomOptions.Controls.Add(this.delRoomBox);
             this.roomOptions.Enabled = false;
-            this.roomOptions.Location = new System.Drawing.Point(272, 422);
+            this.roomOptions.Location = new System.Drawing.Point(385, 422);
             this.roomOptions.Name = "roomOptions";
             this.roomOptions.Size = new System.Drawing.Size(200, 151);
             this.roomOptions.TabIndex = 13;
             this.roomOptions.TabStop = false;
             this.roomOptions.Text = "Room Options";
+            // 
+            // codeButton
+            // 
+            this.codeButton.Location = new System.Drawing.Point(6, 50);
+            this.codeButton.Name = "codeButton";
+            this.codeButton.Size = new System.Drawing.Size(75, 23);
+            this.codeButton.TabIndex = 13;
+            this.codeButton.Text = "Code";
+            this.codeButton.UseVisualStyleBackColor = true;
+            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
             // 
             // objectButton
             // 
@@ -233,21 +244,22 @@
             this.tileTypeList.TabIndex = 4;
             this.tileTypeList.SelectedIndexChanged += new System.EventHandler(this.tileTypeList_SelectedIndexChanged);
             // 
-            // codeButton
+            // renameButton
             // 
-            this.codeButton.Location = new System.Drawing.Point(6, 50);
-            this.codeButton.Name = "codeButton";
-            this.codeButton.Size = new System.Drawing.Size(75, 23);
-            this.codeButton.TabIndex = 13;
-            this.codeButton.Text = "Code";
-            this.codeButton.UseVisualStyleBackColor = true;
-            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
+            this.renameButton.Location = new System.Drawing.Point(174, 501);
+            this.renameButton.Name = "renameButton";
+            this.renameButton.Size = new System.Drawing.Size(71, 23);
+            this.renameButton.TabIndex = 15;
+            this.renameButton.Text = "Rename";
+            this.renameButton.UseVisualStyleBackColor = true;
+            this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
             // 
             // AdventureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 603);
+            this.Controls.Add(this.renameButton);
             this.Controls.Add(this.tileOptions);
             this.Controls.Add(this.roomOptions);
             this.Controls.Add(this.roomGrid);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.ListBox tileTypeList;
         private System.Windows.Forms.Button objectButton;
         private System.Windows.Forms.Button codeButton;
+        private System.Windows.Forms.Button renameButton;
     }
 }

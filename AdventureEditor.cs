@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace as2edit
 {
@@ -59,9 +60,14 @@ namespace as2edit
         void Initialize()
         {
             List<string> adventures = new List<string>();
+            string label;
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
             {
-                adventures.Add(String.Concat("Adventure #", i));
+                if (Main.currentFile.adventures[i].name != "")
+                    label = Main.currentFile.adventures[i].name;
+                else
+                    label = string.Concat("Adventure #", i);
+                adventures.Add(label);
             }
             advList.DataSource = adventures;
 
@@ -260,9 +266,14 @@ namespace as2edit
             Main.currentFile.adventures.Add(new Adventure());
 
             List<string> adventures = new List<string>();
+            string label;
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
             {
-                adventures.Add(String.Concat("Adventure #", i));
+                if (Main.currentFile.adventures[i].name != "")
+                    label = Main.currentFile.adventures[i].name;
+                else
+                    label = string.Concat("Adventure #", i);
+                adventures.Add(label);
             }
             advList.DataSource = adventures;
         }
@@ -280,9 +291,14 @@ namespace as2edit
         {
             Main.currentFile.adventures.Remove(Main.currentFile.adventures[advList.SelectedIndex]);
             List<string> adventures = new List<string>();
+            string label;
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
             {
-                adventures.Add(String.Concat("Adventure #", i));
+                if (Main.currentFile.adventures[i].name != "")
+                    label = Main.currentFile.adventures[i].name;
+                else
+                    label = string.Concat("Adventure #", i);
+                adventures.Add(label);
             }
             advList.DataSource = adventures;
             currentAdventure = null;
@@ -348,6 +364,24 @@ function update() { }";
         void newRoomCode(string code)
         {
             currentRoom.code = code;
+        }
+
+        private void renameButton_Click(object sender, EventArgs e)
+        {
+            string response = Interaction.InputBox("Choose new name", "Editor", currentAdventure.name);
+            currentAdventure.name = response;
+
+            List<string> adventures = new List<string>();
+            string label;
+            for (int i = 0; i < Main.currentFile.adventures.Count; i++)
+            {
+                if (Main.currentFile.adventures[i].name != "")
+                    label = Main.currentFile.adventures[i].name;
+                else
+                    label = string.Concat("Adventure #", i);
+                adventures.Add(label);
+            }
+            advList.DataSource = adventures;
         }
     }
 }

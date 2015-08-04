@@ -41,11 +41,10 @@ namespace as2edit
 
         public MapEditor()
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             InitializeComponent();
             mapBox.SizeMode = PictureBoxSizeMode.AutoSize;
             currentMap = Main.currentFile.map.Clone();
-
-
 
             Initialize();
             DisassembleTileset();
