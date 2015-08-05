@@ -59,6 +59,8 @@ namespace as2edit
                 newObject.type = StoredObject.ObjectType.enemy;
                 newObject.enemyType = enemyList.SelectedIndex;
             }
+            else if (shooterRadio.Checked)
+                newObject.type = StoredObject.ObjectType.shooter;
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -84,6 +86,7 @@ namespace as2edit
                 heartRadio.Checked = false;
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
@@ -91,6 +94,7 @@ namespace as2edit
                 heartRadio.Checked = true;
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
@@ -98,6 +102,7 @@ namespace as2edit
                 heartRadio.Checked = false;
                 goldkeyRadio.Checked = true;
                 enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.enemy)
             {
@@ -105,8 +110,17 @@ namespace as2edit
                 heartRadio.Checked = false;
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = true;
+                shooterRadio.Checked = false;
 
                 enemyList.SelectedIndex = toEdit.enemyType;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.shooter)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
+                shooterRadio.Checked = true;
             }
         }
 

@@ -42,9 +42,16 @@ namespace as2edit
             if (saveFileDialog1.FileName != "")
             {
                 XmlSerializer xS = new XmlSerializer(typeof(Worldfile));
-                StreamWriter sW = new StreamWriter(saveFileDialog1.FileName);
-                xS.Serialize(sW, currentFile);
-                sW.Close();
+                try
+                {
+                    StreamWriter sW = new StreamWriter(saveFileDialog1.FileName);
+                    xS.Serialize(sW, currentFile);
+                    sW.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error saving file.");
+                }
             }
         }
 

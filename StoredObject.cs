@@ -18,6 +18,7 @@ namespace as2edit
             heart = 1,
             goldkey = 2,
             enemy = 3,
+            shooter = 4,
         }
 
         public override string ToString()
@@ -30,6 +31,8 @@ namespace as2edit
                 return string.Concat("Gold Key at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.enemy)
                 return string.Concat(Main.currentFile.bestiary[enemyType], " at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.shooter)
+                return string.Concat("Shooter at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }
