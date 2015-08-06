@@ -61,6 +61,8 @@ namespace as2edit
             }
             else if (shooterRadio.Checked)
                 newObject.type = StoredObject.ObjectType.shooter;
+            else if (bossRadio.Checked)
+                newObject.type = StoredObject.ObjectType.boss;
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -87,6 +89,7 @@ namespace as2edit
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
+                bossRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
@@ -95,6 +98,7 @@ namespace as2edit
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
+                bossRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
@@ -103,6 +107,7 @@ namespace as2edit
                 goldkeyRadio.Checked = true;
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
+                bossRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.enemy)
             {
@@ -111,6 +116,7 @@ namespace as2edit
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = true;
                 shooterRadio.Checked = false;
+                bossRadio.Checked = false;
 
                 enemyList.SelectedIndex = toEdit.enemyType;
             }
@@ -121,6 +127,16 @@ namespace as2edit
                 goldkeyRadio.Checked = false;
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = true;
+                bossRadio.Checked = false;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.boss)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
+                bossRadio.Checked = true;
             }
         }
 

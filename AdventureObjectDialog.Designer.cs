@@ -30,6 +30,7 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.shooterRadio = new System.Windows.Forms.RadioButton();
             this.enemyList = new System.Windows.Forms.ListBox();
             this.enemyRadio = new System.Windows.Forms.RadioButton();
             this.goldkeyRadio = new System.Windows.Forms.RadioButton();
@@ -43,8 +44,10 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.shooterRadio = new System.Windows.Forms.RadioButton();
+            this.bossRadio = new System.Windows.Forms.RadioButton();
+            this.bossUpDown = new System.Windows.Forms.NumericUpDown();
             this.typeBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -59,6 +62,8 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.bossUpDown);
+            this.typeBox.Controls.Add(this.bossRadio);
             this.typeBox.Controls.Add(this.shooterRadio);
             this.typeBox.Controls.Add(this.enemyList);
             this.typeBox.Controls.Add(this.enemyRadio);
@@ -71,6 +76,16 @@
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
+            // 
+            // shooterRadio
+            // 
+            this.shooterRadio.AutoSize = true;
+            this.shooterRadio.Location = new System.Drawing.Point(90, 45);
+            this.shooterRadio.Name = "shooterRadio";
+            this.shooterRadio.Size = new System.Drawing.Size(79, 21);
+            this.shooterRadio.TabIndex = 5;
+            this.shooterRadio.Text = "Shooter";
+            this.shooterRadio.UseVisualStyleBackColor = true;
             // 
             // enemyList
             // 
@@ -96,7 +111,7 @@
             // goldkeyRadio
             // 
             this.goldkeyRadio.AutoSize = true;
-            this.goldkeyRadio.Location = new System.Drawing.Point(3, 72);
+            this.goldkeyRadio.Location = new System.Drawing.Point(90, 18);
             this.goldkeyRadio.Name = "goldkeyRadio";
             this.goldkeyRadio.Size = new System.Drawing.Size(87, 21);
             this.goldkeyRadio.TabIndex = 2;
@@ -198,15 +213,23 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // shooterRadio
+            // bossRadio
             // 
-            this.shooterRadio.AutoSize = true;
-            this.shooterRadio.Location = new System.Drawing.Point(3, 99);
-            this.shooterRadio.Name = "shooterRadio";
-            this.shooterRadio.Size = new System.Drawing.Size(79, 21);
-            this.shooterRadio.TabIndex = 5;
-            this.shooterRadio.Text = "Shooter";
-            this.shooterRadio.UseVisualStyleBackColor = true;
+            this.bossRadio.AutoSize = true;
+            this.bossRadio.Location = new System.Drawing.Point(3, 72);
+            this.bossRadio.Name = "bossRadio";
+            this.bossRadio.Size = new System.Drawing.Size(60, 21);
+            this.bossRadio.TabIndex = 6;
+            this.bossRadio.Text = "Boss";
+            this.bossRadio.UseVisualStyleBackColor = true;
+            // 
+            // bossUpDown
+            // 
+            this.bossUpDown.Enabled = false;
+            this.bossUpDown.Location = new System.Drawing.Point(27, 98);
+            this.bossUpDown.Name = "bossUpDown";
+            this.bossUpDown.Size = new System.Drawing.Size(120, 22);
+            this.bossUpDown.TabIndex = 7;
             // 
             // AdventureObjectDialog
             // 
@@ -227,6 +250,7 @@
             this.Text = "AdventureObjectDialog";
             this.typeBox.ResumeLayout(false);
             this.typeBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +274,7 @@
         private System.Windows.Forms.ListBox enemyList;
         private System.Windows.Forms.RadioButton enemyRadio;
         private System.Windows.Forms.RadioButton shooterRadio;
+        private System.Windows.Forms.RadioButton bossRadio;
+        private System.Windows.Forms.NumericUpDown bossUpDown;
     }
 }
