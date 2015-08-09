@@ -157,7 +157,16 @@ namespace as2edit
         void DisassembleTileset()
         {
             System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetExecutingAssembly();
-            Stream myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon1.png");
+            Stream myStream;
+            switch (currentAdventure.tileset)
+            {
+                case 1:
+                    myStream = myAssembly.GetManifestResourceStream("as2edit.town.png");
+                    break;
+                default:
+                    myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon1.png");
+                    break;
+            } 
             tileset = new Bitmap(myStream);
 
             int width = tileset.Width / 32;
@@ -281,6 +290,8 @@ namespace as2edit
         private void advList_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentAdventure = Main.currentFile.adventures[advList.SelectedIndex];
+            tilesetUpDown.Value = currentAdventure.tileset;
+            tilesetUpDown.Enabled = true;
             roomX = -1; roomY = -1;
             ClearMap();
             DrawRoomGrid();
@@ -290,6 +301,8 @@ namespace as2edit
         private void delAdvBox_Click(object sender, EventArgs e)
         {
             Main.currentFile.adventures.Remove(Main.currentFile.adventures[advList.SelectedIndex]);
+            tilesetUpDown.Value = 0;
+            tilesetUpDown.Enabled = false;
             List<string> adventures = new List<string>();
             string label;
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
@@ -382,6 +395,16 @@ function update() { }";
                 adventures.Add(label);
             }
             advList.DataSource = adventures;
+        }
+
+        private void tilesetUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (tilesetUpDown.Value != currentAdventure.tileset)
+            {
+                currentAdventure.tileset = (int)tilesetUpDown.Value;
+                DisassembleTileset();
+                DrawRoom();
+            }
         }
     }
 }

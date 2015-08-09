@@ -48,6 +48,8 @@
             this.tileOptions = new System.Windows.Forms.GroupBox();
             this.tileTypeList = new System.Windows.Forms.ListBox();
             this.renameButton = new System.Windows.Forms.Button();
+            this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).BeginInit();
             this.roomOptions.SuspendLayout();
             this.tileOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tilesetUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // advBox
@@ -254,11 +257,36 @@
             this.renameButton.UseVisualStyleBackColor = true;
             this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
             // 
+            // tilesetUpDown
+            // 
+            this.tilesetUpDown.Enabled = false;
+            this.tilesetUpDown.Location = new System.Drawing.Point(174, 549);
+            this.tilesetUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tilesetUpDown.Name = "tilesetUpDown";
+            this.tilesetUpDown.Size = new System.Drawing.Size(71, 22);
+            this.tilesetUpDown.TabIndex = 16;
+            this.tilesetUpDown.ValueChanged += new System.EventHandler(this.tilesetUpDown_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(174, 529);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Tileset:";
+            // 
             // AdventureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 603);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tilesetUpDown);
             this.Controls.Add(this.renameButton);
             this.Controls.Add(this.tileOptions);
             this.Controls.Add(this.roomOptions);
@@ -284,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
             this.roomOptions.ResumeLayout(false);
             this.tileOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tilesetUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +340,7 @@
         private System.Windows.Forms.Button objectButton;
         private System.Windows.Forms.Button codeButton;
         private System.Windows.Forms.Button renameButton;
+        private System.Windows.Forms.NumericUpDown tilesetUpDown;
+        private System.Windows.Forms.Label label3;
     }
 }

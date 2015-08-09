@@ -43,7 +43,10 @@ namespace as2edit
             List<string> adventures = new List<string>();
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
             {
-                adventures.Add(String.Concat("Adventure #", i));
+                if (Main.currentFile.adventures[i].name == "")
+                    adventures.Add(String.Concat("Adventure #", i));
+                else
+                    adventures.Add(Main.currentFile.adventures[i].name);
             }
             TeleporterDestList.DataSource = adventures;
 

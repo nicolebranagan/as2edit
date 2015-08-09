@@ -221,8 +221,7 @@
             // 
             // MapObjectDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(562, 253);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.groupBox1);
@@ -233,6 +232,7 @@
             this.Controls.Add(this.xBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MapObjectDialog";
             this.Text = "Map Object";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MapObjectDialog_FormClosed);
