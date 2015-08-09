@@ -47,12 +47,15 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(457, 365);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(583, 509);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // codeText
             // 
+            this.codeText.AcceptsReturn = true;
+            this.codeText.AcceptsTab = true;
+            this.codeText.AllowDrop = true;
             this.codeText.BackColor = System.Drawing.Color.Black;
             this.codeText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codeText.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,13 +64,14 @@
             this.codeText.Multiline = true;
             this.codeText.Name = "codeText";
             this.codeText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.codeText.Size = new System.Drawing.Size(451, 295);
+            this.codeText.Size = new System.Drawing.Size(577, 439);
             this.codeText.TabIndex = 0;
             this.codeText.TabStop = false;
+            this.codeText.WordWrap = false;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(3, 304);
+            this.saveButton.Location = new System.Drawing.Point(3, 448);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 1;
@@ -79,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 365);
+            this.ClientSize = new System.Drawing.Size(583, 509);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CodeDialog";
             this.Text = "CodeDialog";
