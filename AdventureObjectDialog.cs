@@ -15,6 +15,7 @@ namespace as2edit
         AdventureEditor caller;
         List<StoredObject> objectList;
         StoredObject toEdit;
+        EntityData currentEntityData = new EntityData();
 
         public AdventureObjectDialog(AdventureEditor caller, Room currentRoom)
         {
@@ -32,6 +33,11 @@ namespace as2edit
             foreach (BestiaryEntry bE in Main.currentFile.bestiary)
                 enemies.Add(bE.ToString());
             enemyList.DataSource = enemies;
+
+            List<string> entityGfxTypes = new List<string>();
+            entityGfxTypes.Add("MapTile");
+            entityGfxTypes.Add("Enemies");
+            entityGfxList.DataSource = entityGfxTypes;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -63,6 +69,14 @@ namespace as2edit
                 newObject.type = StoredObject.ObjectType.shooter;
             else if (bossRadio.Checked)
                 newObject.type = StoredObject.ObjectType.boss;
+            else if (entityRadio.Checked)
+            {
+                newObject.type = StoredObject.ObjectType.entity;
+                currentEntityData.name = nameBox.Text;
+                currentEntityData.gfxtype = (EntityData.GraphicsType)entityGfxList.SelectedIndex;
+                currentEntityData.graphics = (int)graphicsUpDown.Value;
+                newObject.data = currentEntityData;
+            }
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -75,6 +89,16 @@ namespace as2edit
             foreach (StoredObject obj in objectList)
                 objLabels.Add(obj.ToString());
             objectListBox.DataSource = objLabels;
+
+            currentEntityData = new EntityData();
+            currentEntityData.name = "";
+            currentEntityData.code = "";
+            currentEntityData.gfxtype = 0;
+            currentEntityData.graphics = 0;
+
+            nameBox.Text = "";
+            entityGfxList.SelectedIndex = 0;
+            graphicsUpDown.Value = 0;
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -90,6 +114,7 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
+                entityRadio.Checked = true;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
@@ -99,6 +124,7 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
+                entityRadio.Checked = true;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
@@ -108,6 +134,7 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
+                entityRadio.Checked = true;
             }
             else if (toEdit.type == StoredObject.ObjectType.enemy)
             {
@@ -117,6 +144,7 @@ namespace as2edit
                 enemyRadio.Checked = true;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
+                entityRadio.Checked = true;
 
                 enemyList.SelectedIndex = toEdit.enemyType;
             }
@@ -128,6 +156,7 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = true;
                 bossRadio.Checked = false;
+                entityRadio.Checked = true;
             }
             else if (toEdit.type == StoredObject.ObjectType.boss)
             {
@@ -137,7 +166,28 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = true;
+                entityRadio.Checked = true;
             }
+            else if (toEdit.type == StoredObject.ObjectType.entity)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
+                bossRadio.Checked = false;
+                entityRadio.Checked = true;
+
+                currentEntityData = toEdit.data;
+                nameBox.Text = toEdit.data.name;
+                graphicsUpDown.Value = toEdit.data.graphics;
+                entityGfxList.SelectedIndex = (int)toEdit.data.gfxtype;
+            }
+        }
+
+        public void receiveCode(string code)
+        {
+            currentEntityData.code = code;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -155,6 +205,24 @@ namespace as2edit
         private void enemyRadio_CheckedChanged(object sender, EventArgs e)
         {
             enemyList.Enabled = enemyRadio.Checked;
+        }
+
+        private void entityRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            entityOptions.Enabled = entityRadio.Checked;
+        }
+
+        private void codeButton_Click(object sender, EventArgs e)
+        {
+            string text = @"function onLoad() { }
+function update() { }
+function inRange() { }
+function touch() { }
+function hurt() { }";
+            if (currentEntityData.code != "" && currentEntityData.code != null)
+                text = currentEntityData.code;
+            CodeDialog cD = new CodeDialog(receiveCode, text);
+            cD.Show();
         }
     }
 }

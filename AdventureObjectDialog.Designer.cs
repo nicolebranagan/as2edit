@@ -30,6 +30,8 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.bossUpDown = new System.Windows.Forms.NumericUpDown();
+            this.bossRadio = new System.Windows.Forms.RadioButton();
             this.shooterRadio = new System.Windows.Forms.RadioButton();
             this.enemyList = new System.Windows.Forms.ListBox();
             this.enemyRadio = new System.Windows.Forms.RadioButton();
@@ -44,10 +46,18 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.bossRadio = new System.Windows.Forms.RadioButton();
-            this.bossUpDown = new System.Windows.Forms.NumericUpDown();
+            this.entityRadio = new System.Windows.Forms.RadioButton();
+            this.entityOptions = new System.Windows.Forms.GroupBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.graphicsUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.entityGfxList = new System.Windows.Forms.ListBox();
+            this.codeButton = new System.Windows.Forms.Button();
             this.typeBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).BeginInit();
+            this.entityOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -62,6 +72,7 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.entityRadio);
             this.typeBox.Controls.Add(this.bossUpDown);
             this.typeBox.Controls.Add(this.bossRadio);
             this.typeBox.Controls.Add(this.shooterRadio);
@@ -76,6 +87,24 @@
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
+            // 
+            // bossUpDown
+            // 
+            this.bossUpDown.Enabled = false;
+            this.bossUpDown.Location = new System.Drawing.Point(27, 98);
+            this.bossUpDown.Name = "bossUpDown";
+            this.bossUpDown.Size = new System.Drawing.Size(120, 22);
+            this.bossUpDown.TabIndex = 7;
+            // 
+            // bossRadio
+            // 
+            this.bossRadio.AutoSize = true;
+            this.bossRadio.Location = new System.Drawing.Point(3, 72);
+            this.bossRadio.Name = "bossRadio";
+            this.bossRadio.Size = new System.Drawing.Size(60, 21);
+            this.bossRadio.TabIndex = 6;
+            this.bossRadio.Text = "Boss";
+            this.bossRadio.UseVisualStyleBackColor = true;
             // 
             // shooterRadio
             // 
@@ -213,29 +242,90 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // bossRadio
+            // entityRadio
             // 
-            this.bossRadio.AutoSize = true;
-            this.bossRadio.Location = new System.Drawing.Point(3, 72);
-            this.bossRadio.Name = "bossRadio";
-            this.bossRadio.Size = new System.Drawing.Size(60, 21);
-            this.bossRadio.TabIndex = 6;
-            this.bossRadio.Text = "Boss";
-            this.bossRadio.UseVisualStyleBackColor = true;
+            this.entityRadio.AutoSize = true;
+            this.entityRadio.Location = new System.Drawing.Point(90, 72);
+            this.entityRadio.Name = "entityRadio";
+            this.entityRadio.Size = new System.Drawing.Size(64, 21);
+            this.entityRadio.TabIndex = 8;
+            this.entityRadio.Text = "Entity";
+            this.entityRadio.UseVisualStyleBackColor = true;
+            this.entityRadio.CheckedChanged += new System.EventHandler(this.entityRadio_CheckedChanged);
             // 
-            // bossUpDown
+            // entityOptions
             // 
-            this.bossUpDown.Enabled = false;
-            this.bossUpDown.Location = new System.Drawing.Point(27, 98);
-            this.bossUpDown.Name = "bossUpDown";
-            this.bossUpDown.Size = new System.Drawing.Size(120, 22);
-            this.bossUpDown.TabIndex = 7;
+            this.entityOptions.Controls.Add(this.codeButton);
+            this.entityOptions.Controls.Add(this.entityGfxList);
+            this.entityOptions.Controls.Add(this.label4);
+            this.entityOptions.Controls.Add(this.graphicsUpDown);
+            this.entityOptions.Controls.Add(this.nameBox);
+            this.entityOptions.Controls.Add(this.label3);
+            this.entityOptions.Enabled = false;
+            this.entityOptions.Location = new System.Drawing.Point(359, 65);
+            this.entityOptions.Name = "entityOptions";
+            this.entityOptions.Size = new System.Drawing.Size(177, 268);
+            this.entityOptions.TabIndex = 21;
+            this.entityOptions.TabStop = false;
+            this.entityOptions.Text = "Entity Options";
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(66, 18);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(100, 22);
+            this.nameBox.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Name:";
+            // 
+            // graphicsUpDown
+            // 
+            this.graphicsUpDown.Location = new System.Drawing.Point(86, 45);
+            this.graphicsUpDown.Name = "graphicsUpDown";
+            this.graphicsUpDown.Size = new System.Drawing.Size(80, 22);
+            this.graphicsUpDown.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Graphics:";
+            // 
+            // entityGfxList
+            // 
+            this.entityGfxList.FormattingEnabled = true;
+            this.entityGfxList.ItemHeight = 16;
+            this.entityGfxList.Location = new System.Drawing.Point(14, 73);
+            this.entityGfxList.Name = "entityGfxList";
+            this.entityGfxList.Size = new System.Drawing.Size(152, 84);
+            this.entityGfxList.TabIndex = 25;
+            // 
+            // codeButton
+            // 
+            this.codeButton.Location = new System.Drawing.Point(14, 163);
+            this.codeButton.Name = "codeButton";
+            this.codeButton.Size = new System.Drawing.Size(103, 26);
+            this.codeButton.TabIndex = 22;
+            this.codeButton.Text = "Edit Code";
+            this.codeButton.UseVisualStyleBackColor = true;
+            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
             // 
             // AdventureObjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 362);
+            this.ClientSize = new System.Drawing.Size(542, 362);
+            this.Controls.Add(this.entityOptions);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.objectListBox);
@@ -251,6 +341,9 @@
             this.typeBox.ResumeLayout(false);
             this.typeBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).EndInit();
+            this.entityOptions.ResumeLayout(false);
+            this.entityOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +369,13 @@
         private System.Windows.Forms.RadioButton shooterRadio;
         private System.Windows.Forms.RadioButton bossRadio;
         private System.Windows.Forms.NumericUpDown bossUpDown;
+        private System.Windows.Forms.RadioButton entityRadio;
+        private System.Windows.Forms.GroupBox entityOptions;
+        private System.Windows.Forms.Button codeButton;
+        private System.Windows.Forms.ListBox entityGfxList;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown graphicsUpDown;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Label label3;
     }
 }
