@@ -25,6 +25,16 @@ namespace as2edit
             this.toEdit = toEdit;
             InitializeComponent();
 
+            List<string> adventures = new List<string>();
+            for (int i = 0; i < Main.currentFile.adventures.Count; i++)
+            {
+                if (Main.currentFile.adventures[i].name == "")
+                    adventures.Add(String.Concat("Adventure #", i));
+                else
+                    adventures.Add(Main.currentFile.adventures[i].name);
+            }
+            TeleporterDestList.DataSource = adventures;
+
             if (toEdit == null)
                 deleteButton.Enabled = false;
             else
@@ -36,21 +46,20 @@ namespace as2edit
                     MapTeleporter mT = (MapTeleporter)toEdit;
                     TeleporterxBox.Text = mT.destx.ToString();
                     TeleporteryBox.Text = mT.desty.ToString();
-                    // TODO: Handle adventures
+                    if (mT.dest != -1)
+                    {
+                        roomX = mT.destroomX;
+                        roomY = mT.destroomY;
+                        teleporterToMapCheck.Checked = false;
+                        TeleporterDestList.Enabled = true;
+                        TeleporterDestList.SelectedIndex = mT.dest;
+                        DrawRoomGrid(Main.currentFile.adventures[mT.dest]);
+                    }
+                    else
+                        ClearRoomGrid();
                 }
             }
 
-            List<string> adventures = new List<string>();
-            for (int i = 0; i < Main.currentFile.adventures.Count; i++)
-            {
-                if (Main.currentFile.adventures[i].name == "")
-                    adventures.Add(String.Concat("Adventure #", i));
-                else
-                    adventures.Add(Main.currentFile.adventures[i].name);
-            }
-            TeleporterDestList.DataSource = adventures;
-
-            ClearRoomGrid();
         }
 
         void ClearRoomGrid()
