@@ -37,6 +37,7 @@ namespace as2edit
             newEntry.name = nameBox.Text;
             newEntry.graphicsRow = (int)graphicsUpDown.Value;
             newEntry.speed = (int)speedUpDown.Value;
+            newEntry.health = (int)healthUpDown.Value;
 
             if (stationaryRadio.Checked)
                 newEntry.movementType = BestiaryEntry.MovementTypes.stationary;
@@ -56,6 +57,7 @@ namespace as2edit
             nameBox.Text = entry.name;
             graphicsUpDown.Value = entry.graphicsRow;
             speedUpDown.Value = entry.speed;
+            healthUpDown.Value = entry.health;
 
             stationaryRadio.Checked = false;
             randomRadio.Checked = false;

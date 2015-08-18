@@ -13,6 +13,7 @@ namespace as2edit
         public int speed = 0;
         public int decisiveness = 0;
         public int intelligence = 0;
+        public int health = 1;
         public MovementTypes movementType = MovementTypes.stationary;
 
         public enum MovementTypes
