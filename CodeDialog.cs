@@ -30,6 +30,17 @@ namespace as2edit
         private void saveButton_Click(object sender, EventArgs e)
         {
             saveFunction(codeText.Text);
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            CodeExplanation cE = new CodeExplanation();
+            cE.Show();
+        }
+
+        private void saveExitButton_Click(object sender, EventArgs e)
+        {
+            saveFunction(codeText.Text);
             Close();
         }
     }

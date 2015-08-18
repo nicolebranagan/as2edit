@@ -166,7 +166,7 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = true;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.entity)
             {

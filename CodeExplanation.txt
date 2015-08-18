@@ -1,11 +1,41 @@
-Room codes must be in javascript format. The following variables are exposed and set each cycle:
-playerX - player's x coordinate (in tilemap form)
-playerY - player's y coordinate (in tilemap form)
-
-The following functions are available:
+The following functions are available for code that runs in rooms and in objects:
 void spawnKey(int x, int y)
 - Spawn a key at a given x and y coordinate. Plays the "Aspect" chime.
 void setFlag(string flag, bool value)
 - Sets a boolean flag. Flags are adventure-wide but are reset upon exiting.
 bool getFlag(string flag)
 - Returns a boolean flag. If not yet set, returns "false".
+void overwriteTile(int x, int y, int tile)
+- Overwrites the tile at [x,y] with the tile depicted by [tile].
+void playSoundEffect(int code)
+- Plays a sound effect denoted by code:
+ * 0: Aspect
+ * 1: Boom
+bool anyEnemies()
+- Returns true if there are any enemies left in the room.
+void clearObjects()
+- Removes all objects in the room.
+void TextBox(string text)
+- Opens a text box with string [text].
+void callMethod(string name, string method)
+- Causes the javascript code in string [method] to run in an AdventureEntity in the room with that name. (The code must be in a string as it passes through C#, object and room codes are not objects from Javascript's perspective)
+void giveWeapon(int code)
+- Gives a weapon denoted by the following code:
+ * 0: ProjectileWeapon
+int getPlayerX()
+- Returns the player X position, rounded to the nearest tile.
+int getPlayerY()
+- Returns the player Y position, rounded to the nearest tile.
+
+Additionally, AdventureEntities can call the following functions:
+void setDimensions(int width, int height)
+- Allows you to set dimensions different from the default.
+void overrideSettings(bool floating, bool solid)
+- Allows you to override whether things are 
+solid (by default) or floating (not by default)
+void move(int x, int y)
+- Moves x pixels, y pixels. Ideally, x and y should be multiples of 2. If the object is floating, it will not check if surrounding tiles are solid.
+void hurtPlayer()
+- Causes the player one point of damage. (1/2 hearts)
+void Die()
+- Kills the AdventureEntity.
