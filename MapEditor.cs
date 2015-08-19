@@ -142,7 +142,12 @@ namespace as2edit
                 Graphics g = Graphics.FromImage(mapImage);
                 foreach (MapObject m in this.currentMap.objects)
                 {
-                    g.DrawRectangle(new Pen(Color.Red, 3), m.x * 32, m.y * 32, 32, 32);
+                    Pen pen = new Pen(Color.Gray, 3);
+                    if (m is MapTeleporter)
+                        pen = new Pen(Color.Red, 3);
+                    else if (m is MapLock)
+                        pen = new Pen(Color.Gold, 3);
+                    g.DrawRectangle(pen, m.x * 32, m.y * 32, 32, 32);
                 }
                 mapBox.Image = mapImage;
             }
@@ -170,11 +175,11 @@ namespace as2edit
                 if ((e.Button == MouseButtons.Left))
                 {
                     bool foundObject = false;
-                    if (!awaitingNewObjects && seeObjectCheck.Checked)
+                    if (seeObjectCheck.Checked)
                     {
                         foreach (MapObject m in currentMap.objects)
                         {
-                            if ((m.x == x) && (m.y == y))
+                            if (!awaitingNewObjects && (m.x == x) && (m.y == y))
                             {
                                 foundObject = true;
                                 MapObjectDialog mod = new MapObjectDialog(this, currentMap.objects, m);
@@ -232,6 +237,7 @@ namespace as2edit
             }
 
             Main.currentFile.map = this.currentMap;
+            statusBarLabel.Text = "Saved successfully!";
         }
 
         private void clearButton_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 namespace as2edit
 {
     [XmlInclude(typeof(MapTeleporter))]
+    [XmlInclude(typeof(MapLock))]
     public abstract class MapObject
     {
         public int x, y;
@@ -29,6 +30,21 @@ namespace as2edit
             this.destroomY = destroomY;
             this.destx = destx;
             this.desty = desty;
+        }
+    }
+
+    public class MapLock : MapObject
+    {
+        public int tile = 0;
+
+        public MapLock()
+        {; }
+
+        public MapLock(int x, int y, int tile)
+        {
+            this.x = x;
+            this.y = y;
+            this.tile = tile;
         }
     }
 }

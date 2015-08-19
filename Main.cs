@@ -47,6 +47,7 @@ namespace as2edit
                     StreamWriter sW = new StreamWriter(saveFileDialog1.FileName);
                     xS.Serialize(sW, currentFile);
                     sW.Close();
+                    MessageBox.Show("Saved XML file successfully!");
                 }
                 catch (Exception)
                 {

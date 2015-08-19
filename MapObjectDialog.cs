@@ -34,6 +34,7 @@ namespace as2edit
                     adventures.Add(Main.currentFile.adventures[i].name);
             }
             TeleporterDestList.DataSource = adventures;
+            ClearRoomGrid();
 
             if (toEdit == null)
                 deleteButton.Enabled = false;
@@ -44,6 +45,7 @@ namespace as2edit
                 if (toEdit is MapTeleporter)
                 {
                     MapTeleporter mT = (MapTeleporter)toEdit;
+                    teleportRadio.Checked = true;
                     TeleporterxBox.Text = mT.destx.ToString();
                     TeleporteryBox.Text = mT.desty.ToString();
                     if (mT.dest != -1)
@@ -55,8 +57,11 @@ namespace as2edit
                         TeleporterDestList.SelectedIndex = mT.dest;
                         DrawRoomGrid(Main.currentFile.adventures[mT.dest]);
                     }
-                    else
-                        ClearRoomGrid();
+                }
+                else if (toEdit is MapLock)
+                {
+                    lockRadio.Checked = true;
+                    lockTileUpDown.Value = ((MapLock)toEdit).tile;
                 }
             }
 
@@ -118,15 +123,15 @@ namespace as2edit
         private void okButton_Click(object sender, EventArgs e)
         {
             int x, y;
+            bool dummy = int.TryParse(xBox.Text, out x);
+            if (!dummy) x = 0;
+            dummy = int.TryParse(yBox.Text, out y);
+            if (!dummy) y = 0;
 
             if (teleportRadio.Checked)
             {
                 int dest, destx, desty;
 
-                bool dummy = int.TryParse(xBox.Text, out x);
-                if (!dummy) x = 0;
-                dummy = int.TryParse(yBox.Text, out y);
-                if (!dummy) y = 0;
                 dummy = int.TryParse(TeleporterxBox.Text, out destx);
                 if (!dummy) destx = 0;
                 dummy = int.TryParse(TeleporteryBox.Text, out desty);
@@ -144,6 +149,17 @@ namespace as2edit
                     dest = TeleporterDestList.SelectedIndex;
                 }
                 MapTeleporter newObject = new MapTeleporter(x, y, dest, roomX, roomY, destx, desty);
+                objectList.Add(newObject);
+                if (this.toEdit != null)
+                {
+                    objectList.Remove(toEdit);
+                }
+                caller.getNewObjectList(objectList);
+                this.Close();
+            }
+            else if (lockRadio.Checked)
+            {
+                MapLock newObject = new MapLock(x, y, (int)lockTileUpDown.Value);
                 objectList.Add(newObject);
                 if (this.toEdit != null)
                 {
@@ -205,6 +221,16 @@ namespace as2edit
 
                 DrawRoomGrid(currentAdventure);
             }
+        }
+
+        private void teleportRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            teleporterOptions.Enabled = teleportRadio.Checked;
+        }
+
+        private void lockRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            lockOptions.Enabled = lockRadio.Checked;
         }
     }
 }
