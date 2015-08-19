@@ -13,6 +13,8 @@ namespace as2edit
         public int enemyType;
         public EntityData data;
 
+        public int dest, destx, desty, destroomX, destroomY;
+
         public enum ObjectType
         {
             key = 0,
@@ -22,6 +24,7 @@ namespace as2edit
             shooter = 4,
             boss = 5,
             entity = 6,
+            teleporter = 7,
         }
 
         public override string ToString()
@@ -39,7 +42,9 @@ namespace as2edit
             else if (type == ObjectType.boss)
                 return string.Concat("Boss at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.entity)
-                return String.Concat("Entity at X:", x.ToString(), ", Y:", y.ToString());
+                return string.Concat("Entity ", data.name, " at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.teleporter)
+                return string.Concat("Teleporter at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }

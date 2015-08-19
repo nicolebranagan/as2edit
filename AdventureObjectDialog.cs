@@ -16,6 +16,8 @@ namespace as2edit
         List<StoredObject> objectList;
         StoredObject toEdit;
         EntityData currentEntityData = new EntityData();
+        int roomX = -1;
+        int roomY = -1;
 
         public AdventureObjectDialog(AdventureEditor caller, Room currentRoom)
         {
@@ -38,6 +40,65 @@ namespace as2edit
             entityGfxTypes.Add("MapTile");
             entityGfxTypes.Add("Enemies");
             entityGfxList.DataSource = entityGfxTypes;
+
+            List<string> adventures = new List<string>();
+            for (int i = 0; i < Main.currentFile.adventures.Count; i++)
+            {
+                if (Main.currentFile.adventures[i].name == "")
+                    adventures.Add(String.Concat("Adventure #", i));
+                else
+                    adventures.Add(Main.currentFile.adventures[i].name);
+            }
+            TeleporterDestList.DataSource = adventures;
+            ClearRoomGrid();
+        }
+
+        void ClearRoomGrid()
+        {
+            int x, y, square = 8;
+            bool check; Color currentColor;
+            Bitmap mapGrid = new Bitmap(128, 128);
+            Graphics g = Graphics.FromImage(mapGrid);
+            for (int i = 0; i < 16 * 16; i++)
+            {
+                x = i % 16;
+                y = i / 16;
+                check = (x % 2 == 0);
+                if (y % 2 == 0)
+                    check = !check;
+                currentColor = check ? Color.Gray : Color.DarkGray;
+                g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
+            }
+            roomGrid.Image = mapGrid;
+        }
+
+        void DrawRoomGrid(Adventure currentAdventure)
+        {
+            int square = 8;
+            Bitmap mapGrid = new Bitmap(128, 128);
+            Graphics g = Graphics.FromImage(mapGrid);
+
+            int x, y;
+            bool check;
+            Color currentColor;
+
+            for (int i = 0; i < 16 * 16; i++)
+            {
+                x = i % 16;
+                y = i / 16;
+                check = (x % 2 == 0);
+                if (y % 2 == 0)
+                    check = !check;
+                if (currentAdventure.rooms[x, y] != null)
+                    currentColor = check ? Color.Red : Color.DarkRed;
+                else
+                    currentColor = check ? Color.Gray : Color.DarkGray;
+                if ((x == roomX) && (y == roomY))
+                    currentColor = Color.Cyan;
+                g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
+            }
+
+            roomGrid.Image = mapGrid;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -77,6 +138,34 @@ namespace as2edit
                 currentEntityData.graphics = (int)graphicsUpDown.Value;
                 newObject.data = currentEntityData;
             }
+            else if (teleportRadio.Checked)
+            {
+                newObject.type = StoredObject.ObjectType.teleporter;
+                int dest, destx, desty; bool check;
+
+                check = int.TryParse(TeleporterxBox.Text, out destx);
+                if (!check) destx = 0;
+                check = int.TryParse(TeleporteryBox.Text, out desty);
+                if (!check) desty = 0;
+
+                newObject.destx = destx;
+                newObject.desty = desty;
+
+                if (teleporterToMapCheck.Checked)
+                    dest = -1; // Map
+                else
+                {
+                    if ((roomX == -1) || (roomY == -1))
+                    {
+                        MessageBox.Show("Must select a room", "Error");
+                        return;
+                    }
+                    dest = TeleporterDestList.SelectedIndex;
+                    newObject.destroomX = roomX;
+                    newObject.destroomY = roomY;
+                }
+                newObject.dest = dest;
+            }
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -114,7 +203,8 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
@@ -124,7 +214,8 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
@@ -134,7 +225,8 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.enemy)
             {
@@ -144,7 +236,8 @@ namespace as2edit
                 enemyRadio.Checked = true;
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
 
                 enemyList.SelectedIndex = toEdit.enemyType;
             }
@@ -156,7 +249,8 @@ namespace as2edit
                 enemyRadio.Checked = false;
                 shooterRadio.Checked = true;
                 bossRadio.Checked = false;
-                entityRadio.Checked = true;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.boss)
             {
@@ -167,6 +261,7 @@ namespace as2edit
                 shooterRadio.Checked = false;
                 bossRadio.Checked = true;
                 entityRadio.Checked = false;
+                teleportRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.entity)
             {
@@ -177,11 +272,36 @@ namespace as2edit
                 shooterRadio.Checked = false;
                 bossRadio.Checked = false;
                 entityRadio.Checked = true;
+                teleportRadio.Checked = false;
 
                 currentEntityData = toEdit.data;
                 nameBox.Text = toEdit.data.name;
                 graphicsUpDown.Value = toEdit.data.graphics;
                 entityGfxList.SelectedIndex = (int)toEdit.data.gfxtype;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.teleporter)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
+                bossRadio.Checked = false;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = true;
+
+                TeleporterxBox.Text = toEdit.destx.ToString();
+                TeleporteryBox.Text = toEdit.desty.ToString();
+
+                if (toEdit.dest == -1)
+                    teleporterToMapCheck.Checked = true;
+                else
+                {
+                    teleporterToMapCheck.Checked = false;
+                    roomX = toEdit.destroomX;
+                    roomY = toEdit.destroomY;
+                    TeleporterDestList.SelectedIndex = toEdit.dest;
+                }
             }
         }
 
@@ -223,6 +343,44 @@ function hurt() { }";
                 text = currentEntityData.code;
             CodeDialog cD = new CodeDialog(receiveCode, text);
             cD.Show();
+        }
+
+        private void teleportRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            teleportOptions.Enabled = teleportRadio.Checked;
+        }
+
+        private void teleporterToMapCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            TeleporterDestList.Enabled = !(teleporterToMapCheck.Checked);
+            if (!TeleporterDestList.Enabled)
+            {
+                ClearRoomGrid();
+                roomX = -1;
+                roomY = -1;
+            }
+        }
+
+        private void TeleporterDestList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DrawRoomGrid(Main.currentFile.adventures[TeleporterDestList.SelectedIndex]);
+        }
+
+        private void roomGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = (int)Math.Floor((double)e.X / 8);
+            int y = (int)Math.Floor((double)e.Y / 8);
+            if (!teleporterToMapCheck.Checked && x >= 0 && y >= 0 && x < (16) && y < (16))
+            {
+                Adventure currentAdventure = Main.currentFile.adventures[TeleporterDestList.SelectedIndex];
+                if (currentAdventure.rooms[x, y] != null)
+                {
+                    roomX = x;
+                    roomY = y;
+                }
+
+                DrawRoomGrid(currentAdventure);
+            }
         }
     }
 }
