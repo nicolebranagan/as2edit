@@ -11,6 +11,7 @@ namespace as2edit
         public int[] tileMap = new int[25*13];
         public List<StoredObject> storedObjects = new List<StoredObject>();
         public string code;
+        public bool dark = false;
         
         public Room copyRoom()
         {

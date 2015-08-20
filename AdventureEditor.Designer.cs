@@ -50,6 +50,7 @@
             this.renameButton = new System.Windows.Forms.Button();
             this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.darkRoomCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -184,6 +185,7 @@
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.darkRoomCheck);
             this.roomOptions.Controls.Add(this.codeButton);
             this.roomOptions.Controls.Add(this.objectButton);
             this.roomOptions.Controls.Add(this.templateButton);
@@ -198,7 +200,7 @@
             // 
             // codeButton
             // 
-            this.codeButton.Location = new System.Drawing.Point(6, 50);
+            this.codeButton.Location = new System.Drawing.Point(119, 93);
             this.codeButton.Name = "codeButton";
             this.codeButton.Size = new System.Drawing.Size(75, 23);
             this.codeButton.TabIndex = 13;
@@ -208,9 +210,9 @@
             // 
             // objectButton
             // 
-            this.objectButton.Location = new System.Drawing.Point(6, 21);
+            this.objectButton.Location = new System.Drawing.Point(6, 93);
             this.objectButton.Name = "objectButton";
-            this.objectButton.Size = new System.Drawing.Size(90, 23);
+            this.objectButton.Size = new System.Drawing.Size(107, 23);
             this.objectButton.TabIndex = 12;
             this.objectButton.Text = "Objects...";
             this.objectButton.UseVisualStyleBackColor = true;
@@ -262,7 +264,7 @@
             this.tilesetUpDown.Enabled = false;
             this.tilesetUpDown.Location = new System.Drawing.Point(174, 549);
             this.tilesetUpDown.Maximum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -279,6 +281,17 @@
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 17;
             this.label3.Text = "Tileset:";
+            // 
+            // darkRoomCheck
+            // 
+            this.darkRoomCheck.AutoSize = true;
+            this.darkRoomCheck.Location = new System.Drawing.Point(15, 21);
+            this.darkRoomCheck.Name = "darkRoomCheck";
+            this.darkRoomCheck.Size = new System.Drawing.Size(113, 21);
+            this.darkRoomCheck.TabIndex = 14;
+            this.darkRoomCheck.Text = "Room is dark";
+            this.darkRoomCheck.UseVisualStyleBackColor = true;
+            this.darkRoomCheck.CheckedChanged += new System.EventHandler(this.darkRoomCheck_CheckedChanged);
             // 
             // AdventureEditor
             // 
@@ -311,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
             this.roomOptions.ResumeLayout(false);
+            this.roomOptions.PerformLayout();
             this.tileOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tilesetUpDown)).EndInit();
             this.ResumeLayout(false);
@@ -342,5 +356,6 @@
         private System.Windows.Forms.Button renameButton;
         private System.Windows.Forms.NumericUpDown tilesetUpDown;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox darkRoomCheck;
     }
 }

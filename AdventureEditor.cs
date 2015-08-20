@@ -163,6 +163,9 @@ namespace as2edit
                 case 1:
                     myStream = myAssembly.GetManifestResourceStream("as2edit.town.png");
                     break;
+                case 2:
+                    myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon2.png");
+                    break;
                 default:
                     myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon1.png");
                     break;
@@ -343,6 +346,7 @@ namespace as2edit
                 DrawRoom();
                 DrawRoomGrid();
                 roomOptions.Enabled = true;
+                darkRoomCheck.Checked = currentRoom.dark;
             }
         }
 
@@ -403,8 +407,14 @@ function update() { }";
             {
                 currentAdventure.tileset = (int)tilesetUpDown.Value;
                 DisassembleTileset();
-                DrawRoom();
+                if (currentRoom != null)
+                    DrawRoom();
             }
+        }
+
+        private void darkRoomCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            currentRoom.dark = darkRoomCheck.Checked;
         }
     }
 }
