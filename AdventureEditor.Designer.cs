@@ -42,6 +42,7 @@
             this.delAdvBox = new System.Windows.Forms.Button();
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
+            this.darkRoomCheck = new System.Windows.Forms.CheckBox();
             this.codeButton = new System.Windows.Forms.Button();
             this.objectButton = new System.Windows.Forms.Button();
             this.templateButton = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.renameButton = new System.Windows.Forms.Button();
             this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.darkRoomCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -198,6 +198,17 @@
             this.roomOptions.TabStop = false;
             this.roomOptions.Text = "Room Options";
             // 
+            // darkRoomCheck
+            // 
+            this.darkRoomCheck.AutoSize = true;
+            this.darkRoomCheck.Location = new System.Drawing.Point(15, 21);
+            this.darkRoomCheck.Name = "darkRoomCheck";
+            this.darkRoomCheck.Size = new System.Drawing.Size(113, 21);
+            this.darkRoomCheck.TabIndex = 14;
+            this.darkRoomCheck.Text = "Room is dark";
+            this.darkRoomCheck.UseVisualStyleBackColor = true;
+            this.darkRoomCheck.CheckedChanged += new System.EventHandler(this.darkRoomCheck_CheckedChanged);
+            // 
             // codeButton
             // 
             this.codeButton.Location = new System.Drawing.Point(119, 93);
@@ -264,7 +275,7 @@
             this.tilesetUpDown.Enabled = false;
             this.tilesetUpDown.Location = new System.Drawing.Point(174, 549);
             this.tilesetUpDown.Maximum = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -281,17 +292,6 @@
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 17;
             this.label3.Text = "Tileset:";
-            // 
-            // darkRoomCheck
-            // 
-            this.darkRoomCheck.AutoSize = true;
-            this.darkRoomCheck.Location = new System.Drawing.Point(15, 21);
-            this.darkRoomCheck.Name = "darkRoomCheck";
-            this.darkRoomCheck.Size = new System.Drawing.Size(113, 21);
-            this.darkRoomCheck.TabIndex = 14;
-            this.darkRoomCheck.Text = "Room is dark";
-            this.darkRoomCheck.UseVisualStyleBackColor = true;
-            this.darkRoomCheck.CheckedChanged += new System.EventHandler(this.darkRoomCheck_CheckedChanged);
             // 
             // AdventureEditor
             // 

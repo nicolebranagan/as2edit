@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.advButton = new System.Windows.Forms.Button();
             this.mapButton = new System.Windows.Forms.Button();
             this.outButton = new System.Windows.Forms.Button();
@@ -96,6 +97,7 @@
             this.Controls.Add(this.mapButton);
             this.Controls.Add(this.advButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Aspect Star 2 Editor";
             this.ResumeLayout(false);

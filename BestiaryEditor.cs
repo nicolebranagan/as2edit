@@ -36,7 +36,12 @@ namespace as2edit
             BestiaryEntry newEntry = new BestiaryEntry();
             newEntry.name = nameBox.Text;
             newEntry.graphicsRow = (int)graphicsUpDown.Value;
+
+            newEntry.xOffset = (int)xOffsetUpDown.Value;
+            newEntry.yOffset = (int)yOffsetUpDown.Value;
+
             newEntry.speed = (int)speedUpDown.Value;
+            newEntry.decisiveness = (int)decisiveUpDown.Value;
             newEntry.health = (int)healthUpDown.Value;
 
             if (stationaryRadio.Checked)
@@ -56,7 +61,12 @@ namespace as2edit
         {
             nameBox.Text = entry.name;
             graphicsUpDown.Value = entry.graphicsRow;
+
+            xOffsetUpDown.Value = entry.xOffset;
+            yOffsetUpDown.Value = entry.yOffset;
+
             speedUpDown.Value = entry.speed;
+            decisiveUpDown.Value = entry.decisiveness;
             healthUpDown.Value = entry.health;
 
             stationaryRadio.Checked = false;

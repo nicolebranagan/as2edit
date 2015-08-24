@@ -129,7 +129,10 @@ namespace as2edit
             else if (shooterRadio.Checked)
                 newObject.type = StoredObject.ObjectType.shooter;
             else if (bossRadio.Checked)
+            {
                 newObject.type = StoredObject.ObjectType.boss;
+                newObject.enemyType = (int)bossUpDown.Value;
+            }
             else if (entityRadio.Checked)
             {
                 newObject.type = StoredObject.ObjectType.entity;
@@ -262,6 +265,10 @@ namespace as2edit
                 bossRadio.Checked = true;
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
+
+                if (toEdit.enemyType == 0)
+                    toEdit.enemyType = 1;
+                bossUpDown.Value = toEdit.enemyType;
             }
             else if (toEdit.type == StoredObject.ObjectType.entity)
             {
@@ -381,6 +388,11 @@ function hurt() { }";
 
                 DrawRoomGrid(currentAdventure);
             }
+        }
+
+        private void bossRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            bossUpDown.Enabled = bossRadio.Checked;
         }
     }
 }

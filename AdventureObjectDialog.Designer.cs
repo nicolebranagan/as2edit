@@ -126,9 +126,24 @@
             // 
             this.bossUpDown.Enabled = false;
             this.bossUpDown.Location = new System.Drawing.Point(27, 98);
+            this.bossUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.bossUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.bossUpDown.Name = "bossUpDown";
             this.bossUpDown.Size = new System.Drawing.Size(56, 22);
             this.bossUpDown.TabIndex = 7;
+            this.bossUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // bossRadio
             // 
@@ -139,6 +154,7 @@
             this.bossRadio.TabIndex = 6;
             this.bossRadio.Text = "Boss";
             this.bossRadio.UseVisualStyleBackColor = true;
+            this.bossRadio.CheckedChanged += new System.EventHandler(this.bossRadio_CheckedChanged);
             // 
             // shooterRadio
             // 
