@@ -32,6 +32,10 @@
             this.enemyList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.heightUpDown = new System.Windows.Forms.NumericUpDown();
+            this.widthUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.xOffsetUpDown = new System.Windows.Forms.NumericUpDown();
@@ -56,13 +60,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.widthUpDown = new System.Windows.Forms.NumericUpDown();
-            this.heightUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ghostCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xOffsetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yOffsetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.healthUpDown)).BeginInit();
@@ -71,8 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -88,7 +89,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 452F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(422, 504);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(613, 337);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // enemyList
@@ -98,12 +99,13 @@
             this.enemyList.ItemHeight = 16;
             this.enemyList.Location = new System.Drawing.Point(3, 3);
             this.enemyList.Name = "enemyList";
-            this.enemyList.Size = new System.Drawing.Size(169, 498);
+            this.enemyList.Size = new System.Drawing.Size(169, 331);
             this.enemyList.TabIndex = 0;
             this.enemyList.SelectedIndexChanged += new System.EventHandler(this.enemyList_SelectedIndexChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ghostCheck);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.healthUpDown);
@@ -125,7 +127,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(178, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(241, 498);
+            this.panel1.Size = new System.Drawing.Size(432, 331);
             this.panel1.TabIndex = 1;
             // 
             // groupBox2
@@ -138,12 +140,64 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.xOffsetUpDown);
             this.groupBox2.Controls.Add(this.yOffsetUpDown);
-            this.groupBox2.Location = new System.Drawing.Point(15, 97);
+            this.groupBox2.Location = new System.Drawing.Point(15, 152);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 119);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Offset";
+            // 
+            // heightUpDown
+            // 
+            this.heightUpDown.Location = new System.Drawing.Point(69, 85);
+            this.heightUpDown.Maximum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+            this.heightUpDown.Name = "heightUpDown";
+            this.heightUpDown.Size = new System.Drawing.Size(60, 22);
+            this.heightUpDown.TabIndex = 23;
+            this.heightUpDown.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // widthUpDown
+            // 
+            this.widthUpDown.Location = new System.Drawing.Point(69, 54);
+            this.widthUpDown.Maximum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+            this.widthUpDown.Name = "widthUpDown";
+            this.widthUpDown.Size = new System.Drawing.Size(60, 22);
+            this.widthUpDown.TabIndex = 22;
+            this.widthUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 85);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 17);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Height:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Width:";
             // 
             // label8
             // 
@@ -200,7 +254,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 290);
+            this.label6.Location = new System.Drawing.Point(224, 104);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 17);
             this.label6.TabIndex = 15;
@@ -208,7 +262,7 @@
             // 
             // healthUpDown
             // 
-            this.healthUpDown.Location = new System.Drawing.Point(118, 289);
+            this.healthUpDown.Location = new System.Drawing.Point(330, 103);
             this.healthUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -240,7 +294,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(157, 467);
+            this.closeButton.Location = new System.Drawing.Point(348, 294);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 12;
@@ -251,7 +305,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 438);
+            this.label5.Location = new System.Drawing.Point(224, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 17);
             this.label5.TabIndex = 11;
@@ -260,7 +314,7 @@
             // intelligentUpDown
             // 
             this.intelligentUpDown.Enabled = false;
-            this.intelligentUpDown.Location = new System.Drawing.Point(118, 436);
+            this.intelligentUpDown.Location = new System.Drawing.Point(330, 250);
             this.intelligentUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -273,7 +327,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 258);
+            this.label4.Location = new System.Drawing.Point(224, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 17);
             this.label4.TabIndex = 9;
@@ -281,7 +335,7 @@
             // 
             // decisiveUpDown
             // 
-            this.decisiveUpDown.Location = new System.Drawing.Point(118, 256);
+            this.decisiveUpDown.Location = new System.Drawing.Point(330, 70);
             this.decisiveUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -294,7 +348,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 222);
+            this.label3.Location = new System.Drawing.Point(224, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 7;
@@ -302,7 +356,7 @@
             // 
             // speedUpDown
             // 
-            this.speedUpDown.Location = new System.Drawing.Point(118, 222);
+            this.speedUpDown.Location = new System.Drawing.Point(330, 36);
             this.speedUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -317,7 +371,7 @@
             this.groupBox1.Controls.Add(this.intelligentRadio);
             this.groupBox1.Controls.Add(this.randomRadio);
             this.groupBox1.Controls.Add(this.stationaryRadio);
-            this.groupBox1.Location = new System.Drawing.Point(15, 314);
+            this.groupBox1.Location = new System.Drawing.Point(227, 128);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 106);
             this.groupBox1.TabIndex = 5;
@@ -397,7 +451,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(76, 467);
+            this.addButton.Location = new System.Drawing.Point(267, 294);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
@@ -414,63 +468,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // label9
+            // ghostCheck
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 57);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Width:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 85);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 17);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Height:";
-            // 
-            // widthUpDown
-            // 
-            this.widthUpDown.Location = new System.Drawing.Point(69, 54);
-            this.widthUpDown.Maximum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
-            this.widthUpDown.Name = "widthUpDown";
-            this.widthUpDown.Size = new System.Drawing.Size(60, 22);
-            this.widthUpDown.TabIndex = 22;
-            this.widthUpDown.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // heightUpDown
-            // 
-            this.heightUpDown.Location = new System.Drawing.Point(69, 85);
-            this.heightUpDown.Maximum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
-            this.heightUpDown.Name = "heightUpDown";
-            this.heightUpDown.Size = new System.Drawing.Size(60, 22);
-            this.heightUpDown.TabIndex = 23;
-            this.heightUpDown.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
+            this.ghostCheck.AutoSize = true;
+            this.ghostCheck.Location = new System.Drawing.Point(14, 103);
+            this.ghostCheck.Name = "ghostCheck";
+            this.ghostCheck.Size = new System.Drawing.Size(68, 21);
+            this.ghostCheck.TabIndex = 17;
+            this.ghostCheck.Text = "Ghost";
+            this.ghostCheck.UseVisualStyleBackColor = true;
             // 
             // BestiaryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 504);
+            this.ClientSize = new System.Drawing.Size(613, 337);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BestiaryEditor";
@@ -480,6 +492,8 @@
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xOffsetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yOffsetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.healthUpDown)).EndInit();
@@ -489,8 +503,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -529,5 +541,6 @@
         private System.Windows.Forms.NumericUpDown widthUpDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox ghostCheck;
     }
 }

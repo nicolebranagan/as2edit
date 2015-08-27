@@ -36,6 +36,7 @@ namespace as2edit
             BestiaryEntry newEntry = new BestiaryEntry();
             newEntry.name = nameBox.Text;
             newEntry.graphicsRow = (int)graphicsUpDown.Value;
+            newEntry.ghost = ghostCheck.Checked;
 
             newEntry.xOffset = (int)xOffsetUpDown.Value;
             newEntry.yOffset = (int)yOffsetUpDown.Value;
@@ -64,6 +65,7 @@ namespace as2edit
         {
             nameBox.Text = entry.name;
             graphicsUpDown.Value = entry.graphicsRow;
+            ghostCheck.Checked = entry.ghost;
 
             xOffsetUpDown.Value = entry.xOffset;
             yOffsetUpDown.Value = entry.yOffset;

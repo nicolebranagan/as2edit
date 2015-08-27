@@ -21,6 +21,8 @@ namespace as2edit
         public int height = 6;
         public MovementTypes movementType = MovementTypes.stationary;
 
+        public bool ghost = false;
+
         public enum MovementTypes
         {
             stationary = 0,
