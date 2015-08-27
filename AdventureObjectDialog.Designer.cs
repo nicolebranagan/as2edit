@@ -75,7 +75,7 @@
             // 
             this.deleteButton.Location = new System.Drawing.Point(84, 335);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.Size = new System.Drawing.Size(75, 30);
             this.deleteButton.TabIndex = 17;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -221,9 +221,9 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(278, 335);
+            this.okButton.Location = new System.Drawing.Point(358, 335);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(75, 30);
             this.okButton.TabIndex = 14;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             // 
             this.editButton.Location = new System.Drawing.Point(3, 335);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.Size = new System.Drawing.Size(75, 30);
             this.editButton.TabIndex = 19;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
@@ -286,7 +286,7 @@
             // 
             this.addButton.Location = new System.Drawing.Point(165, 335);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(127, 30);
             this.addButton.TabIndex = 20;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;

@@ -175,7 +175,10 @@ namespace as2edit
             newObject.y = newObject.y + 16;
 
             if (toEdit != null)
+            {
                 objectList.Remove(toEdit);
+                addButton.Text = "Add";
+            }
             objectList.Add(newObject);
 
             List<string> objLabels = new List<string>();
@@ -311,6 +314,8 @@ namespace as2edit
                     TeleporterDestList.SelectedIndex = toEdit.dest;
                 }
             }
+
+            addButton.Text = "Save changes";
         }
 
         public void receiveCode(string code)

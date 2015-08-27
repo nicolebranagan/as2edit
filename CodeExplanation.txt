@@ -2,9 +2,9 @@ The following functions are available for code that runs in rooms and in objects
 void spawnKey(int x, int y)
 - Spawn a key at a given x and y coordinate. Plays the "Aspect" chime.
 void setFlag(string flag, bool value)
-- Sets a boolean flag. Flags are adventure-wide but are reset upon exiting.
+- Sets a boolean flag. Flags are adventure-wide but are reset upon exiting unless they begin with '!".
 bool getFlag(string flag)
-- Returns a boolean flag. If not yet set, returns "false".
+- Returns a boolean flag. If not yet set, returns "false". Flags that begin with "!" will be preserved across entering and exiting the level.
 void overwriteTile(int x, int y, int tile)
 - Overwrites the tile at [x,y] with the tile depicted by [tile].
 void playSoundEffect(int code)
@@ -22,10 +22,17 @@ void callMethod(string name, string method)
 void giveWeapon(int code)
 - Gives a weapon denoted by the following code:
  * 0: ProjectileWeapon
+ * 1: FishWeapon
+ * 2: TorchWeapon
+ * 3: FireballWeapon
 int getPlayerX()
 - Returns the player X position, rounded to the nearest tile.
 int getPlayerY()
 - Returns the player Y position, rounded to the nearest tile.
+void setCounter(string, int)
+- Set a counter, similar to a flag. Counters are never permanent but there are several special counters. ("_life", "_possibleLife", "_keys", "_goldKeys")
+int getCounter(string)
+- Get the value of a counter.
 
 Additionally, AdventureEntities can call the following functions:
 void setDimensions(int width, int height)
@@ -37,5 +44,7 @@ void move(int x, int y)
 - Moves x pixels, y pixels. Ideally, x and y should be multiples of 2. If the object is floating, it will not check if surrounding tiles are solid.
 void hurtPlayer()
 - Causes the player one point of damage. (1/2 hearts)
-void Die()
+void die()
 - Kills the AdventureEntity.
+void questionBox(string text, string callYes, string callNo)
+- Displays a text box with "text", then calls the code in "callYes" if yes is chosen, or "callNo", if no is chosen.
