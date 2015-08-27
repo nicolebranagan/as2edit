@@ -45,7 +45,8 @@ namespace as2edit
             Injury = 3,
             Warp = 4,
             Heal = 5,
-            Lock = 6
+            Lock = 6,
+            Wood = 7,
         }
 
         public AdventureEditor()
@@ -79,6 +80,7 @@ namespace as2edit
             types.Add(tileType.Warp.ToString());
             types.Add(tileType.Heal.ToString());
             types.Add(tileType.Lock.ToString());
+            types.Add(tileType.Wood.ToString());
             tileTypeList.DataSource = types;
         }
 

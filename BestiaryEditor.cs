@@ -40,6 +40,9 @@ namespace as2edit
             newEntry.xOffset = (int)xOffsetUpDown.Value;
             newEntry.yOffset = (int)yOffsetUpDown.Value;
 
+            newEntry.width = (int)widthUpDown.Value;
+            newEntry.height = (int)heightUpDown.Value;
+
             newEntry.speed = (int)speedUpDown.Value;
             newEntry.decisiveness = (int)decisiveUpDown.Value;
             newEntry.health = (int)healthUpDown.Value;
@@ -64,6 +67,9 @@ namespace as2edit
 
             xOffsetUpDown.Value = entry.xOffset;
             yOffsetUpDown.Value = entry.yOffset;
+
+            widthUpDown.Value = entry.width;
+            heightUpDown.Value = entry.height;
 
             speedUpDown.Value = entry.speed;
             decisiveUpDown.Value = entry.decisiveness;

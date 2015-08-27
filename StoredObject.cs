@@ -61,6 +61,7 @@ namespace as2edit
         {
             Maptile = 0,
             Enemies = 1,
+            Characters = 2,
         }
     }
 }
