@@ -34,6 +34,7 @@
             this.outButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
             this.bestButton = new System.Windows.Forms.Button();
+            this.stockButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // advButton
@@ -86,11 +87,22 @@
             this.bestButton.UseVisualStyleBackColor = true;
             this.bestButton.Click += new System.EventHandler(this.bestButton_Click);
             // 
+            // stockButton
+            // 
+            this.stockButton.Location = new System.Drawing.Point(12, 146);
+            this.stockButton.Name = "stockButton";
+            this.stockButton.Size = new System.Drawing.Size(141, 40);
+            this.stockButton.TabIndex = 5;
+            this.stockButton.Text = "Stock Entities";
+            this.stockButton.UseVisualStyleBackColor = true;
+            this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 363);
+            this.Controls.Add(this.stockButton);
             this.Controls.Add(this.bestButton);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.outButton);
@@ -111,6 +123,7 @@
         private System.Windows.Forms.Button outButton;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button bestButton;
+        private System.Windows.Forms.Button stockButton;
     }
 }
 

@@ -25,6 +25,7 @@ namespace as2edit
             boss = 5,
             entity = 6,
             teleporter = 7,
+            stock = 8,
         }
 
         public override string ToString()
@@ -45,6 +46,8 @@ namespace as2edit
                 return string.Concat("Entity ", data.name, " at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.teleporter)
                 return string.Concat("Teleporter at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.stock)
+                return string.Concat("Stock Entity at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }

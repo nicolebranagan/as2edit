@@ -86,5 +86,11 @@ namespace as2edit
             BestiaryEditor bE = new BestiaryEditor();
             bE.Show();
         }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            StockEntityEditor sE = new StockEntityEditor();
+            sE.Show();
+        }
     }
 }
