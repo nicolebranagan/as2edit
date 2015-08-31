@@ -37,6 +37,7 @@ namespace as2edit
             newEntry.name = nameBox.Text;
             newEntry.graphicsRow = (int)graphicsUpDown.Value;
             newEntry.ghost = ghostCheck.Checked;
+            newEntry.dependent = dependentBox.Text;
 
             newEntry.xOffset = (int)xOffsetUpDown.Value;
             newEntry.yOffset = (int)yOffsetUpDown.Value;
@@ -66,6 +67,7 @@ namespace as2edit
             nameBox.Text = entry.name;
             graphicsUpDown.Value = entry.graphicsRow;
             ghostCheck.Checked = entry.ghost;
+            dependentBox.Text = entry.dependent;
 
             xOffsetUpDown.Value = entry.xOffset;
             yOffsetUpDown.Value = entry.yOffset;

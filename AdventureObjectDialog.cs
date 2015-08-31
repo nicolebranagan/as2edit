@@ -55,6 +55,7 @@ namespace as2edit
             entityGfxTypes.Add("MapTile");
             entityGfxTypes.Add("Enemies");
             entityGfxTypes.Add("Characters");
+            entityGfxTypes.Add("Null");
             entityGfxList.DataSource = entityGfxTypes;
 
             List<string> adventures = new List<string>();

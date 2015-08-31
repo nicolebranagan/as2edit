@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.enemyList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ghostCheck = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.heightUpDown = new System.Windows.Forms.NumericUpDown();
             this.widthUpDown = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +61,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.ghostCheck = new System.Windows.Forms.CheckBox();
+            this.dependentBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,6 +107,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.dependentBox);
             this.panel1.Controls.Add(this.ghostCheck);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.label6);
@@ -130,6 +134,16 @@
             this.panel1.Size = new System.Drawing.Size(432, 331);
             this.panel1.TabIndex = 1;
             // 
+            // ghostCheck
+            // 
+            this.ghostCheck.AutoSize = true;
+            this.ghostCheck.Location = new System.Drawing.Point(14, 103);
+            this.ghostCheck.Name = "ghostCheck";
+            this.ghostCheck.Size = new System.Drawing.Size(68, 21);
+            this.ghostCheck.TabIndex = 17;
+            this.ghostCheck.Text = "Ghost";
+            this.ghostCheck.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.heightUpDown);
@@ -140,7 +154,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.xOffsetUpDown);
             this.groupBox2.Controls.Add(this.yOffsetUpDown);
-            this.groupBox2.Location = new System.Drawing.Point(15, 152);
+            this.groupBox2.Location = new System.Drawing.Point(15, 183);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 119);
             this.groupBox2.TabIndex = 16;
@@ -415,7 +429,7 @@
             // 
             this.nameBox.Location = new System.Drawing.Point(67, 36);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(111, 22);
+            this.nameBox.Size = new System.Drawing.Size(148, 22);
             this.nameBox.TabIndex = 4;
             // 
             // graphicsUpDown
@@ -468,15 +482,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // ghostCheck
+            // dependentBox
             // 
-            this.ghostCheck.AutoSize = true;
-            this.ghostCheck.Location = new System.Drawing.Point(14, 103);
-            this.ghostCheck.Name = "ghostCheck";
-            this.ghostCheck.Size = new System.Drawing.Size(68, 21);
-            this.ghostCheck.TabIndex = 17;
-            this.ghostCheck.Text = "Ghost";
-            this.ghostCheck.UseVisualStyleBackColor = true;
+            this.dependentBox.Location = new System.Drawing.Point(131, 130);
+            this.dependentBox.Name = "dependentBox";
+            this.dependentBox.Size = new System.Drawing.Size(84, 22);
+            this.dependentBox.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 132);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 17);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Dependent Flag:";
             // 
             // BestiaryEditor
             // 
@@ -542,5 +562,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox ghostCheck;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox dependentBox;
     }
 }

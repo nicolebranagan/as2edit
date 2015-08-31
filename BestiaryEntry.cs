@@ -22,6 +22,7 @@ namespace as2edit
         public MovementTypes movementType = MovementTypes.stationary;
 
         public bool ghost = false;
+        public string dependent = "";
 
         public enum MovementTypes
         {
