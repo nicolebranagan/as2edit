@@ -31,10 +31,15 @@ namespace as2edit
                 objLabels.Add(obj.ToString());
             objectListBox.DataSource = objLabels;
 
-            List<string> enemies = new List<string>();
-            foreach (BestiaryEntry bE in Main.currentFile.bestiary)
-                enemies.Add(bE.ToString());
-            enemyList.DataSource = enemies;
+            if (Main.currentFile.bestiary.Count == 0)
+                enemyRadio.Enabled = false;
+            else
+            {
+                List<string> enemies = new List<string>();
+                foreach (BestiaryEntry bE in Main.currentFile.bestiary)
+                    enemies.Add(bE.ToString());
+                enemyList.DataSource = enemies;
+            }
 
             if (Main.currentFile.stockEntities.Count == 0)
                 stockEntityRadio.Enabled = false;
