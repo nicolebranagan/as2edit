@@ -31,6 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.enemyList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.wanderCheck = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dependentBox = new System.Windows.Forms.TextBox();
             this.ghostCheck = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.heightUpDown = new System.Windows.Forms.NumericUpDown();
@@ -61,8 +64,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dependentBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.wanderCheck);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.dependentBox);
             this.panel1.Controls.Add(this.ghostCheck);
@@ -133,6 +135,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(432, 331);
             this.panel1.TabIndex = 1;
+            // 
+            // wanderCheck
+            // 
+            this.wanderCheck.AutoSize = true;
+            this.wanderCheck.Enabled = false;
+            this.wanderCheck.Location = new System.Drawing.Point(227, 270);
+            this.wanderCheck.Name = "wanderCheck";
+            this.wanderCheck.Size = new System.Drawing.Size(192, 21);
+            this.wanderCheck.TabIndex = 20;
+            this.wanderCheck.Text = "Wanderer (AS1 behavior)";
+            this.wanderCheck.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 132);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 17);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Dependent Flag:";
+            // 
+            // dependentBox
+            // 
+            this.dependentBox.Location = new System.Drawing.Point(131, 130);
+            this.dependentBox.Name = "dependentBox";
+            this.dependentBox.Size = new System.Drawing.Size(84, 22);
+            this.dependentBox.TabIndex = 18;
             // 
             // ghostCheck
             // 
@@ -308,7 +337,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(348, 294);
+            this.closeButton.Location = new System.Drawing.Point(348, 302);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 12;
@@ -319,7 +348,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(224, 252);
+            this.label5.Location = new System.Drawing.Point(224, 240);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 17);
             this.label5.TabIndex = 11;
@@ -328,7 +357,7 @@
             // intelligentUpDown
             // 
             this.intelligentUpDown.Enabled = false;
-            this.intelligentUpDown.Location = new System.Drawing.Point(330, 250);
+            this.intelligentUpDown.Location = new System.Drawing.Point(330, 238);
             this.intelligentUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -436,7 +465,7 @@
             // 
             this.graphicsUpDown.Location = new System.Drawing.Point(118, 69);
             this.graphicsUpDown.Maximum = new decimal(new int[] {
-            10,
+            99,
             0,
             0,
             0});
@@ -465,7 +494,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(267, 294);
+            this.addButton.Location = new System.Drawing.Point(267, 302);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
@@ -481,22 +510,6 @@
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
-            // 
-            // dependentBox
-            // 
-            this.dependentBox.Location = new System.Drawing.Point(131, 130);
-            this.dependentBox.Name = "dependentBox";
-            this.dependentBox.Size = new System.Drawing.Size(84, 22);
-            this.dependentBox.TabIndex = 18;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 132);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 17);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Dependent Flag:";
             // 
             // BestiaryEditor
             // 
@@ -564,5 +577,6 @@
         private System.Windows.Forms.CheckBox ghostCheck;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox dependentBox;
+        private System.Windows.Forms.CheckBox wanderCheck;
     }
 }

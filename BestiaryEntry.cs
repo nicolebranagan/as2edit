@@ -20,6 +20,7 @@ namespace as2edit
         public int width = 10;
         public int height = 6;
         public MovementTypes movementType = MovementTypes.stationary;
+        public bool wanderer = false;
 
         public bool ghost = false;
         public string dependent = "";

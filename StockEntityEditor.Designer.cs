@@ -31,6 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.entityList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.graphicsLabel = new System.Windows.Forms.Label();
+            this.codeButton = new System.Windows.Forms.Button();
+            this.entityGfxList = new System.Windows.Forms.ListBox();
             this.newButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -39,9 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.codeButton = new System.Windows.Forms.Button();
-            this.entityGfxList = new System.Windows.Forms.ListBox();
-            this.graphicsLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
@@ -92,6 +92,35 @@
             this.panel1.Size = new System.Drawing.Size(432, 307);
             this.panel1.TabIndex = 1;
             // 
+            // graphicsLabel
+            // 
+            this.graphicsLabel.AutoSize = true;
+            this.graphicsLabel.Location = new System.Drawing.Point(12, 192);
+            this.graphicsLabel.Name = "graphicsLabel";
+            this.graphicsLabel.Size = new System.Drawing.Size(35, 17);
+            this.graphicsLabel.TabIndex = 28;
+            this.graphicsLabel.Text = "Tile:";
+            // 
+            // codeButton
+            // 
+            this.codeButton.Location = new System.Drawing.Point(15, 222);
+            this.codeButton.Name = "codeButton";
+            this.codeButton.Size = new System.Drawing.Size(103, 26);
+            this.codeButton.TabIndex = 26;
+            this.codeButton.Text = "Edit Code";
+            this.codeButton.UseVisualStyleBackColor = true;
+            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
+            // 
+            // entityGfxList
+            // 
+            this.entityGfxList.FormattingEnabled = true;
+            this.entityGfxList.ItemHeight = 16;
+            this.entityGfxList.Location = new System.Drawing.Point(15, 97);
+            this.entityGfxList.Name = "entityGfxList";
+            this.entityGfxList.Size = new System.Drawing.Size(163, 84);
+            this.entityGfxList.TabIndex = 27;
+            this.entityGfxList.SelectedIndexChanged += new System.EventHandler(this.entityGfxList_SelectedIndexChanged);
+            // 
             // newButton
             // 
             this.newButton.Location = new System.Drawing.Point(84, 3);
@@ -123,7 +152,7 @@
             // 
             this.graphicsUpDown.Location = new System.Drawing.Point(118, 187);
             this.graphicsUpDown.Maximum = new decimal(new int[] {
-            10,
+            255,
             0,
             0,
             0});
@@ -168,35 +197,6 @@
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
-            // 
-            // codeButton
-            // 
-            this.codeButton.Location = new System.Drawing.Point(15, 222);
-            this.codeButton.Name = "codeButton";
-            this.codeButton.Size = new System.Drawing.Size(103, 26);
-            this.codeButton.TabIndex = 26;
-            this.codeButton.Text = "Edit Code";
-            this.codeButton.UseVisualStyleBackColor = true;
-            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
-            // 
-            // entityGfxList
-            // 
-            this.entityGfxList.FormattingEnabled = true;
-            this.entityGfxList.ItemHeight = 16;
-            this.entityGfxList.Location = new System.Drawing.Point(15, 97);
-            this.entityGfxList.Name = "entityGfxList";
-            this.entityGfxList.Size = new System.Drawing.Size(163, 84);
-            this.entityGfxList.TabIndex = 27;
-            this.entityGfxList.SelectedIndexChanged += new System.EventHandler(this.entityGfxList_SelectedIndexChanged);
-            // 
-            // graphicsLabel
-            // 
-            this.graphicsLabel.AutoSize = true;
-            this.graphicsLabel.Location = new System.Drawing.Point(12, 192);
-            this.graphicsLabel.Name = "graphicsLabel";
-            this.graphicsLabel.Size = new System.Drawing.Size(35, 17);
-            this.graphicsLabel.TabIndex = 28;
-            this.graphicsLabel.Text = "Tile:";
             // 
             // StockEntityEditor
             // 

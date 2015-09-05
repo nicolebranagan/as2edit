@@ -56,6 +56,7 @@ namespace as2edit
             else
             {
                 newEntry.movementType = BestiaryEntry.MovementTypes.intelligent;
+                newEntry.wanderer = wanderCheck.Checked;
                 newEntry.intelligence = (int)intelligentUpDown.Value;
             }
 
@@ -94,6 +95,7 @@ namespace as2edit
                 default:
                     intelligentRadio.Checked = true;
                     intelligentUpDown.Value = entry.intelligence;
+                    wanderCheck.Checked = entry.wanderer;
                     break;
             }
         }
@@ -106,6 +108,7 @@ namespace as2edit
         private void intelligentRadio_CheckedChanged(object sender, EventArgs e)
         {
             intelligentUpDown.Enabled = intelligentRadio.Checked;
+            wanderCheck.Enabled = intelligentRadio.Checked;
         }
 
         private void closeButton_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace as2edit
             else if (type == ObjectType.teleporter)
                 return string.Concat("Teleporter at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.stock)
-                return string.Concat("Stock Entity ", Main.currentFile.stockEntities[enemyType], " at X:", x.ToString(), ", Y:", y.ToString());
+                return string.Concat("Stock Entity ", Main.currentFile.stockEntities[enemyType].name, " at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }
