@@ -12,5 +12,6 @@ namespace as2edit
         public List<Adventure> adventures = new List<Adventure>();
         public List<BestiaryEntry> bestiary = new List<BestiaryEntry>();
         public List<EntityData> stockEntities = new List<EntityData>();
+        public List<SpecialStage> specialStages = new List<SpecialStage>();
     }
 }

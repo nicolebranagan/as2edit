@@ -92,5 +92,11 @@ namespace as2edit
             StockEntityEditor sE = new StockEntityEditor();
             sE.Show();
         }
+
+        private void specialButton_Click(object sender, EventArgs e)
+        {
+            SpecialEditor sE = new SpecialEditor();
+            sE.Show();
+        }
     }
 }

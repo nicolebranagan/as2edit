@@ -35,11 +35,12 @@
             this.openButton = new System.Windows.Forms.Button();
             this.bestButton = new System.Windows.Forms.Button();
             this.stockButton = new System.Windows.Forms.Button();
+            this.specialButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // advButton
             // 
-            this.advButton.Location = new System.Drawing.Point(12, 54);
+            this.advButton.Location = new System.Drawing.Point(12, 56);
             this.advButton.Name = "advButton";
             this.advButton.Size = new System.Drawing.Size(141, 40);
             this.advButton.TabIndex = 0;
@@ -49,9 +50,9 @@
             // 
             // mapButton
             // 
-            this.mapButton.Location = new System.Drawing.Point(12, 12);
+            this.mapButton.Location = new System.Drawing.Point(12, 10);
             this.mapButton.Name = "mapButton";
-            this.mapButton.Size = new System.Drawing.Size(141, 36);
+            this.mapButton.Size = new System.Drawing.Size(141, 40);
             this.mapButton.TabIndex = 1;
             this.mapButton.Text = "Map Editor";
             this.mapButton.UseVisualStyleBackColor = true;
@@ -79,7 +80,7 @@
             // 
             // bestButton
             // 
-            this.bestButton.Location = new System.Drawing.Point(12, 100);
+            this.bestButton.Location = new System.Drawing.Point(159, 10);
             this.bestButton.Name = "bestButton";
             this.bestButton.Size = new System.Drawing.Size(141, 40);
             this.bestButton.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             // stockButton
             // 
-            this.stockButton.Location = new System.Drawing.Point(12, 146);
+            this.stockButton.Location = new System.Drawing.Point(159, 56);
             this.stockButton.Name = "stockButton";
             this.stockButton.Size = new System.Drawing.Size(141, 40);
             this.stockButton.TabIndex = 5;
@@ -97,11 +98,22 @@
             this.stockButton.UseVisualStyleBackColor = true;
             this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
             // 
+            // specialButton
+            // 
+            this.specialButton.Location = new System.Drawing.Point(12, 102);
+            this.specialButton.Name = "specialButton";
+            this.specialButton.Size = new System.Drawing.Size(141, 40);
+            this.specialButton.TabIndex = 6;
+            this.specialButton.Text = "Special Editor";
+            this.specialButton.UseVisualStyleBackColor = true;
+            this.specialButton.Click += new System.EventHandler(this.specialButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 363);
+            this.ClientSize = new System.Drawing.Size(314, 363);
+            this.Controls.Add(this.specialButton);
             this.Controls.Add(this.stockButton);
             this.Controls.Add(this.bestButton);
             this.Controls.Add(this.openButton);
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button bestButton;
         private System.Windows.Forms.Button stockButton;
+        private System.Windows.Forms.Button specialButton;
     }
 }
 
