@@ -68,4 +68,22 @@ namespace as2edit
             Null = 3,
         }
     }
+
+    public class StoredSpecial
+    {
+        public int row, x, y, shootingrate, behavior, speed, amplitude, time;
+
+        public StoredSpecial() { }
+
+        public StoredSpecial(int row, int x, int y, int shootingrate, int speed, int amplitude, int time)
+        {
+            this.row = row;
+            this.x = x;
+            this.y = y;
+            this.shootingrate = shootingrate;
+            this.speed = speed;
+            this.amplitude = amplitude;
+            this.time = time;
+        }
+    }
 }

@@ -10,5 +10,6 @@ namespace as2edit
     {
         public int height;
         public int[] tileMap;
+        public List<StoredSpecial> objects = new List<StoredSpecial>();
     }
 }

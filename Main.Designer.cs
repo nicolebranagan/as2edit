@@ -122,6 +122,7 @@
             this.Controls.Add(this.advButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Aspect Star 2 Editor";
             this.ResumeLayout(false);

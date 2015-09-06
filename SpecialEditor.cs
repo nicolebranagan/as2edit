@@ -127,7 +127,7 @@ namespace as2edit
                 currentColor = check ? Color.Gray : Color.DarkGray;
                 g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
             }
-            //currentStageGroup.Enabled = false;
+            currentStageGroup.Enabled = false;
         }
 
         void DrawMap()
@@ -155,13 +155,46 @@ namespace as2edit
             specialBox.Image = mapImage;
         }
 
+        void populateObjectList(SpecialStage stage)
+        {
+            List<string> enemies = new List<string>();
+            foreach (StoredSpecial sS in stage.objects)
+                enemies.Add(string.Concat("X: ", sS.x.ToString(), " Y: ", sS.y.ToString()));
+            objectListBox.DataSource = enemies;
+
+            if (enemies.Count == 0)
+                enemyOptionsGroup.Enabled = false;
+;        }
+
+        void populateEnemyOptions(StoredSpecial enemy)
+        {
+            xUpDown.Value = enemy.x;
+            yUpDown.Value = enemy.y;
+            rowUpDown.Value = enemy.row;
+            shootingRateUpDown.Value = enemy.shootingrate;
+            behaviorUpDown.Value = enemy.behavior;
+            speedUpDown.Value = enemy.speed;
+            amplitudeUpDown.Value = enemy.amplitude;
+            timeUpDown.Value = enemy.time;
+
+            enemyOptionsGroup.Enabled = true;
+        }
+
+        StoredSpecial getEnemy()
+        {
+            return new StoredSpecial(
+                (int)rowUpDown.Value, (int)xUpDown.Value, (int)yUpDown.Value,
+                (int)shootingRateUpDown.Value, (int)speedUpDown.Value,
+                (int)amplitudeUpDown.Value, (int)timeUpDown.Value);
+        }
+
         private void specialBox_MouseMove(object sender, MouseEventArgs e)
         {
             int x = (int)Math.Floor((double)e.X / 32);
             int y = (int)Math.Floor((double)e.Y / 32);
             if (x >= 0 && y >= 0 && x < (32 * width) && y < (32 * height))
             {
-                //statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
+                statusBarLabel.Text = String.Concat("X: ", e.X.ToString(), "; Y: ", e.Y.ToString());
                 if ((e.Button == MouseButtons.Left))
                 {
                     if (((width * y + x) < currentMap.Length) && ((width * y + x) >= 0))
@@ -183,7 +216,7 @@ namespace as2edit
             int y = (int)Math.Floor((double)e.Y / 32);
             if (y >= 0)
             {
-               // statusBarLabel.Text = String.Concat("Tile ID#", y);
+                statusBarLabel.Text = String.Concat("Tile ID#", y);
                 if ((e.Button == MouseButtons.Left))
                 {
                     currentTile = y;
@@ -196,8 +229,11 @@ namespace as2edit
             int newHeight = (int)heightUpDown.Value;
             int[] newMap = new int[newHeight * width];
 
-            for (int i = 0; i < Math.Min(newMap.Length, currentMap.Length); i++)
-                newMap[i] = currentMap[i];
+            if (currentMap != null)
+            {
+                for (int i = 0; i < Math.Min(newMap.Length, currentMap.Length); i++)
+                    newMap[i] = currentMap[i];
+            }
 
             height = newHeight;
             currentMap = newMap;
@@ -226,6 +262,8 @@ namespace as2edit
 
             DrawMap();
             currentStageGroup.Enabled = true;
+
+            populateObjectList(currentStage);
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -234,6 +272,34 @@ namespace as2edit
             newStage.height = (int)heightUpDown.Value;
             newStage.tileMap = currentMap;
             Main.currentFile.specialStages[stageSelectList.SelectedIndex] = newStage;
+        }
+
+        private void objectListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateEnemyOptions(Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects[objectListBox.SelectedIndex]);
+        }
+
+        private void newObjectButton_Click(object sender, EventArgs e)
+        {
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Add(new StoredSpecial(0, 0, 0, 0, 0, 0, 0));
+            populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
+        }
+
+        private void deleteObjectButton_Click(object sender, EventArgs e)
+        {
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Remove(
+                Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects[objectListBox.SelectedIndex]);
+
+            populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
+        }
+
+        private void saveEnemyButton_Click(object sender, EventArgs e)
+        {
+            int lastObject = objectListBox.SelectedIndex;
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects[objectListBox.SelectedIndex] = 
+                getEnemy();
+            populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
+            objectListBox.SelectedIndex = lastObject;
         }
     }
 }
