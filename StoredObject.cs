@@ -88,5 +88,20 @@ namespace as2edit
             this.behavior = behavior;
             this.track = track;
         }
+
+        public StoredSpecial Clone()
+        {
+            StoredSpecial sS = new StoredSpecial();
+            sS.row = row;
+            sS.x = x;
+            sS.y = y;
+            sS.shootingrate = shootingrate;
+            sS.behavior = behavior;
+            sS.speed = speed;
+            sS.amplitude = amplitude;
+            sS.time = time;
+            sS.track = track;
+            return sS;
+        }
     }
 }

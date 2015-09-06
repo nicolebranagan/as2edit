@@ -128,6 +128,7 @@ namespace as2edit
                 g.FillRectangle(new SolidBrush(currentColor), x * square, y * square, square, square);
             }
             currentStageGroup.Enabled = false;
+            stageObjectsBox.Enabled = false;
         }
 
         void DrawMap()
@@ -144,6 +145,9 @@ namespace as2edit
             }
 
             specialBox.Image = Map;
+
+            if (showCheck.Checked)
+                DrawObjects();
         }
 
         void quickDraw(int x, int y)
@@ -191,23 +195,46 @@ namespace as2edit
 
         private void specialBox_MouseMove(object sender, MouseEventArgs e)
         {
+            statusBarLabel.Text = String.Concat("X: ", e.X.ToString(), "; Y: ", e.Y.ToString());
             int x = (int)Math.Floor((double)e.X / 32);
             int y = (int)Math.Floor((double)e.Y / 32);
             if (x >= 0 && y >= 0 && x < (32 * width) && y < (32 * height))
             {
-                statusBarLabel.Text = String.Concat("X: ", e.X.ToString(), "; Y: ", e.Y.ToString());
-                if ((e.Button == MouseButtons.Left))
+                if ((showCheck.Checked) && (e.Button == MouseButtons.Left))
                 {
-                    if (((width * y + x) < currentMap.Length) && ((width * y + x) >= 0))
+                    StoredSpecial s;
+                    bool foundObject = false;
+                    for (int i = 0; i < Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Count; i++)
                     {
-                        currentMap[(width * y) + x] = currentTile;
-                        quickDraw(x, y);
+                        s = Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects[i];
+                        if (Math.Pow(e.X - s.x, 2) + Math.Pow(e.Y - s.y, 2) < Math.Pow(6,2))
+                        {
+                            objectListBox.SelectedIndex = i;
+                            foundObject = true;
+                        }
+                    }
+
+                    if (!foundObject)
+                    {
+                        xUpDown.Value = e.X;
+                        yUpDown.Value = e.Y;
                     }
                 }
-                else if ((e.Button == MouseButtons.Right))
+                else
                 {
-                    if (((width * y + x) < currentMap.Length) && ((width * y + x) >= 0))
-                        currentTile = currentMap[(width * y) + x];
+                    if ((e.Button == MouseButtons.Left))
+                    {
+                        if (((width * y + x) < currentMap.Length) && ((width * y + x) >= 0))
+                        {
+                            currentMap[(width * y) + x] = currentTile;
+                            quickDraw(x, y);
+                        }
+                    }
+                    else if ((e.Button == MouseButtons.Right))
+                    {
+                        if (((width * y + x) < currentMap.Length) && ((width * y + x) >= 0))
+                            currentTile = currentMap[(width * y) + x];
+                    }
                 }
             }
         }
@@ -263,7 +290,7 @@ namespace as2edit
 
             DrawMap();
             currentStageGroup.Enabled = true;
-
+            stageObjectsBox.Enabled = true;
             populateObjectList(currentStage);
         }
 
@@ -272,7 +299,21 @@ namespace as2edit
             SpecialStage newStage = new SpecialStage();
             newStage.height = (int)heightUpDown.Value;
             newStage.tileMap = currentMap;
+            newStage.objects = Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects;
             Main.currentFile.specialStages[stageSelectList.SelectedIndex] = newStage;
+
+            statusBarLabel.Text = "Saved tilemap";
+        }
+
+        void DrawObjects()
+        {
+            Bitmap mapImage = (Bitmap)specialBox.Image;
+            Graphics g = Graphics.FromImage(mapImage);
+            foreach (StoredSpecial m in Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects)
+            {
+                g.FillEllipse(new SolidBrush(Color.Red), m.x - 6, m.y - 6, 12, 12);
+            }
+            specialBox.Image = mapImage;
         }
 
         private void objectListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,6 +342,20 @@ namespace as2edit
                 getEnemy();
             populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
             objectListBox.SelectedIndex = lastObject;
+
+            DrawMap();
+        }
+
+        private void dupeButton_Click(object sender, EventArgs e)
+        {
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Add(
+                Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects[objectListBox.SelectedIndex].Clone());
+            populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
+        }
+
+        private void showCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            DrawMap();
         }
     }
 }

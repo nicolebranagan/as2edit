@@ -37,13 +37,15 @@
             this.stageSelectList = new System.Windows.Forms.ListBox();
             this.newButton = new System.Windows.Forms.Button();
             this.currentStageGroup = new System.Windows.Forms.GroupBox();
+            this.showCheck = new System.Windows.Forms.CheckBox();
             this.currentTileBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.heightUpDown = new System.Windows.Forms.NumericUpDown();
             this.stageObjectsBox = new System.Windows.Forms.GroupBox();
-            this.showCheck = new System.Windows.Forms.CheckBox();
             this.enemyOptionsGroup = new System.Windows.Forms.GroupBox();
+            this.dupeButton = new System.Windows.Forms.Button();
+            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.saveEnemyButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -68,7 +70,6 @@
             this.tilesBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.scrollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.specialBox)).BeginInit();
@@ -192,6 +193,7 @@
             // 
             // currentStageGroup
             // 
+            this.currentStageGroup.Controls.Add(this.showCheck);
             this.currentStageGroup.Controls.Add(this.currentTileBox);
             this.currentStageGroup.Controls.Add(this.label2);
             this.currentStageGroup.Controls.Add(this.label1);
@@ -204,6 +206,17 @@
             this.currentStageGroup.TabIndex = 5;
             this.currentStageGroup.TabStop = false;
             this.currentStageGroup.Text = "Current Stage:";
+            // 
+            // showCheck
+            // 
+            this.showCheck.AutoSize = true;
+            this.showCheck.Location = new System.Drawing.Point(93, 47);
+            this.showCheck.Name = "showCheck";
+            this.showCheck.Size = new System.Drawing.Size(110, 21);
+            this.showCheck.TabIndex = 8;
+            this.showCheck.Text = "Object Mode";
+            this.showCheck.UseVisualStyleBackColor = true;
+            this.showCheck.CheckedChanged += new System.EventHandler(this.showCheck_CheckedChanged);
             // 
             // currentTileBox
             // 
@@ -251,12 +264,12 @@
             // 
             // stageObjectsBox
             // 
-            this.stageObjectsBox.Controls.Add(this.showCheck);
             this.stageObjectsBox.Controls.Add(this.enemyOptionsGroup);
             this.stageObjectsBox.Controls.Add(this.deleteObjectButton);
             this.stageObjectsBox.Controls.Add(this.objectListBox);
             this.stageObjectsBox.Controls.Add(this.newObjectButton);
             this.stageObjectsBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stageObjectsBox.Enabled = false;
             this.stageObjectsBox.Location = new System.Drawing.Point(3, 243);
             this.stageObjectsBox.Name = "stageObjectsBox";
             this.stageObjectsBox.Size = new System.Drawing.Size(235, 254);
@@ -264,19 +277,9 @@
             this.stageObjectsBox.TabStop = false;
             this.stageObjectsBox.Text = "Stage Objects";
             // 
-            // showCheck
-            // 
-            this.showCheck.AutoSize = true;
-            this.showCheck.Enabled = false;
-            this.showCheck.Location = new System.Drawing.Point(164, 79);
-            this.showCheck.Name = "showCheck";
-            this.showCheck.Size = new System.Drawing.Size(64, 21);
-            this.showCheck.TabIndex = 8;
-            this.showCheck.Text = "Show";
-            this.showCheck.UseVisualStyleBackColor = true;
-            // 
             // enemyOptionsGroup
             // 
+            this.enemyOptionsGroup.Controls.Add(this.dupeButton);
             this.enemyOptionsGroup.Controls.Add(this.trackCheck);
             this.enemyOptionsGroup.Controls.Add(this.saveEnemyButton);
             this.enemyOptionsGroup.Controls.Add(this.label10);
@@ -302,6 +305,26 @@
             this.enemyOptionsGroup.TabIndex = 7;
             this.enemyOptionsGroup.TabStop = false;
             this.enemyOptionsGroup.Text = "Enemy Options";
+            // 
+            // dupeButton
+            // 
+            this.dupeButton.Location = new System.Drawing.Point(84, 129);
+            this.dupeButton.Name = "dupeButton";
+            this.dupeButton.Size = new System.Drawing.Size(69, 23);
+            this.dupeButton.TabIndex = 8;
+            this.dupeButton.Text = "Dupe";
+            this.dupeButton.UseVisualStyleBackColor = true;
+            this.dupeButton.Click += new System.EventHandler(this.dupeButton_Click);
+            // 
+            // trackCheck
+            // 
+            this.trackCheck.AutoSize = true;
+            this.trackCheck.Location = new System.Drawing.Point(9, 129);
+            this.trackCheck.Name = "trackCheck";
+            this.trackCheck.Size = new System.Drawing.Size(66, 21);
+            this.trackCheck.TabIndex = 9;
+            this.trackCheck.Text = "Track";
+            this.trackCheck.UseVisualStyleBackColor = true;
             // 
             // saveEnemyButton
             // 
@@ -478,7 +501,7 @@
             // 
             // deleteObjectButton
             // 
-            this.deleteObjectButton.Location = new System.Drawing.Point(166, 50);
+            this.deleteObjectButton.Location = new System.Drawing.Point(164, 50);
             this.deleteObjectButton.Name = "deleteObjectButton";
             this.deleteObjectButton.Size = new System.Drawing.Size(69, 23);
             this.deleteObjectButton.TabIndex = 6;
@@ -543,16 +566,6 @@
             this.statusBarLabel.Size = new System.Drawing.Size(200, 20);
             this.statusBarLabel.Text = "Special Stage Editor Loaded.";
             // 
-            // trackCheck
-            // 
-            this.trackCheck.AutoSize = true;
-            this.trackCheck.Location = new System.Drawing.Point(9, 129);
-            this.trackCheck.Name = "trackCheck";
-            this.trackCheck.Size = new System.Drawing.Size(130, 21);
-            this.trackCheck.TabIndex = 9;
-            this.trackCheck.Text = "Tracking bullets";
-            this.trackCheck.UseVisualStyleBackColor = true;
-            // 
             // SpecialEditor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -573,7 +586,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.currentTileBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
             this.stageObjectsBox.ResumeLayout(false);
-            this.stageObjectsBox.PerformLayout();
             this.enemyOptionsGroup.ResumeLayout(false);
             this.enemyOptionsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amplitudeUpDown)).EndInit();
@@ -637,5 +649,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusBarLabel;
         private System.Windows.Forms.CheckBox trackCheck;
+        private System.Windows.Forms.Button dupeButton;
     }
 }
