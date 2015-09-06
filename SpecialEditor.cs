@@ -176,6 +176,7 @@ namespace as2edit
             speedUpDown.Value = enemy.speed;
             amplitudeUpDown.Value = enemy.amplitude;
             timeUpDown.Value = enemy.time;
+            trackCheck.Checked = enemy.track;
 
             enemyOptionsGroup.Enabled = true;
         }
@@ -185,7 +186,7 @@ namespace as2edit
             return new StoredSpecial(
                 (int)rowUpDown.Value, (int)xUpDown.Value, (int)yUpDown.Value,
                 (int)shootingRateUpDown.Value, (int)speedUpDown.Value,
-                (int)amplitudeUpDown.Value, (int)timeUpDown.Value);
+                (int)amplitudeUpDown.Value, (int)timeUpDown.Value, (int)behaviorUpDown.Value, trackCheck.Checked);
         }
 
         private void specialBox_MouseMove(object sender, MouseEventArgs e)
@@ -281,7 +282,7 @@ namespace as2edit
 
         private void newObjectButton_Click(object sender, EventArgs e)
         {
-            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Add(new StoredSpecial(0, 0, 0, 0, 0, 0, 0));
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].objects.Add(new StoredSpecial(0, 0, 0, 0, 0, 0, 0, 0, false));
             populateObjectList(Main.currentFile.specialStages[stageSelectList.SelectedIndex]);
         }
 

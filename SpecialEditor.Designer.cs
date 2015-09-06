@@ -68,6 +68,7 @@
             this.tilesBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.scrollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.specialBox)).BeginInit();
@@ -276,6 +277,7 @@
             // 
             // enemyOptionsGroup
             // 
+            this.enemyOptionsGroup.Controls.Add(this.trackCheck);
             this.enemyOptionsGroup.Controls.Add(this.saveEnemyButton);
             this.enemyOptionsGroup.Controls.Add(this.label10);
             this.enemyOptionsGroup.Controls.Add(this.label9);
@@ -435,7 +437,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 22);
+            this.label4.Location = new System.Drawing.Point(88, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 17);
             this.label4.TabIndex = 10;
@@ -452,7 +454,7 @@
             // 
             // yUpDown
             // 
-            this.yUpDown.Location = new System.Drawing.Point(123, 20);
+            this.yUpDown.Location = new System.Drawing.Point(115, 21);
             this.yUpDown.Maximum = new decimal(new int[] {
             6400,
             0,
@@ -464,7 +466,7 @@
             // 
             // xUpDown
             // 
-            this.xUpDown.Location = new System.Drawing.Point(33, 20);
+            this.xUpDown.Location = new System.Drawing.Point(25, 20);
             this.xUpDown.Maximum = new decimal(new int[] {
             608,
             0,
@@ -540,6 +542,16 @@
             this.statusBarLabel.Name = "statusBarLabel";
             this.statusBarLabel.Size = new System.Drawing.Size(200, 20);
             this.statusBarLabel.Text = "Special Stage Editor Loaded.";
+            // 
+            // trackCheck
+            // 
+            this.trackCheck.AutoSize = true;
+            this.trackCheck.Location = new System.Drawing.Point(9, 129);
+            this.trackCheck.Name = "trackCheck";
+            this.trackCheck.Size = new System.Drawing.Size(130, 21);
+            this.trackCheck.TabIndex = 9;
+            this.trackCheck.Text = "Tracking bullets";
+            this.trackCheck.UseVisualStyleBackColor = true;
             // 
             // SpecialEditor
             // 
@@ -624,5 +636,6 @@
         private System.Windows.Forms.NumericUpDown xUpDown;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusBarLabel;
+        private System.Windows.Forms.CheckBox trackCheck;
     }
 }

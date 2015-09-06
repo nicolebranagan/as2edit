@@ -72,10 +72,11 @@ namespace as2edit
     public class StoredSpecial
     {
         public int row, x, y, shootingrate, behavior, speed, amplitude, time;
+        public bool track;
 
         public StoredSpecial() { }
 
-        public StoredSpecial(int row, int x, int y, int shootingrate, int speed, int amplitude, int time)
+        public StoredSpecial(int row, int x, int y, int shootingrate, int speed, int amplitude, int time, int behavior, bool track)
         {
             this.row = row;
             this.x = x;
@@ -84,6 +85,8 @@ namespace as2edit
             this.speed = speed;
             this.amplitude = amplitude;
             this.time = time;
+            this.behavior = behavior;
+            this.track = track;
         }
     }
 }
