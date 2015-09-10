@@ -67,6 +67,12 @@ namespace as2edit
                     adventures.Add(Main.currentFile.adventures[i].name);
             }
             TeleporterDestList.DataSource = adventures;
+
+            if (Main.currentFile.specialStages.Count == 0)
+                specialRadio.Enabled = false;
+            else
+                stageUpDown.Maximum = Main.currentFile.specialStages.Count - 1;
+
             ClearRoomGrid();
         }
 
@@ -191,6 +197,12 @@ namespace as2edit
                 newObject.type = StoredObject.ObjectType.stock;
                 newObject.enemyType = stockEntityList.SelectedIndex;
             }
+            else if (specialRadio.Checked)
+            {
+                newObject.type = StoredObject.ObjectType.special;
+                newObject.key = (int)keyUpDown.Value;
+                newObject.screen = (int)stageUpDown.Value;
+            }
 
             newObject.x = newObject.x + 16;
             newObject.y = newObject.y + 16;
@@ -234,6 +246,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.heart)
             {
@@ -246,6 +259,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.goldkey)
             {
@@ -258,6 +272,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.enemy)
             {
@@ -270,6 +285,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
 
                 enemyList.SelectedIndex = toEdit.enemyType;
             }
@@ -284,6 +300,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
             }
             else if (toEdit.type == StoredObject.ObjectType.boss)
             {
@@ -296,6 +313,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
 
                 if (toEdit.enemyType == 0)
                     toEdit.enemyType = 1;
@@ -312,6 +330,7 @@ namespace as2edit
                 entityRadio.Checked = true;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
 
                 currentEntityData = toEdit.data;
                 nameBox.Text = toEdit.data.name;
@@ -329,6 +348,7 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = true;
                 stockEntityRadio.Checked = false;
+                specialRadio.Checked = false;
 
                 TeleporterxBox.Text = toEdit.destx.ToString();
                 TeleporteryBox.Text = toEdit.desty.ToString();
@@ -354,8 +374,25 @@ namespace as2edit
                 entityRadio.Checked = false;
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = true;
+                specialRadio.Checked = false;
 
                 stockEntityList.SelectedIndex = toEdit.enemyType;
+            }
+            else if (toEdit.type == StoredObject.ObjectType.special)
+            {
+                keyRadio.Checked = false;
+                heartRadio.Checked = false;
+                goldkeyRadio.Checked = false;
+                enemyRadio.Checked = false;
+                shooterRadio.Checked = false;
+                bossRadio.Checked = false;
+                entityRadio.Checked = false;
+                teleportRadio.Checked = false;
+                stockEntityRadio.Checked = false;
+                specialRadio.Checked = true;
+
+                stageUpDown.Value = toEdit.screen;
+                keyUpDown.Value = toEdit.key;
             }
 
             addButton.Text = "Save changes";
@@ -447,6 +484,12 @@ function hurt() { }";
         private void stockEntityRadio_CheckedChanged(object sender, EventArgs e)
         {
             stockEntityList.Enabled = stockEntityRadio.Checked;
+        }
+
+        private void specialRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            stageUpDown.Enabled = specialRadio.Checked;
+            keyUpDown.Enabled = specialRadio.Checked;
         }
     }
 }

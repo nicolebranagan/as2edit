@@ -65,12 +65,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TeleporterDestList = new System.Windows.Forms.ListBox();
             this.teleporterToMapCheck = new System.Windows.Forms.CheckBox();
+            this.stageUpDown = new System.Windows.Forms.NumericUpDown();
+            this.keyUpDown = new System.Windows.Forms.NumericUpDown();
+            this.specialRadio = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.typeBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).BeginInit();
             this.entityOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
             this.teleportOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -85,7 +92,14 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.label8);
+            this.typeBox.Controls.Add(this.label7);
+            this.typeBox.Controls.Add(this.specialRadio);
+            this.typeBox.Controls.Add(this.keyUpDown);
+            this.typeBox.Controls.Add(this.stageUpDown);
+            this.typeBox.Controls.Add(this.teleportOptions);
             this.typeBox.Controls.Add(this.stockEntityList);
+            this.typeBox.Controls.Add(this.entityOptions);
             this.typeBox.Controls.Add(this.stockEntityRadio);
             this.typeBox.Controls.Add(this.teleportRadio);
             this.typeBox.Controls.Add(this.entityRadio);
@@ -97,9 +111,9 @@
             this.typeBox.Controls.Add(this.goldkeyRadio);
             this.typeBox.Controls.Add(this.heartRadio);
             this.typeBox.Controls.Add(this.keyRadio);
-            this.typeBox.Location = new System.Drawing.Point(165, 65);
+            this.typeBox.Location = new System.Drawing.Point(165, 9);
             this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(283, 268);
+            this.typeBox.Size = new System.Drawing.Size(781, 324);
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
@@ -109,15 +123,15 @@
             this.stockEntityList.Enabled = false;
             this.stockEntityList.FormattingEnabled = true;
             this.stockEntityList.ItemHeight = 16;
-            this.stockEntityList.Location = new System.Drawing.Point(160, 154);
+            this.stockEntityList.Location = new System.Drawing.Point(160, 186);
             this.stockEntityList.Name = "stockEntityList";
-            this.stockEntityList.Size = new System.Drawing.Size(112, 100);
+            this.stockEntityList.Size = new System.Drawing.Size(112, 132);
             this.stockEntityList.TabIndex = 11;
             // 
             // stockEntityRadio
             // 
             this.stockEntityRadio.AutoSize = true;
-            this.stockEntityRadio.Location = new System.Drawing.Point(159, 126);
+            this.stockEntityRadio.Location = new System.Drawing.Point(156, 154);
             this.stockEntityRadio.Name = "stockEntityRadio";
             this.stockEntityRadio.Size = new System.Drawing.Size(103, 21);
             this.stockEntityRadio.TabIndex = 10;
@@ -128,7 +142,7 @@
             // teleportRadio
             // 
             this.teleportRadio.AutoSize = true;
-            this.teleportRadio.Location = new System.Drawing.Point(159, 99);
+            this.teleportRadio.Location = new System.Drawing.Point(482, 17);
             this.teleportRadio.Name = "teleportRadio";
             this.teleportRadio.Size = new System.Drawing.Size(95, 21);
             this.teleportRadio.TabIndex = 9;
@@ -139,7 +153,7 @@
             // entityRadio
             // 
             this.entityRadio.AutoSize = true;
-            this.entityRadio.Location = new System.Drawing.Point(158, 72);
+            this.entityRadio.Location = new System.Drawing.Point(292, 17);
             this.entityRadio.Name = "entityRadio";
             this.entityRadio.Size = new System.Drawing.Size(64, 21);
             this.entityRadio.TabIndex = 8;
@@ -150,7 +164,7 @@
             // bossUpDown
             // 
             this.bossUpDown.Enabled = false;
-            this.bossUpDown.Location = new System.Drawing.Point(27, 98);
+            this.bossUpDown.Location = new System.Drawing.Point(178, 125);
             this.bossUpDown.Maximum = new decimal(new int[] {
             8,
             0,
@@ -173,7 +187,7 @@
             // bossRadio
             // 
             this.bossRadio.AutoSize = true;
-            this.bossRadio.Location = new System.Drawing.Point(3, 72);
+            this.bossRadio.Location = new System.Drawing.Point(156, 99);
             this.bossRadio.Name = "bossRadio";
             this.bossRadio.Size = new System.Drawing.Size(60, 21);
             this.bossRadio.TabIndex = 6;
@@ -184,7 +198,7 @@
             // shooterRadio
             // 
             this.shooterRadio.AutoSize = true;
-            this.shooterRadio.Location = new System.Drawing.Point(158, 45);
+            this.shooterRadio.Location = new System.Drawing.Point(3, 99);
             this.shooterRadio.Name = "shooterRadio";
             this.shooterRadio.Size = new System.Drawing.Size(79, 21);
             this.shooterRadio.TabIndex = 5;
@@ -198,7 +212,7 @@
             this.enemyList.ItemHeight = 16;
             this.enemyList.Location = new System.Drawing.Point(3, 154);
             this.enemyList.Name = "enemyList";
-            this.enemyList.Size = new System.Drawing.Size(151, 100);
+            this.enemyList.Size = new System.Drawing.Size(151, 164);
             this.enemyList.TabIndex = 4;
             // 
             // enemyRadio
@@ -215,7 +229,7 @@
             // goldkeyRadio
             // 
             this.goldkeyRadio.AutoSize = true;
-            this.goldkeyRadio.Location = new System.Drawing.Point(158, 18);
+            this.goldkeyRadio.Location = new System.Drawing.Point(3, 43);
             this.goldkeyRadio.Name = "goldkeyRadio";
             this.goldkeyRadio.Size = new System.Drawing.Size(87, 21);
             this.goldkeyRadio.TabIndex = 2;
@@ -225,7 +239,7 @@
             // heartRadio
             // 
             this.heartRadio.AutoSize = true;
-            this.heartRadio.Location = new System.Drawing.Point(3, 45);
+            this.heartRadio.Location = new System.Drawing.Point(3, 70);
             this.heartRadio.Name = "heartRadio";
             this.heartRadio.Size = new System.Drawing.Size(64, 21);
             this.heartRadio.TabIndex = 1;
@@ -256,7 +270,7 @@
             // 
             // yBox
             // 
-            this.yBox.Location = new System.Drawing.Point(192, 37);
+            this.yBox.Location = new System.Drawing.Point(27, 37);
             this.yBox.Name = "yBox";
             this.yBox.Size = new System.Drawing.Size(100, 22);
             this.yBox.TabIndex = 12;
@@ -264,7 +278,7 @@
             // 
             // xBox
             // 
-            this.xBox.Location = new System.Drawing.Point(192, 9);
+            this.xBox.Location = new System.Drawing.Point(27, 9);
             this.xBox.Name = "xBox";
             this.xBox.Size = new System.Drawing.Size(100, 22);
             this.xBox.TabIndex = 11;
@@ -273,7 +287,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(165, 42);
+            this.label2.Location = new System.Drawing.Point(0, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 17);
             this.label2.TabIndex = 10;
@@ -282,7 +296,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 9);
+            this.label1.Location = new System.Drawing.Point(0, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 9;
@@ -292,9 +306,9 @@
             // 
             this.objectListBox.FormattingEnabled = true;
             this.objectListBox.ItemHeight = 16;
-            this.objectListBox.Location = new System.Drawing.Point(3, 9);
+            this.objectListBox.Location = new System.Drawing.Point(3, 73);
             this.objectListBox.Name = "objectListBox";
-            this.objectListBox.Size = new System.Drawing.Size(156, 324);
+            this.objectListBox.Size = new System.Drawing.Size(156, 260);
             this.objectListBox.TabIndex = 18;
             // 
             // editButton
@@ -326,16 +340,16 @@
             this.entityOptions.Controls.Add(this.nameBox);
             this.entityOptions.Controls.Add(this.label3);
             this.entityOptions.Enabled = false;
-            this.entityOptions.Location = new System.Drawing.Point(443, 65);
+            this.entityOptions.Location = new System.Drawing.Point(278, 45);
             this.entityOptions.Name = "entityOptions";
-            this.entityOptions.Size = new System.Drawing.Size(177, 268);
+            this.entityOptions.Size = new System.Drawing.Size(177, 209);
             this.entityOptions.TabIndex = 21;
             this.entityOptions.TabStop = false;
             this.entityOptions.Text = "Entity Options";
             // 
             // codeButton
             // 
-            this.codeButton.Location = new System.Drawing.Point(14, 163);
+            this.codeButton.Location = new System.Drawing.Point(14, 176);
             this.codeButton.Name = "codeButton";
             this.codeButton.Size = new System.Drawing.Size(103, 26);
             this.codeButton.TabIndex = 22;
@@ -349,7 +363,7 @@
             this.entityGfxList.ItemHeight = 16;
             this.entityGfxList.Location = new System.Drawing.Point(14, 73);
             this.entityGfxList.Name = "entityGfxList";
-            this.entityGfxList.Size = new System.Drawing.Size(152, 84);
+            this.entityGfxList.Size = new System.Drawing.Size(152, 100);
             this.entityGfxList.TabIndex = 25;
             // 
             // label4
@@ -394,9 +408,9 @@
             this.teleportOptions.Controls.Add(this.TeleporterDestList);
             this.teleportOptions.Controls.Add(this.teleporterToMapCheck);
             this.teleportOptions.Enabled = false;
-            this.teleportOptions.Location = new System.Drawing.Point(626, 65);
+            this.teleportOptions.Location = new System.Drawing.Point(468, 45);
             this.teleportOptions.Name = "teleportOptions";
-            this.teleportOptions.Size = new System.Drawing.Size(313, 268);
+            this.teleportOptions.Size = new System.Drawing.Size(307, 209);
             this.teleportOptions.TabIndex = 22;
             this.teleportOptions.TabStop = false;
             this.teleportOptions.Text = "Teleporter Options";
@@ -412,7 +426,7 @@
             // 
             // TeleporteryBox
             // 
-            this.TeleporteryBox.Location = new System.Drawing.Point(38, 237);
+            this.TeleporteryBox.Location = new System.Drawing.Point(173, 180);
             this.TeleporteryBox.Name = "TeleporteryBox";
             this.TeleporteryBox.Size = new System.Drawing.Size(100, 22);
             this.TeleporteryBox.TabIndex = 19;
@@ -420,7 +434,7 @@
             // 
             // TeleporterxBox
             // 
-            this.TeleporterxBox.Location = new System.Drawing.Point(38, 208);
+            this.TeleporterxBox.Location = new System.Drawing.Point(38, 180);
             this.TeleporterxBox.Name = "TeleporterxBox";
             this.TeleporterxBox.Size = new System.Drawing.Size(100, 22);
             this.TeleporterxBox.TabIndex = 18;
@@ -429,7 +443,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 237);
+            this.label5.Location = new System.Drawing.Point(144, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 17);
             this.label5.TabIndex = 17;
@@ -438,7 +452,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 211);
+            this.label6.Location = new System.Drawing.Point(11, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 17);
             this.label6.TabIndex = 16;
@@ -460,7 +474,7 @@
             this.teleporterToMapCheck.AutoSize = true;
             this.teleporterToMapCheck.Checked = true;
             this.teleporterToMapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.teleporterToMapCheck.Location = new System.Drawing.Point(13, 181);
+            this.teleporterToMapCheck.Location = new System.Drawing.Point(173, 152);
             this.teleporterToMapCheck.Name = "teleporterToMapCheck";
             this.teleporterToMapCheck.Size = new System.Drawing.Size(116, 21);
             this.teleporterToMapCheck.TabIndex = 14;
@@ -468,12 +482,65 @@
             this.teleporterToMapCheck.UseVisualStyleBackColor = true;
             this.teleporterToMapCheck.CheckedChanged += new System.EventHandler(this.teleporterToMapCheck_CheckedChanged);
             // 
+            // stageUpDown
+            // 
+            this.stageUpDown.Enabled = false;
+            this.stageUpDown.Location = new System.Drawing.Point(212, 45);
+            this.stageUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.stageUpDown.Name = "stageUpDown";
+            this.stageUpDown.Size = new System.Drawing.Size(56, 22);
+            this.stageUpDown.TabIndex = 23;
+            // 
+            // keyUpDown
+            // 
+            this.keyUpDown.Enabled = false;
+            this.keyUpDown.Location = new System.Drawing.Point(212, 73);
+            this.keyUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.keyUpDown.Name = "keyUpDown";
+            this.keyUpDown.Size = new System.Drawing.Size(56, 22);
+            this.keyUpDown.TabIndex = 24;
+            // 
+            // specialRadio
+            // 
+            this.specialRadio.AutoSize = true;
+            this.specialRadio.Location = new System.Drawing.Point(156, 17);
+            this.specialRadio.Name = "specialRadio";
+            this.specialRadio.Size = new System.Drawing.Size(116, 21);
+            this.specialRadio.TabIndex = 25;
+            this.specialRadio.Text = "Special Stage";
+            this.specialRadio.UseVisualStyleBackColor = true;
+            this.specialRadio.CheckedChanged += new System.EventHandler(this.specialRadio_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(153, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Stage:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 17);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Key:";
+            // 
             // AdventureObjectDialog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(951, 369);
-            this.Controls.Add(this.teleportOptions);
-            this.Controls.Add(this.entityOptions);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.objectListBox);
@@ -496,6 +563,8 @@
             this.teleportOptions.ResumeLayout(false);
             this.teleportOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,5 +609,10 @@
         private System.Windows.Forms.CheckBox teleporterToMapCheck;
         private System.Windows.Forms.ListBox stockEntityList;
         private System.Windows.Forms.RadioButton stockEntityRadio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton specialRadio;
+        private System.Windows.Forms.NumericUpDown keyUpDown;
+        private System.Windows.Forms.NumericUpDown stageUpDown;
     }
 }

@@ -14,6 +14,7 @@ namespace as2edit
         public EntityData data;
 
         public int dest, destx, desty, destroomX, destroomY;
+        public int screen, key;
 
         public enum ObjectType
         {
@@ -26,6 +27,7 @@ namespace as2edit
             entity = 6,
             teleporter = 7,
             stock = 8,
+            special = 9,
         }
 
         public override string ToString()
@@ -48,6 +50,11 @@ namespace as2edit
                 return string.Concat("Teleporter at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.stock)
                 return string.Concat("Stock Entity ", Main.currentFile.stockEntities[enemyType].name, " at X:", x.ToString(), ", Y:", y.ToString());
+            else if (type == ObjectType.special)
+                if (key == 0)
+                    return string.Concat("Warp to Special Stage ", screen.ToString(), " at X:", x.ToString(), ", Y:", y.ToString());
+                else
+                    return string.Concat("Warp to Special Stage ", screen.ToString(), " with Key ", key.ToString(), " at X:", x.ToString(), ", Y:", y.ToString());
             else
                 return base.ToString();
         }
