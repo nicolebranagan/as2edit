@@ -39,7 +39,6 @@
             this.currentStageGroup = new System.Windows.Forms.GroupBox();
             this.showCheck = new System.Windows.Forms.CheckBox();
             this.currentTileBox = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.heightUpDown = new System.Windows.Forms.NumericUpDown();
             this.stageObjectsBox = new System.Windows.Forms.GroupBox();
@@ -70,6 +69,7 @@
             this.tilesBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.killEnemies = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.scrollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.specialBox)).BeginInit();
@@ -193,9 +193,9 @@
             // 
             // currentStageGroup
             // 
+            this.currentStageGroup.Controls.Add(this.killEnemies);
             this.currentStageGroup.Controls.Add(this.showCheck);
             this.currentStageGroup.Controls.Add(this.currentTileBox);
-            this.currentStageGroup.Controls.Add(this.label2);
             this.currentStageGroup.Controls.Add(this.label1);
             this.currentStageGroup.Controls.Add(this.heightUpDown);
             this.currentStageGroup.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -210,7 +210,7 @@
             // showCheck
             // 
             this.showCheck.AutoSize = true;
-            this.showCheck.Location = new System.Drawing.Point(93, 47);
+            this.showCheck.Location = new System.Drawing.Point(10, 45);
             this.showCheck.Name = "showCheck";
             this.showCheck.Size = new System.Drawing.Size(110, 21);
             this.showCheck.TabIndex = 8;
@@ -225,15 +225,6 @@
             this.currentTileBox.Size = new System.Drawing.Size(32, 32);
             this.currentTileBox.TabIndex = 7;
             this.currentTileBox.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Width:    19";
             // 
             // label1
             // 
@@ -566,6 +557,17 @@
             this.statusBarLabel.Size = new System.Drawing.Size(200, 20);
             this.statusBarLabel.Text = "Special Stage Editor Loaded.";
             // 
+            // killEnemies
+            // 
+            this.killEnemies.AutoSize = true;
+            this.killEnemies.Location = new System.Drawing.Point(119, 45);
+            this.killEnemies.Name = "killEnemies";
+            this.killEnemies.Size = new System.Drawing.Size(123, 21);
+            this.killEnemies.TabIndex = 9;
+            this.killEnemies.Text = "Kill all enemies";
+            this.killEnemies.UseVisualStyleBackColor = true;
+            this.killEnemies.CheckedChanged += new System.EventHandler(this.killEnemies_CheckedChanged);
+            // 
             // SpecialEditor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -616,7 +618,6 @@
         private System.Windows.Forms.ListBox stageSelectList;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.GroupBox currentStageGroup;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown heightUpDown;
         private System.Windows.Forms.Panel tilesPanel;
@@ -650,5 +651,6 @@
         private System.Windows.Forms.ToolStripStatusLabel statusBarLabel;
         private System.Windows.Forms.CheckBox trackCheck;
         private System.Windows.Forms.Button dupeButton;
+        private System.Windows.Forms.CheckBox killEnemies;
     }
 }

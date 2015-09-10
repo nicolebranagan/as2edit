@@ -291,6 +291,7 @@ namespace as2edit
             DrawMap();
             currentStageGroup.Enabled = true;
             stageObjectsBox.Enabled = true;
+            killEnemies.Checked = (currentStage.winCondition == SpecialStage.WinCondition.KillEnemies);
             populateObjectList(currentStage);
         }
 
@@ -356,6 +357,11 @@ namespace as2edit
         private void showCheck_CheckedChanged(object sender, EventArgs e)
         {
             DrawMap();
+        }
+
+        private void killEnemies_CheckedChanged(object sender, EventArgs e)
+        {
+            Main.currentFile.specialStages[stageSelectList.SelectedIndex].winCondition = SpecialStage.WinCondition.KillEnemies;
         }
     }
 }
