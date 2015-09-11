@@ -172,32 +172,32 @@ namespace as2edit
             if (x >= 0 && y >= 0 && x < (32 * Map.width) && y < (32 * Map.height))
             {
                 statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
-                if ((e.Button == MouseButtons.Left))
+                if (!seeObjectCheck.Checked)
                 {
-                    bool foundObject = false;
-                    if (seeObjectCheck.Checked)
-                    {
-                        foreach (MapObject m in currentMap.objects)
-                        {
-                            if (!awaitingNewObjects && (m.x == x) && (m.y == y))
-                            {
-                                foundObject = true;
-                                MapObjectDialog mod = new MapObjectDialog(this, currentMap.objects, m);
-                                mod.Show();
-                                awaitingNewObjects = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!foundObject)
+                    // Standard mode
+                    if ((e.Button == MouseButtons.Left))
                     {
                         currentMap.tileMap[(Map.width * y) + x] = currentTile.ID;
                         quickDraw(x, y);
                     }
+                    else if ((e.Button == MouseButtons.Right))
+                    {
+                        currentTile = mapTiles[currentMap.tileMap[(Map.width * y) + x]];
+                    }
                 }
-                else if ((e.Button == MouseButtons.Right))
+                else
                 {
-                    currentTile = mapTiles[currentMap.tileMap[(Map.width * y) + x]];
+                    // Object mode
+                    foreach (MapObject m in currentMap.objects)
+                    {
+                        if (!awaitingNewObjects && (m.x == x) && (m.y == y))
+                        {
+                            MapObjectDialog mod = new MapObjectDialog(this, currentMap.objects, m);
+                            mod.Show();
+                            awaitingNewObjects = true;
+                            break;
+                        }
+                    }
                 }
             }
         }

@@ -51,6 +51,7 @@
             this.renameButton = new System.Windows.Forms.Button();
             this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.showObjectCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -185,6 +186,7 @@
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.showObjectCheck);
             this.roomOptions.Controls.Add(this.darkRoomCheck);
             this.roomOptions.Controls.Add(this.codeButton);
             this.roomOptions.Controls.Add(this.objectButton);
@@ -293,6 +295,17 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Tileset:";
             // 
+            // showObjectCheck
+            // 
+            this.showObjectCheck.AutoSize = true;
+            this.showObjectCheck.Location = new System.Drawing.Point(15, 48);
+            this.showObjectCheck.Name = "showObjectCheck";
+            this.showObjectCheck.Size = new System.Drawing.Size(113, 21);
+            this.showObjectCheck.TabIndex = 15;
+            this.showObjectCheck.Text = "Show objects";
+            this.showObjectCheck.UseVisualStyleBackColor = true;
+            this.showObjectCheck.CheckedChanged += new System.EventHandler(this.showObjectCheck_CheckedChanged);
+            // 
             // AdventureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,5 +370,6 @@
         private System.Windows.Forms.NumericUpDown tilesetUpDown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox darkRoomCheck;
+        private System.Windows.Forms.CheckBox showObjectCheck;
     }
 }

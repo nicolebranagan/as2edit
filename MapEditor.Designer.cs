@@ -139,9 +139,9 @@
             this.seeObjectCheck.AutoSize = true;
             this.seeObjectCheck.Location = new System.Drawing.Point(26, 345);
             this.seeObjectCheck.Name = "seeObjectCheck";
-            this.seeObjectCheck.Size = new System.Drawing.Size(108, 21);
+            this.seeObjectCheck.Size = new System.Drawing.Size(110, 21);
             this.seeObjectCheck.TabIndex = 1;
-            this.seeObjectCheck.Text = "View objects";
+            this.seeObjectCheck.Text = "Object Mode";
             this.seeObjectCheck.UseVisualStyleBackColor = true;
             this.seeObjectCheck.CheckedChanged += new System.EventHandler(this.seeObjectCheck_CheckedChanged);
             // 

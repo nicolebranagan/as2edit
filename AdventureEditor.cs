@@ -227,6 +227,19 @@ namespace as2edit
             }
 
             advBox.Image = imageMap;
+
+            if (showObjectCheck.Checked)
+                DrawObjects();
+        }
+        
+        void DrawObjects()
+        {
+            Bitmap imageMap = (Bitmap)advBox.Image;
+            Graphics g = Graphics.FromImage(imageMap);
+            foreach (StoredObject obj in currentRoom.storedObjects)
+            {
+                g.FillEllipse(new SolidBrush(obj.getColor()), new Rectangle((int)obj.x - 8, (int)obj.y - 8, 16, 16));
+            }
         }
 
         void quickDraw(int x, int y)
@@ -426,6 +439,11 @@ function update() { }";
         private void darkRoomCheck_CheckedChanged(object sender, EventArgs e)
         {
             currentRoom.dark = darkRoomCheck.Checked;
+        }
+
+        private void showObjectCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            DrawRoom();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,35 @@ namespace as2edit
             teleporter = 7,
             stock = 8,
             special = 9,
+        }
+
+        public Color getColor()
+        {
+            switch (type)
+            {
+                case ObjectType.key:
+                    return Color.Gray;
+                case ObjectType.heart:
+                    return Color.DarkRed;
+                case ObjectType.goldkey:
+                    return Color.Gold;
+                case ObjectType.enemy:
+                    return Color.Red;
+                case ObjectType.shooter:
+                    return Color.Magenta;
+                case ObjectType.boss:
+                    return Color.Pink;
+                case ObjectType.entity:
+                    return Color.White;
+                case ObjectType.teleporter:
+                    return Color.Green;
+                case ObjectType.stock:
+                    return Color.LightCyan;
+                case ObjectType.special:
+                    return Color.DarkGreen;
+                default:
+                    return Color.Black;
+            }
         }
 
         public override string ToString()
