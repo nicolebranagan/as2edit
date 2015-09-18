@@ -42,6 +42,8 @@
             this.delAdvBox = new System.Windows.Forms.Button();
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
+            this.roomMusicList = new System.Windows.Forms.ListBox();
+            this.showObjectCheck = new System.Windows.Forms.CheckBox();
             this.darkRoomCheck = new System.Windows.Forms.CheckBox();
             this.codeButton = new System.Windows.Forms.Button();
             this.objectButton = new System.Windows.Forms.Button();
@@ -51,7 +53,7 @@
             this.renameButton = new System.Windows.Forms.Button();
             this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.showObjectCheck = new System.Windows.Forms.CheckBox();
+            this.advMusicList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -121,9 +123,9 @@
             // 
             this.advList.FormattingEnabled = true;
             this.advList.ItemHeight = 16;
-            this.advList.Location = new System.Drawing.Point(12, 442);
+            this.advList.Location = new System.Drawing.Point(12, 443);
             this.advList.Name = "advList";
-            this.advList.Size = new System.Drawing.Size(156, 132);
+            this.advList.Size = new System.Drawing.Size(142, 132);
             this.advList.TabIndex = 4;
             this.advList.SelectedIndexChanged += new System.EventHandler(this.advList_SelectedIndexChanged);
             // 
@@ -139,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(248, 423);
+            this.label2.Location = new System.Drawing.Point(287, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 7;
@@ -147,9 +149,9 @@
             // 
             // addAdvBox
             // 
-            this.addAdvBox.Location = new System.Drawing.Point(174, 442);
+            this.addAdvBox.Location = new System.Drawing.Point(161, 419);
             this.addAdvBox.Name = "addAdvBox";
-            this.addAdvBox.Size = new System.Drawing.Size(71, 23);
+            this.addAdvBox.Size = new System.Drawing.Size(51, 23);
             this.addAdvBox.TabIndex = 8;
             this.addAdvBox.Text = "Add";
             this.addAdvBox.UseVisualStyleBackColor = true;
@@ -157,7 +159,7 @@
             // 
             // delRoomBox
             // 
-            this.delRoomBox.Location = new System.Drawing.Point(137, 122);
+            this.delRoomBox.Location = new System.Drawing.Point(361, 419);
             this.delRoomBox.Name = "delRoomBox";
             this.delRoomBox.Size = new System.Drawing.Size(57, 23);
             this.delRoomBox.TabIndex = 10;
@@ -167,9 +169,9 @@
             // 
             // delAdvBox
             // 
-            this.delAdvBox.Location = new System.Drawing.Point(174, 472);
+            this.delAdvBox.Location = new System.Drawing.Point(98, 419);
             this.delAdvBox.Name = "delAdvBox";
-            this.delAdvBox.Size = new System.Drawing.Size(71, 23);
+            this.delAdvBox.Size = new System.Drawing.Size(57, 23);
             this.delAdvBox.TabIndex = 11;
             this.delAdvBox.Text = "Delete";
             this.delAdvBox.UseVisualStyleBackColor = true;
@@ -177,7 +179,7 @@
             // 
             // roomGrid
             // 
-            this.roomGrid.Location = new System.Drawing.Point(251, 443);
+            this.roomGrid.Location = new System.Drawing.Point(290, 443);
             this.roomGrid.Name = "roomGrid";
             this.roomGrid.Size = new System.Drawing.Size(128, 128);
             this.roomGrid.TabIndex = 12;
@@ -186,19 +188,40 @@
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.roomMusicList);
             this.roomOptions.Controls.Add(this.showObjectCheck);
             this.roomOptions.Controls.Add(this.darkRoomCheck);
             this.roomOptions.Controls.Add(this.codeButton);
             this.roomOptions.Controls.Add(this.objectButton);
             this.roomOptions.Controls.Add(this.templateButton);
-            this.roomOptions.Controls.Add(this.delRoomBox);
             this.roomOptions.Enabled = false;
-            this.roomOptions.Location = new System.Drawing.Point(385, 422);
+            this.roomOptions.Location = new System.Drawing.Point(424, 422);
             this.roomOptions.Name = "roomOptions";
-            this.roomOptions.Size = new System.Drawing.Size(200, 151);
+            this.roomOptions.Size = new System.Drawing.Size(262, 153);
             this.roomOptions.TabIndex = 13;
             this.roomOptions.TabStop = false;
             this.roomOptions.Text = "Room Options";
+            // 
+            // roomMusicList
+            // 
+            this.roomMusicList.FormattingEnabled = true;
+            this.roomMusicList.ItemHeight = 16;
+            this.roomMusicList.Location = new System.Drawing.Point(148, 29);
+            this.roomMusicList.Name = "roomMusicList";
+            this.roomMusicList.Size = new System.Drawing.Size(108, 116);
+            this.roomMusicList.TabIndex = 5;
+            this.roomMusicList.SelectedIndexChanged += new System.EventHandler(this.roomMusicList_SelectedIndexChanged);
+            // 
+            // showObjectCheck
+            // 
+            this.showObjectCheck.AutoSize = true;
+            this.showObjectCheck.Location = new System.Drawing.Point(15, 48);
+            this.showObjectCheck.Name = "showObjectCheck";
+            this.showObjectCheck.Size = new System.Drawing.Size(113, 21);
+            this.showObjectCheck.TabIndex = 15;
+            this.showObjectCheck.Text = "Show objects";
+            this.showObjectCheck.UseVisualStyleBackColor = true;
+            this.showObjectCheck.CheckedChanged += new System.EventHandler(this.showObjectCheck_CheckedChanged);
             // 
             // darkRoomCheck
             // 
@@ -213,7 +236,7 @@
             // 
             // codeButton
             // 
-            this.codeButton.Location = new System.Drawing.Point(119, 93);
+            this.codeButton.Location = new System.Drawing.Point(15, 97);
             this.codeButton.Name = "codeButton";
             this.codeButton.Size = new System.Drawing.Size(75, 23);
             this.codeButton.TabIndex = 13;
@@ -223,7 +246,7 @@
             // 
             // objectButton
             // 
-            this.objectButton.Location = new System.Drawing.Point(6, 93);
+            this.objectButton.Location = new System.Drawing.Point(15, 72);
             this.objectButton.Name = "objectButton";
             this.objectButton.Size = new System.Drawing.Size(107, 23);
             this.objectButton.TabIndex = 12;
@@ -233,7 +256,7 @@
             // 
             // templateButton
             // 
-            this.templateButton.Location = new System.Drawing.Point(6, 122);
+            this.templateButton.Location = new System.Drawing.Point(15, 122);
             this.templateButton.Name = "templateButton";
             this.templateButton.Size = new System.Drawing.Size(125, 23);
             this.templateButton.TabIndex = 11;
@@ -245,9 +268,9 @@
             // 
             this.tileOptions.Controls.Add(this.tileTypeList);
             this.tileOptions.Controls.Add(this.currentTileBox);
-            this.tileOptions.Location = new System.Drawing.Point(591, 422);
+            this.tileOptions.Location = new System.Drawing.Point(692, 422);
             this.tileOptions.Name = "tileOptions";
-            this.tileOptions.Size = new System.Drawing.Size(200, 151);
+            this.tileOptions.Size = new System.Drawing.Size(99, 151);
             this.tileOptions.TabIndex = 14;
             this.tileOptions.TabStop = false;
             this.tileOptions.Text = "Current Tile";
@@ -256,15 +279,15 @@
             // 
             this.tileTypeList.FormattingEnabled = true;
             this.tileTypeList.ItemHeight = 16;
-            this.tileTypeList.Location = new System.Drawing.Point(6, 59);
+            this.tileTypeList.Location = new System.Drawing.Point(6, 61);
             this.tileTypeList.Name = "tileTypeList";
-            this.tileTypeList.Size = new System.Drawing.Size(120, 84);
+            this.tileTypeList.Size = new System.Drawing.Size(80, 84);
             this.tileTypeList.TabIndex = 4;
             this.tileTypeList.SelectedIndexChanged += new System.EventHandler(this.tileTypeList_SelectedIndexChanged);
             // 
             // renameButton
             // 
-            this.renameButton.Location = new System.Drawing.Point(174, 501);
+            this.renameButton.Location = new System.Drawing.Point(213, 419);
             this.renameButton.Name = "renameButton";
             this.renameButton.Size = new System.Drawing.Size(71, 23);
             this.renameButton.TabIndex = 15;
@@ -275,7 +298,7 @@
             // tilesetUpDown
             // 
             this.tilesetUpDown.Enabled = false;
-            this.tilesetUpDown.Location = new System.Drawing.Point(174, 549);
+            this.tilesetUpDown.Location = new System.Drawing.Point(213, 445);
             this.tilesetUpDown.Maximum = new decimal(new int[] {
             5,
             0,
@@ -289,33 +312,33 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(174, 529);
+            this.label3.Location = new System.Drawing.Point(158, 447);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 17;
             this.label3.Text = "Tileset:";
             // 
-            // showObjectCheck
+            // advMusicList
             // 
-            this.showObjectCheck.AutoSize = true;
-            this.showObjectCheck.Location = new System.Drawing.Point(15, 48);
-            this.showObjectCheck.Name = "showObjectCheck";
-            this.showObjectCheck.Size = new System.Drawing.Size(113, 21);
-            this.showObjectCheck.TabIndex = 15;
-            this.showObjectCheck.Text = "Show objects";
-            this.showObjectCheck.UseVisualStyleBackColor = true;
-            this.showObjectCheck.CheckedChanged += new System.EventHandler(this.showObjectCheck_CheckedChanged);
+            this.advMusicList.FormattingEnabled = true;
+            this.advMusicList.ItemHeight = 16;
+            this.advMusicList.Location = new System.Drawing.Point(163, 473);
+            this.advMusicList.Name = "advMusicList";
+            this.advMusicList.Size = new System.Drawing.Size(121, 100);
+            this.advMusicList.TabIndex = 16;
+            this.advMusicList.SelectedIndexChanged += new System.EventHandler(this.advMusicList_SelectedIndexChanged);
             // 
             // AdventureEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(856, 603);
+            this.Controls.Add(this.advMusicList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tilesetUpDown);
             this.Controls.Add(this.renameButton);
             this.Controls.Add(this.tileOptions);
             this.Controls.Add(this.roomOptions);
+            this.Controls.Add(this.delRoomBox);
             this.Controls.Add(this.roomGrid);
             this.Controls.Add(this.delAdvBox);
             this.Controls.Add(this.addAdvBox);
@@ -371,5 +394,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox darkRoomCheck;
         private System.Windows.Forms.CheckBox showObjectCheck;
+        private System.Windows.Forms.ListBox roomMusicList;
+        private System.Windows.Forms.ListBox advMusicList;
     }
 }

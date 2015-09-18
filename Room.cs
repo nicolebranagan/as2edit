@@ -12,6 +12,7 @@ namespace as2edit
         public List<StoredObject> storedObjects = new List<StoredObject>();
         public string code;
         public bool dark = false;
+        public int music = -1;
         
         public Room copyRoom()
         {

@@ -60,6 +60,16 @@ namespace as2edit
 
         void Initialize()
         {
+            List<string> music = new List<string>();
+            for (int i = -1; i < 18; i++)
+            {
+                music.Add(((Main.SongName)i).ToString());
+            }
+            advMusicList.DataSource = music;
+            string[] music2 = new string[music.Count];
+            music.CopyTo(music2);
+            roomMusicList.DataSource = music2;
+
             List<string> adventures = new List<string>();
             string label;
             for (int i = 0; i < Main.currentFile.adventures.Count; i++)
@@ -319,6 +329,7 @@ namespace as2edit
             currentAdventure = Main.currentFile.adventures[advList.SelectedIndex];
             tilesetUpDown.Value = currentAdventure.tileset;
             tilesetUpDown.Enabled = true;
+            advMusicList.SelectedIndex = currentAdventure.music + 1;
             roomX = -1; roomY = -1;
             ClearMap();
             DrawRoomGrid();
@@ -365,6 +376,7 @@ namespace as2edit
                     currentAdventure.rooms[x, y] = currentAdventure.templateRoom.copyRoom();
                 }
                 currentRoom = currentAdventure.rooms[x, y];
+                roomMusicList.SelectedIndex = currentRoom.music + 1;
                 roomX = x;
                 roomY = y;
                 DrawRoom();
@@ -444,6 +456,18 @@ function update() { }";
         private void showObjectCheck_CheckedChanged(object sender, EventArgs e)
         {
             DrawRoom();
+        }
+
+        private void advMusicList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentAdventure != null)
+                currentAdventure.music = advMusicList.SelectedIndex - 1;
+        }
+
+        private void roomMusicList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentRoom != null)
+                currentRoom.music = roomMusicList.SelectedIndex - 1;
         }
     }
 }

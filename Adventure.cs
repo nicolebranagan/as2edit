@@ -10,6 +10,7 @@ namespace as2edit
 {
     public class Adventure
     {
+        public int music = -1;
         public int tileset;
         public int[] key = { };
         public Room templateRoom = new Room();

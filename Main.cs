@@ -18,6 +18,29 @@ namespace as2edit
     {
         public static Worldfile currentFile = new Worldfile();
 
+        public enum SongName
+        {
+            None = -1,
+            Title = 0,
+            WorldMap = 1,
+            Town = 2,
+            Garrison = 3,
+            Boss = 4,
+            Item = 5,
+            Dungeon1 = 6,
+            Dungeon2 = 7,
+            Dungeon3 = 8,
+            Dungeon4 = 9,
+            Dungeon5 = 10,
+            Dungeon6 = 11,
+            Dungeon7 = 12,
+            Dungeon8 = 13,
+            Dungeon9a = 14,
+            Dungeon9b = 15,
+            FinalBoss = 16,
+            Credits = 17,
+        }
+
         public Main()
         {
             InitializeComponent();
