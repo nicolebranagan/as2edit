@@ -39,6 +39,7 @@ namespace as2edit
             Dungeon9b = 15,
             FinalBoss = 16,
             Credits = 17,
+            Silent = 18,
         }
 
         public Main()

@@ -61,7 +61,7 @@ namespace as2edit
         void Initialize()
         {
             List<string> music = new List<string>();
-            for (int i = -1; i < 18; i++)
+            for (int i = -1; i < 19; i++)
             {
                 music.Add(((Main.SongName)i).ToString());
             }
