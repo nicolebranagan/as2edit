@@ -30,7 +30,27 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.specialRadio = new System.Windows.Forms.RadioButton();
+            this.keyUpDown = new System.Windows.Forms.NumericUpDown();
+            this.stageUpDown = new System.Windows.Forms.NumericUpDown();
+            this.teleportOptions = new System.Windows.Forms.GroupBox();
+            this.roomGrid = new System.Windows.Forms.PictureBox();
+            this.TeleporteryBox = new System.Windows.Forms.TextBox();
+            this.TeleporterxBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TeleporterDestList = new System.Windows.Forms.ListBox();
+            this.teleporterToMapCheck = new System.Windows.Forms.CheckBox();
             this.stockEntityList = new System.Windows.Forms.ListBox();
+            this.entityOptions = new System.Windows.Forms.GroupBox();
+            this.codeButton = new System.Windows.Forms.Button();
+            this.entityGfxList = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.graphicsUpDown = new System.Windows.Forms.NumericUpDown();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.stockEntityRadio = new System.Windows.Forms.RadioButton();
             this.teleportRadio = new System.Windows.Forms.RadioButton();
             this.entityRadio = new System.Windows.Forms.RadioButton();
@@ -50,34 +70,15 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.entityOptions = new System.Windows.Forms.GroupBox();
-            this.codeButton = new System.Windows.Forms.Button();
-            this.entityGfxList = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.graphicsUpDown = new System.Windows.Forms.NumericUpDown();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.teleportOptions = new System.Windows.Forms.GroupBox();
-            this.roomGrid = new System.Windows.Forms.PictureBox();
-            this.TeleporteryBox = new System.Windows.Forms.TextBox();
-            this.TeleporterxBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TeleporterDestList = new System.Windows.Forms.ListBox();
-            this.teleporterToMapCheck = new System.Windows.Forms.CheckBox();
-            this.stageUpDown = new System.Windows.Forms.NumericUpDown();
-            this.keyUpDown = new System.Windows.Forms.NumericUpDown();
-            this.specialRadio = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.typeBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).BeginInit();
-            this.entityOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).BeginInit();
             this.teleportOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).BeginInit();
+            this.entityOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -92,6 +93,7 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.trackCheck);
             this.typeBox.Controls.Add(this.label8);
             this.typeBox.Controls.Add(this.label7);
             this.typeBox.Controls.Add(this.specialRadio);
@@ -118,6 +120,145 @@
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 17);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Key:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(153, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Stage:";
+            // 
+            // specialRadio
+            // 
+            this.specialRadio.AutoSize = true;
+            this.specialRadio.Location = new System.Drawing.Point(156, 17);
+            this.specialRadio.Name = "specialRadio";
+            this.specialRadio.Size = new System.Drawing.Size(116, 21);
+            this.specialRadio.TabIndex = 25;
+            this.specialRadio.Text = "Special Stage";
+            this.specialRadio.UseVisualStyleBackColor = true;
+            this.specialRadio.CheckedChanged += new System.EventHandler(this.specialRadio_CheckedChanged);
+            // 
+            // keyUpDown
+            // 
+            this.keyUpDown.Enabled = false;
+            this.keyUpDown.Location = new System.Drawing.Point(212, 73);
+            this.keyUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.keyUpDown.Name = "keyUpDown";
+            this.keyUpDown.Size = new System.Drawing.Size(56, 22);
+            this.keyUpDown.TabIndex = 24;
+            // 
+            // stageUpDown
+            // 
+            this.stageUpDown.Enabled = false;
+            this.stageUpDown.Location = new System.Drawing.Point(212, 45);
+            this.stageUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.stageUpDown.Name = "stageUpDown";
+            this.stageUpDown.Size = new System.Drawing.Size(56, 22);
+            this.stageUpDown.TabIndex = 23;
+            // 
+            // teleportOptions
+            // 
+            this.teleportOptions.Controls.Add(this.roomGrid);
+            this.teleportOptions.Controls.Add(this.TeleporteryBox);
+            this.teleportOptions.Controls.Add(this.TeleporterxBox);
+            this.teleportOptions.Controls.Add(this.label5);
+            this.teleportOptions.Controls.Add(this.label6);
+            this.teleportOptions.Controls.Add(this.TeleporterDestList);
+            this.teleportOptions.Controls.Add(this.teleporterToMapCheck);
+            this.teleportOptions.Enabled = false;
+            this.teleportOptions.Location = new System.Drawing.Point(468, 45);
+            this.teleportOptions.Name = "teleportOptions";
+            this.teleportOptions.Size = new System.Drawing.Size(307, 209);
+            this.teleportOptions.TabIndex = 22;
+            this.teleportOptions.TabStop = false;
+            this.teleportOptions.Text = "Teleporter Options";
+            // 
+            // roomGrid
+            // 
+            this.roomGrid.Location = new System.Drawing.Point(173, 18);
+            this.roomGrid.Name = "roomGrid";
+            this.roomGrid.Size = new System.Drawing.Size(128, 128);
+            this.roomGrid.TabIndex = 20;
+            this.roomGrid.TabStop = false;
+            this.roomGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.roomGrid_MouseClick);
+            // 
+            // TeleporteryBox
+            // 
+            this.TeleporteryBox.Location = new System.Drawing.Point(173, 180);
+            this.TeleporteryBox.Name = "TeleporteryBox";
+            this.TeleporteryBox.Size = new System.Drawing.Size(100, 22);
+            this.TeleporteryBox.TabIndex = 19;
+            this.TeleporteryBox.Text = "0";
+            // 
+            // TeleporterxBox
+            // 
+            this.TeleporterxBox.Location = new System.Drawing.Point(38, 180);
+            this.TeleporterxBox.Name = "TeleporterxBox";
+            this.TeleporterxBox.Size = new System.Drawing.Size(100, 22);
+            this.TeleporterxBox.TabIndex = 18;
+            this.TeleporterxBox.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(144, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 17);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Y:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "X:";
+            // 
+            // TeleporterDestList
+            // 
+            this.TeleporterDestList.Enabled = false;
+            this.TeleporterDestList.FormattingEnabled = true;
+            this.TeleporterDestList.ItemHeight = 16;
+            this.TeleporterDestList.Location = new System.Drawing.Point(8, 21);
+            this.TeleporterDestList.Name = "TeleporterDestList";
+            this.TeleporterDestList.Size = new System.Drawing.Size(159, 148);
+            this.TeleporterDestList.TabIndex = 15;
+            this.TeleporterDestList.SelectedIndexChanged += new System.EventHandler(this.TeleporterDestList_SelectedIndexChanged);
+            // 
+            // teleporterToMapCheck
+            // 
+            this.teleporterToMapCheck.AutoSize = true;
+            this.teleporterToMapCheck.Checked = true;
+            this.teleporterToMapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.teleporterToMapCheck.Location = new System.Drawing.Point(173, 152);
+            this.teleporterToMapCheck.Name = "teleporterToMapCheck";
+            this.teleporterToMapCheck.Size = new System.Drawing.Size(116, 21);
+            this.teleporterToMapCheck.TabIndex = 14;
+            this.teleporterToMapCheck.Text = "Leads to map";
+            this.teleporterToMapCheck.UseVisualStyleBackColor = true;
+            this.teleporterToMapCheck.CheckedChanged += new System.EventHandler(this.teleporterToMapCheck_CheckedChanged);
+            // 
             // stockEntityList
             // 
             this.stockEntityList.Enabled = false;
@@ -127,6 +268,73 @@
             this.stockEntityList.Name = "stockEntityList";
             this.stockEntityList.Size = new System.Drawing.Size(112, 132);
             this.stockEntityList.TabIndex = 11;
+            // 
+            // entityOptions
+            // 
+            this.entityOptions.Controls.Add(this.codeButton);
+            this.entityOptions.Controls.Add(this.entityGfxList);
+            this.entityOptions.Controls.Add(this.label4);
+            this.entityOptions.Controls.Add(this.graphicsUpDown);
+            this.entityOptions.Controls.Add(this.nameBox);
+            this.entityOptions.Controls.Add(this.label3);
+            this.entityOptions.Enabled = false;
+            this.entityOptions.Location = new System.Drawing.Point(278, 45);
+            this.entityOptions.Name = "entityOptions";
+            this.entityOptions.Size = new System.Drawing.Size(177, 209);
+            this.entityOptions.TabIndex = 21;
+            this.entityOptions.TabStop = false;
+            this.entityOptions.Text = "Entity Options";
+            // 
+            // codeButton
+            // 
+            this.codeButton.Location = new System.Drawing.Point(14, 176);
+            this.codeButton.Name = "codeButton";
+            this.codeButton.Size = new System.Drawing.Size(103, 26);
+            this.codeButton.TabIndex = 22;
+            this.codeButton.Text = "Edit Code";
+            this.codeButton.UseVisualStyleBackColor = true;
+            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
+            // 
+            // entityGfxList
+            // 
+            this.entityGfxList.FormattingEnabled = true;
+            this.entityGfxList.ItemHeight = 16;
+            this.entityGfxList.Location = new System.Drawing.Point(14, 73);
+            this.entityGfxList.Name = "entityGfxList";
+            this.entityGfxList.Size = new System.Drawing.Size(152, 100);
+            this.entityGfxList.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Graphics:";
+            // 
+            // graphicsUpDown
+            // 
+            this.graphicsUpDown.Location = new System.Drawing.Point(86, 45);
+            this.graphicsUpDown.Name = "graphicsUpDown";
+            this.graphicsUpDown.Size = new System.Drawing.Size(80, 22);
+            this.graphicsUpDown.TabIndex = 9;
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(66, 18);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(100, 22);
+            this.nameBox.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Name:";
             // 
             // stockEntityRadio
             // 
@@ -204,6 +412,7 @@
             this.shooterRadio.TabIndex = 5;
             this.shooterRadio.Text = "Shooter";
             this.shooterRadio.UseVisualStyleBackColor = true;
+            this.shooterRadio.CheckedChanged += new System.EventHandler(this.shooterRadio_CheckedChanged);
             // 
             // enemyList
             // 
@@ -331,211 +540,16 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // entityOptions
+            // trackCheck
             // 
-            this.entityOptions.Controls.Add(this.codeButton);
-            this.entityOptions.Controls.Add(this.entityGfxList);
-            this.entityOptions.Controls.Add(this.label4);
-            this.entityOptions.Controls.Add(this.graphicsUpDown);
-            this.entityOptions.Controls.Add(this.nameBox);
-            this.entityOptions.Controls.Add(this.label3);
-            this.entityOptions.Enabled = false;
-            this.entityOptions.Location = new System.Drawing.Point(278, 45);
-            this.entityOptions.Name = "entityOptions";
-            this.entityOptions.Size = new System.Drawing.Size(177, 209);
-            this.entityOptions.TabIndex = 21;
-            this.entityOptions.TabStop = false;
-            this.entityOptions.Text = "Entity Options";
-            // 
-            // codeButton
-            // 
-            this.codeButton.Location = new System.Drawing.Point(14, 176);
-            this.codeButton.Name = "codeButton";
-            this.codeButton.Size = new System.Drawing.Size(103, 26);
-            this.codeButton.TabIndex = 22;
-            this.codeButton.Text = "Edit Code";
-            this.codeButton.UseVisualStyleBackColor = true;
-            this.codeButton.Click += new System.EventHandler(this.codeButton_Click);
-            // 
-            // entityGfxList
-            // 
-            this.entityGfxList.FormattingEnabled = true;
-            this.entityGfxList.ItemHeight = 16;
-            this.entityGfxList.Location = new System.Drawing.Point(14, 73);
-            this.entityGfxList.Name = "entityGfxList";
-            this.entityGfxList.Size = new System.Drawing.Size(152, 100);
-            this.entityGfxList.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Graphics:";
-            // 
-            // graphicsUpDown
-            // 
-            this.graphicsUpDown.Location = new System.Drawing.Point(86, 45);
-            this.graphicsUpDown.Name = "graphicsUpDown";
-            this.graphicsUpDown.Size = new System.Drawing.Size(80, 22);
-            this.graphicsUpDown.TabIndex = 9;
-            // 
-            // nameBox
-            // 
-            this.nameBox.Location = new System.Drawing.Point(66, 18);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(100, 22);
-            this.nameBox.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Name:";
-            // 
-            // teleportOptions
-            // 
-            this.teleportOptions.Controls.Add(this.roomGrid);
-            this.teleportOptions.Controls.Add(this.TeleporteryBox);
-            this.teleportOptions.Controls.Add(this.TeleporterxBox);
-            this.teleportOptions.Controls.Add(this.label5);
-            this.teleportOptions.Controls.Add(this.label6);
-            this.teleportOptions.Controls.Add(this.TeleporterDestList);
-            this.teleportOptions.Controls.Add(this.teleporterToMapCheck);
-            this.teleportOptions.Enabled = false;
-            this.teleportOptions.Location = new System.Drawing.Point(468, 45);
-            this.teleportOptions.Name = "teleportOptions";
-            this.teleportOptions.Size = new System.Drawing.Size(307, 209);
-            this.teleportOptions.TabIndex = 22;
-            this.teleportOptions.TabStop = false;
-            this.teleportOptions.Text = "Teleporter Options";
-            // 
-            // roomGrid
-            // 
-            this.roomGrid.Location = new System.Drawing.Point(173, 18);
-            this.roomGrid.Name = "roomGrid";
-            this.roomGrid.Size = new System.Drawing.Size(128, 128);
-            this.roomGrid.TabIndex = 20;
-            this.roomGrid.TabStop = false;
-            this.roomGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.roomGrid_MouseClick);
-            // 
-            // TeleporteryBox
-            // 
-            this.TeleporteryBox.Location = new System.Drawing.Point(173, 180);
-            this.TeleporteryBox.Name = "TeleporteryBox";
-            this.TeleporteryBox.Size = new System.Drawing.Size(100, 22);
-            this.TeleporteryBox.TabIndex = 19;
-            this.TeleporteryBox.Text = "0";
-            // 
-            // TeleporterxBox
-            // 
-            this.TeleporterxBox.Location = new System.Drawing.Point(38, 180);
-            this.TeleporterxBox.Name = "TeleporterxBox";
-            this.TeleporterxBox.Size = new System.Drawing.Size(100, 22);
-            this.TeleporterxBox.TabIndex = 18;
-            this.TeleporterxBox.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(144, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 17);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Y:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 183);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 17);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "X:";
-            // 
-            // TeleporterDestList
-            // 
-            this.TeleporterDestList.Enabled = false;
-            this.TeleporterDestList.FormattingEnabled = true;
-            this.TeleporterDestList.ItemHeight = 16;
-            this.TeleporterDestList.Location = new System.Drawing.Point(8, 21);
-            this.TeleporterDestList.Name = "TeleporterDestList";
-            this.TeleporterDestList.Size = new System.Drawing.Size(159, 148);
-            this.TeleporterDestList.TabIndex = 15;
-            this.TeleporterDestList.SelectedIndexChanged += new System.EventHandler(this.TeleporterDestList_SelectedIndexChanged);
-            // 
-            // teleporterToMapCheck
-            // 
-            this.teleporterToMapCheck.AutoSize = true;
-            this.teleporterToMapCheck.Checked = true;
-            this.teleporterToMapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.teleporterToMapCheck.Location = new System.Drawing.Point(173, 152);
-            this.teleporterToMapCheck.Name = "teleporterToMapCheck";
-            this.teleporterToMapCheck.Size = new System.Drawing.Size(116, 21);
-            this.teleporterToMapCheck.TabIndex = 14;
-            this.teleporterToMapCheck.Text = "Leads to map";
-            this.teleporterToMapCheck.UseVisualStyleBackColor = true;
-            this.teleporterToMapCheck.CheckedChanged += new System.EventHandler(this.teleporterToMapCheck_CheckedChanged);
-            // 
-            // stageUpDown
-            // 
-            this.stageUpDown.Enabled = false;
-            this.stageUpDown.Location = new System.Drawing.Point(212, 45);
-            this.stageUpDown.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.stageUpDown.Name = "stageUpDown";
-            this.stageUpDown.Size = new System.Drawing.Size(56, 22);
-            this.stageUpDown.TabIndex = 23;
-            // 
-            // keyUpDown
-            // 
-            this.keyUpDown.Enabled = false;
-            this.keyUpDown.Location = new System.Drawing.Point(212, 73);
-            this.keyUpDown.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.keyUpDown.Name = "keyUpDown";
-            this.keyUpDown.Size = new System.Drawing.Size(56, 22);
-            this.keyUpDown.TabIndex = 24;
-            // 
-            // specialRadio
-            // 
-            this.specialRadio.AutoSize = true;
-            this.specialRadio.Location = new System.Drawing.Point(156, 17);
-            this.specialRadio.Name = "specialRadio";
-            this.specialRadio.Size = new System.Drawing.Size(116, 21);
-            this.specialRadio.TabIndex = 25;
-            this.specialRadio.Text = "Special Stage";
-            this.specialRadio.UseVisualStyleBackColor = true;
-            this.specialRadio.CheckedChanged += new System.EventHandler(this.specialRadio_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Stage:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(153, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 17);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Key:";
+            this.trackCheck.AutoSize = true;
+            this.trackCheck.Enabled = false;
+            this.trackCheck.Location = new System.Drawing.Point(86, 100);
+            this.trackCheck.Name = "trackCheck";
+            this.trackCheck.Size = new System.Drawing.Size(63, 21);
+            this.trackCheck.TabIndex = 27;
+            this.trackCheck.Text = "Inline";
+            this.trackCheck.UseVisualStyleBackColor = true;
             // 
             // AdventureObjectDialog
             // 
@@ -556,15 +570,15 @@
             this.Text = "AdventureObjectDialog";
             this.typeBox.ResumeLayout(false);
             this.typeBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).EndInit();
-            this.entityOptions.ResumeLayout(false);
-            this.entityOptions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).EndInit();
             this.teleportOptions.ResumeLayout(false);
             this.teleportOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).EndInit();
+            this.entityOptions.ResumeLayout(false);
+            this.entityOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphicsUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bossUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,5 +628,6 @@
         private System.Windows.Forms.RadioButton specialRadio;
         private System.Windows.Forms.NumericUpDown keyUpDown;
         private System.Windows.Forms.NumericUpDown stageUpDown;
+        private System.Windows.Forms.CheckBox trackCheck;
     }
 }

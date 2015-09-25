@@ -150,7 +150,13 @@ namespace as2edit
                 newObject.enemyType = enemyList.SelectedIndex;
             }
             else if (shooterRadio.Checked)
+            {
                 newObject.type = StoredObject.ObjectType.shooter;
+                if (trackCheck.Checked)
+                    newObject.enemyType = 1;
+                else
+                    newObject.enemyType = 0;
+            }
             else if (bossRadio.Checked)
             {
                 newObject.type = StoredObject.ObjectType.boss;
@@ -301,6 +307,8 @@ namespace as2edit
                 teleportRadio.Checked = false;
                 stockEntityRadio.Checked = false;
                 specialRadio.Checked = false;
+
+                trackCheck.Checked = toEdit.enemyType == 1;
             }
             else if (toEdit.type == StoredObject.ObjectType.boss)
             {
@@ -490,6 +498,11 @@ function hurt() { }";
         {
             stageUpDown.Enabled = specialRadio.Checked;
             keyUpDown.Enabled = specialRadio.Checked;
+        }
+
+        private void shooterRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            trackCheck.Enabled = shooterRadio.Checked;
         }
     }
 }
