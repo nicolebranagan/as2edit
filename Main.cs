@@ -122,5 +122,16 @@ namespace as2edit
             SpecialEditor sE = new SpecialEditor();
             sE.Show();
         }
+
+        private void openingButton_Click(object sender, EventArgs e)
+        {
+            CodeDialog cD = new CodeDialog(getOpening, currentFile.opening);
+            cD.Show();
+        }
+
+        void getOpening(string text)
+        {
+            currentFile.opening = text;
+        }
     }
 }
