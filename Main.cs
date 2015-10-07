@@ -133,5 +133,16 @@ namespace as2edit
         {
             currentFile.opening = text;
         }
+
+        private void creditsButton_Click(object sender, EventArgs e)
+        {
+            CodeDialog cD = new CodeDialog(getCredits, currentFile.credits);
+            cD.Show();
+        }
+
+        void getCredits(string text)
+        {
+            currentFile.credits = text;
+        }
     }
 }

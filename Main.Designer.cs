@@ -37,6 +37,7 @@
             this.stockButton = new System.Windows.Forms.Button();
             this.specialButton = new System.Windows.Forms.Button();
             this.openingButton = new System.Windows.Forms.Button();
+            this.creditsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // advButton
@@ -111,7 +112,7 @@
             // 
             // openingButton
             // 
-            this.openingButton.Location = new System.Drawing.Point(159, 102);
+            this.openingButton.Location = new System.Drawing.Point(306, 10);
             this.openingButton.Name = "openingButton";
             this.openingButton.Size = new System.Drawing.Size(141, 40);
             this.openingButton.TabIndex = 7;
@@ -119,11 +120,22 @@
             this.openingButton.UseVisualStyleBackColor = true;
             this.openingButton.Click += new System.EventHandler(this.openingButton_Click);
             // 
+            // creditsButton
+            // 
+            this.creditsButton.Location = new System.Drawing.Point(306, 56);
+            this.creditsButton.Name = "creditsButton";
+            this.creditsButton.Size = new System.Drawing.Size(141, 40);
+            this.creditsButton.TabIndex = 8;
+            this.creditsButton.Text = "Credits Text";
+            this.creditsButton.UseVisualStyleBackColor = true;
+            this.creditsButton.Click += new System.EventHandler(this.creditsButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 363);
+            this.Controls.Add(this.creditsButton);
             this.Controls.Add(this.openingButton);
             this.Controls.Add(this.specialButton);
             this.Controls.Add(this.stockButton);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.Button stockButton;
         private System.Windows.Forms.Button specialButton;
         private System.Windows.Forms.Button openingButton;
+        private System.Windows.Forms.Button creditsButton;
     }
 }
 

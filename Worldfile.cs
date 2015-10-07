@@ -9,6 +9,7 @@ namespace as2edit
     public class Worldfile
     {
         public string opening = "";
+        public string credits = "";
         public Map map = new Map();
         public List<Adventure> adventures = new List<Adventure>();
         public List<BestiaryEntry> bestiary = new List<BestiaryEntry>();
