@@ -48,6 +48,7 @@
             this.currentTileBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pngButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.mapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
@@ -120,6 +121,7 @@
             // 
             // controlPanel
             // 
+            this.controlPanel.Controls.Add(this.pngButton);
             this.controlPanel.Controls.Add(this.seeObjectCheck);
             this.controlPanel.Controls.Add(this.addButton);
             this.controlPanel.Controls.Add(this.startGroup);
@@ -204,7 +206,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(17, 516);
+            this.clearButton.Location = new System.Drawing.Point(116, 545);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 3;
@@ -214,7 +216,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(17, 545);
+            this.saveButton.Location = new System.Drawing.Point(17, 516);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 2;
@@ -265,6 +267,16 @@
             this.statusBarLabel.Name = "statusBarLabel";
             this.statusBarLabel.Size = new System.Drawing.Size(74, 20);
             this.statusBarLabel.Text = "Initialized";
+            // 
+            // pngButton
+            // 
+            this.pngButton.Location = new System.Drawing.Point(17, 545);
+            this.pngButton.Name = "pngButton";
+            this.pngButton.Size = new System.Drawing.Size(96, 23);
+            this.pngButton.TabIndex = 5;
+            this.pngButton.Text = "Save .PNG";
+            this.pngButton.UseVisualStyleBackColor = true;
+            this.pngButton.Click += new System.EventHandler(this.pngButton_Click);
             // 
             // MapEditor
             // 
@@ -317,5 +329,6 @@
         private System.Windows.Forms.TextBox startY;
         private System.Windows.Forms.CheckBox seeObjectCheck;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button pngButton;
     }
 }

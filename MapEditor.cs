@@ -267,6 +267,19 @@ namespace as2edit
                 mod.Show();
             }
         }
+
+        private void pngButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PNG Image|*.png|All Files|*.*";
+            saveFileDialog1.Title = "Save Map As Image";
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName != "")
+            {
+                mapBox.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
     }
 
     struct MapTile

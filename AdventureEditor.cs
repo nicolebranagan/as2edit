@@ -469,5 +469,41 @@ function update() { }";
             if (currentRoom != null)
                 currentRoom.music = roomMusicList.SelectedIndex - 1;
         }
+
+        private void pngButton_Click(object sender, EventArgs e)
+        {
+            int roomx, roomy;
+            int x, y;
+
+            Bitmap totalMap = new Bitmap(32 * width * 16, 32 * height * 16);
+            Graphics g = Graphics.FromImage(totalMap);
+            for (int i = 0; i < 16 * 16; i++)
+            {
+                roomx = i % 16;
+                roomy = i / 16;
+
+                if (currentAdventure.rooms[roomx, roomy] != null)
+                {
+                    for (int j = 0; j < width * height; j++)
+                    {
+                        x = j % width;
+                        y = j / width;
+
+                        g.DrawImage(tiles[currentAdventure.rooms[roomx, roomy].tileMap[j]], 
+                            roomx * 32 * width + x * 32, roomy * 32 * height + y * 32);
+                    }
+                }
+            }
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PNG Image|*.png|All Files|*.*";
+            saveFileDialog1.Title = "Save Map As Image";
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName != "")
+            {
+                totalMap.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
     }
 }

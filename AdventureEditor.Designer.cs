@@ -54,6 +54,7 @@
             this.tilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.advMusicList = new System.Windows.Forms.ListBox();
+            this.pngButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.advBox)).BeginInit();
             this.tilesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
@@ -322,16 +323,27 @@
             // 
             this.advMusicList.FormattingEnabled = true;
             this.advMusicList.ItemHeight = 16;
-            this.advMusicList.Location = new System.Drawing.Point(163, 473);
+            this.advMusicList.Location = new System.Drawing.Point(163, 472);
             this.advMusicList.Name = "advMusicList";
-            this.advMusicList.Size = new System.Drawing.Size(121, 100);
+            this.advMusicList.Size = new System.Drawing.Size(121, 68);
             this.advMusicList.TabIndex = 16;
             this.advMusicList.SelectedIndexChanged += new System.EventHandler(this.advMusicList_SelectedIndexChanged);
+            // 
+            // pngButton
+            // 
+            this.pngButton.Location = new System.Drawing.Point(163, 552);
+            this.pngButton.Name = "pngButton";
+            this.pngButton.Size = new System.Drawing.Size(87, 23);
+            this.pngButton.TabIndex = 18;
+            this.pngButton.Text = "Save .PNG";
+            this.pngButton.UseVisualStyleBackColor = true;
+            this.pngButton.Click += new System.EventHandler(this.pngButton_Click);
             // 
             // AdventureEditor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(856, 603);
+            this.Controls.Add(this.pngButton);
             this.Controls.Add(this.advMusicList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tilesetUpDown);
@@ -396,5 +408,6 @@
         private System.Windows.Forms.CheckBox showObjectCheck;
         private System.Windows.Forms.ListBox roomMusicList;
         private System.Windows.Forms.ListBox advMusicList;
+        private System.Windows.Forms.Button pngButton;
     }
 }
