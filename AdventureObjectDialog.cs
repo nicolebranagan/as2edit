@@ -36,8 +36,14 @@ namespace as2edit
             else
             {
                 List<string> enemies = new List<string>();
-                foreach (BestiaryEntry bE in Main.currentFile.bestiary)
-                    enemies.Add(bE.ToString());
+
+                BestiaryEntry bE;
+                //foreach (BestiaryEntry bE in Main.currentFile.bestiary)
+                for (int i = 0; i < Main.currentFile.bestiary.Count; i++)
+                {
+                    bE = Main.currentFile.bestiary[i];
+                    enemies.Add(string.Concat("#", i, ": ", bE.ToString()));
+                }
                 enemyList.DataSource = enemies;
             }
 

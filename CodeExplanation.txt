@@ -48,3 +48,11 @@ void die()
 - Kills the AdventureEntity.
 void questionBox(string text, string callYes, string callNo)
 - Displays a text box with "text", then calls the code in "callYes" if yes is chosen, or "callNo", if no is chosen.
+void setLocation(int x, int y)
+- Sets the item's x and y locations, as tiles.
+void setWander(bool wander)
+- If true, entity will wander aimlessly. If false (default), it stays still.
+void setColor(int r, int g, int b, int a)
+- Like setPlayerColor, but for the individual entity
+void becomeEnemy(int enemy)
+- Become the enemy listed in the bestiary for the given number
