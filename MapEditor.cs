@@ -185,7 +185,7 @@ namespace as2edit
                         currentTile = mapTiles[currentMap.tileMap[(Map.width * y) + x]];
                     }
                 }
-                else
+                else if (e.Button == MouseButtons.Left)
                 {
                     // Object mode
                     foreach (MapObject m in currentMap.objects)
