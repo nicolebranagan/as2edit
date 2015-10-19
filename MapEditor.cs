@@ -171,7 +171,8 @@ namespace as2edit
             int y = (int)Math.Floor((double)e.Y / 32);
             if (x >= 0 && y >= 0 && x < (32 * Map.width) && y < (32 * Map.height))
             {
-                statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString());
+                int i = (Map.width * y) + x;
+                statusBarLabel.Text = String.Concat("X: ", x.ToString(), "; Y: ", y.ToString(), "; i: ", i.ToString());
                 if (!seeObjectCheck.Checked)
                 {
                     // Standard mode
