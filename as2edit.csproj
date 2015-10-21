@@ -190,6 +190,7 @@
     <EmbeddedResource Include="dungeon3.png" />
     <EmbeddedResource Include="dungeon4.png" />
     <EmbeddedResource Include="dungeon5.png" />
+    <EmbeddedResource Include="dungeon6.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
