@@ -42,6 +42,8 @@
             this.delAdvBox = new System.Windows.Forms.Button();
             this.roomGrid = new System.Windows.Forms.PictureBox();
             this.roomOptions = new System.Windows.Forms.GroupBox();
+            this.vblockCheck = new System.Windows.Forms.CheckBox();
+            this.hblockCheck = new System.Windows.Forms.CheckBox();
             this.roomMusicList = new System.Windows.Forms.ListBox();
             this.showObjectCheck = new System.Windows.Forms.CheckBox();
             this.darkRoomCheck = new System.Windows.Forms.CheckBox();
@@ -186,9 +188,12 @@
             this.roomGrid.TabIndex = 12;
             this.roomGrid.TabStop = false;
             this.roomGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.roomGrid_MouseClick);
+            this.roomGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.roomGrid_MouseMove);
             // 
             // roomOptions
             // 
+            this.roomOptions.Controls.Add(this.vblockCheck);
+            this.roomOptions.Controls.Add(this.hblockCheck);
             this.roomOptions.Controls.Add(this.roomMusicList);
             this.roomOptions.Controls.Add(this.showObjectCheck);
             this.roomOptions.Controls.Add(this.darkRoomCheck);
@@ -203,13 +208,35 @@
             this.roomOptions.TabStop = false;
             this.roomOptions.Text = "Room Options";
             // 
+            // vblockCheck
+            // 
+            this.vblockCheck.AutoSize = true;
+            this.vblockCheck.Location = new System.Drawing.Point(143, 48);
+            this.vblockCheck.Name = "vblockCheck";
+            this.vblockCheck.Size = new System.Drawing.Size(97, 21);
+            this.vblockCheck.TabIndex = 17;
+            this.vblockCheck.Text = "Vert. block";
+            this.vblockCheck.UseVisualStyleBackColor = true;
+            this.vblockCheck.CheckedChanged += new System.EventHandler(this.vblockCheck_CheckedChanged);
+            // 
+            // hblockCheck
+            // 
+            this.hblockCheck.AutoSize = true;
+            this.hblockCheck.Location = new System.Drawing.Point(143, 21);
+            this.hblockCheck.Name = "hblockCheck";
+            this.hblockCheck.Size = new System.Drawing.Size(101, 21);
+            this.hblockCheck.TabIndex = 16;
+            this.hblockCheck.Text = "Horz. block";
+            this.hblockCheck.UseVisualStyleBackColor = true;
+            this.hblockCheck.CheckedChanged += new System.EventHandler(this.hblockCheck_CheckedChanged);
+            // 
             // roomMusicList
             // 
             this.roomMusicList.FormattingEnabled = true;
             this.roomMusicList.ItemHeight = 16;
-            this.roomMusicList.Location = new System.Drawing.Point(148, 29);
+            this.roomMusicList.Location = new System.Drawing.Point(148, 77);
             this.roomMusicList.Name = "roomMusicList";
-            this.roomMusicList.Size = new System.Drawing.Size(108, 116);
+            this.roomMusicList.Size = new System.Drawing.Size(108, 68);
             this.roomMusicList.TabIndex = 5;
             this.roomMusicList.SelectedIndexChanged += new System.EventHandler(this.roomMusicList_SelectedIndexChanged);
             // 
@@ -409,5 +436,7 @@
         private System.Windows.Forms.ListBox roomMusicList;
         private System.Windows.Forms.ListBox advMusicList;
         private System.Windows.Forms.Button pngButton;
+        private System.Windows.Forms.CheckBox vblockCheck;
+        private System.Windows.Forms.CheckBox hblockCheck;
     }
 }

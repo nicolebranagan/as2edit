@@ -386,6 +386,8 @@ namespace as2edit
                 DrawRoomGrid();
                 roomOptions.Enabled = true;
                 darkRoomCheck.Checked = currentRoom.dark;
+                hblockCheck.Checked = currentRoom.hblock;
+                vblockCheck.Checked = currentRoom.vblock;
             }
         }
 
@@ -506,6 +508,29 @@ function update() { }";
             if (saveFileDialog1.FileName != "")
             {
                 totalMap.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+        private void hblockCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            currentRoom.hblock = hblockCheck.Checked;
+        }
+
+        private void vblockCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            currentRoom.vblock = vblockCheck.Checked;
+        }
+
+        private void roomGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            int x = (int)Math.Floor((double)e.X / 8);
+            int y = (int)Math.Floor((double)e.Y / 8);
+            bool vacant = true;
+            if (currentAdventure != null && x >= 0 && y >= 0 && x < (16) && y < (16))
+            {
+                if (currentAdventure.rooms[x, y] != null) vacant = false;
+                statusBarLabel.Text = string.Concat("Room X: ", x, ", Room Y: ", y,
+                    vacant ? " (Empty)" : "");
             }
         }
     }
