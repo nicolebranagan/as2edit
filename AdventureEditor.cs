@@ -251,12 +251,46 @@ namespace as2edit
             Graphics g = Graphics.FromImage(imageMap);
             foreach (StoredObject obj in currentRoom.storedObjects)
             {
-                g.FillEllipse(new SolidBrush(obj.getColor()), new Rectangle((int)obj.x - 8, (int)obj.y - 8, 16, 16));
+                bool drawn = false;
+                if (obj.type == StoredObject.ObjectType.entity || obj.type == StoredObject.ObjectType.stock)
+                {
+                    EntityData data;
+                    if (obj.type == StoredObject.ObjectType.stock)
+                        data = Main.currentFile.stockEntities[obj.enemyType];
+                    else
+                        data = obj.data;
+
+                    if (data.gfxtype == EntityData.GraphicsType.Maptile)
+                    {
+                        g.DrawImage(tiles[data.graphics], obj.x - 16, obj.y - 16);
+                        g.DrawRectangle(new Pen(obj.getColor(), 4), obj.x - 16, obj.y - 16, 32, 32);
+                        drawn = true;
+                    }
+                    else if (data.gfxtype == EntityData.GraphicsType.Null)
+                    {
+                        g.DrawEllipse(new Pen(obj.getColor(), 4), obj.x - 8, obj.y - 8, 16, 16);
+                        drawn = true;
+                    }
+                }
+                else if (obj.type == StoredObject.ObjectType.goldkey || obj.type == StoredObject.ObjectType.heart 
+                    || obj.type == StoredObject.ObjectType.key || obj.type == StoredObject.ObjectType.special
+                    || obj.type == StoredObject.ObjectType.teleporter )
+                {
+                    g.FillRectangle(new SolidBrush(obj.getColor()), new Rectangle((int)obj.x - 6, (int)obj.y - 6, 12, 12));
+                    g.DrawRectangle(new Pen(Color.Black, 2), obj.x - 6, obj.y - 6, 12, 12);
+                    drawn = true;
+                }
+
+                if (!drawn)
+                {
+                    g.FillEllipse(new SolidBrush(obj.getColor()), new Rectangle((int)obj.x - 8, (int)obj.y - 8, 16, 16));
+                }
             }
         }
 
         void quickDraw(int x, int y)
         {
+
             Bitmap mapImage = (Bitmap)advBox.Image;
             Graphics g = Graphics.FromImage(mapImage);
             int i = (width) * y + x;
