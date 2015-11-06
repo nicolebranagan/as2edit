@@ -427,6 +427,7 @@ namespace as2edit
             foreach (StoredObject obj in objectList)
                 objLabels.Add(obj.ToString());
             objectListBox.DataSource = objLabels;
+            addButton.Text = "Add";
         }
 
         private void enemyRadio_CheckedChanged(object sender, EventArgs e)

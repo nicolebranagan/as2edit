@@ -96,6 +96,8 @@ namespace as2edit
                 Worldfile wF;
                 wF = (Worldfile)xS.Deserialize(xTR);
                 Main.currentFile = wF;
+                xTR.Close();
+                fS.Close();
             }
         }
 
