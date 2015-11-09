@@ -190,6 +190,9 @@ namespace as2edit
                 case 6:
                     myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon6.png");
                     break;
+                case 7:
+                    myStream = myAssembly.GetManifestResourceStream("as2edit.town2.png");
+                    break;
                 default:
                     myStream = myAssembly.GetManifestResourceStream("as2edit.dungeon1.png");
                     break;

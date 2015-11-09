@@ -185,6 +185,7 @@
     <EmbeddedResource Include="CodeExplanation.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="town2.png" />
     <EmbeddedResource Include="specialstage.png" />
     <EmbeddedResource Include="dungeon2.png" />
     <EmbeddedResource Include="dungeon3.png" />

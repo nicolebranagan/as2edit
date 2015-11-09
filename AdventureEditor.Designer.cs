@@ -328,7 +328,7 @@
             this.tilesetUpDown.Enabled = false;
             this.tilesetUpDown.Location = new System.Drawing.Point(213, 445);
             this.tilesetUpDown.Maximum = new decimal(new int[] {
-            6,
+            7,
             0,
             0,
             0});
