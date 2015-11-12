@@ -30,6 +30,7 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.typeBox = new System.Windows.Forms.GroupBox();
+            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.specialRadio = new System.Windows.Forms.RadioButton();
@@ -70,7 +71,6 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.trackCheck = new System.Windows.Forms.CheckBox();
             this.typeBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).BeginInit();
@@ -119,6 +119,17 @@
             this.typeBox.TabIndex = 15;
             this.typeBox.TabStop = false;
             this.typeBox.Text = "Object Type";
+            // 
+            // trackCheck
+            // 
+            this.trackCheck.AutoSize = true;
+            this.trackCheck.Enabled = false;
+            this.trackCheck.Location = new System.Drawing.Point(86, 100);
+            this.trackCheck.Name = "trackCheck";
+            this.trackCheck.Size = new System.Drawing.Size(63, 21);
+            this.trackCheck.TabIndex = 27;
+            this.trackCheck.Text = "Inline";
+            this.trackCheck.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -374,7 +385,7 @@
             this.bossUpDown.Enabled = false;
             this.bossUpDown.Location = new System.Drawing.Point(178, 125);
             this.bossUpDown.Maximum = new decimal(new int[] {
-            8,
+            10,
             0,
             0,
             0});
@@ -539,17 +550,6 @@
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // trackCheck
-            // 
-            this.trackCheck.AutoSize = true;
-            this.trackCheck.Enabled = false;
-            this.trackCheck.Location = new System.Drawing.Point(86, 100);
-            this.trackCheck.Name = "trackCheck";
-            this.trackCheck.Size = new System.Drawing.Size(63, 21);
-            this.trackCheck.TabIndex = 27;
-            this.trackCheck.Text = "Inline";
-            this.trackCheck.UseVisualStyleBackColor = true;
             // 
             // AdventureObjectDialog
             // 
