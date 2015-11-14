@@ -19,7 +19,9 @@ namespace as2edit
             InitializeComponent();
 
             this.saveFunction = saveFunction;
-            codeText.Text = defaultText;
+            
+            // Fixes UNIX newline bug
+            codeText.Text = defaultText.Replace("\n", Environment.NewLine);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
