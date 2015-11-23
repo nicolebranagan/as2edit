@@ -29,6 +29,7 @@ namespace as2edit
             teleporter = 7,
             stock = 8,
             special = 9,
+            hidden = 10,
         }
 
         public Color getColor()
@@ -55,6 +56,8 @@ namespace as2edit
                     return Color.LightCyan;
                 case ObjectType.special:
                     return Color.DarkGreen;
+                case ObjectType.hidden:
+                    return Color.Red;
                 default:
                     return Color.Black;
             }
@@ -68,7 +71,7 @@ namespace as2edit
                 return string.Concat("Heart at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.goldkey)
                 return string.Concat("Gold Key at X:", x.ToString(), ", Y:", y.ToString());
-            else if (type == ObjectType.enemy)
+            else if (type == ObjectType.enemy || type == ObjectType.hidden)
                 return string.Concat(Main.currentFile.bestiary[enemyType], " at X:", x.ToString(), ", Y:", y.ToString());
             else if (type == ObjectType.shooter)
                 return string.Concat("Shooter at X:", x.ToString(), ", Y:", y.ToString());

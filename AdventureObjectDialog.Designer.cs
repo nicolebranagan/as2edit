@@ -71,6 +71,7 @@
             this.objectListBox = new System.Windows.Forms.ListBox();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.hiddenCheck = new System.Windows.Forms.CheckBox();
             this.typeBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stageUpDown)).BeginInit();
@@ -93,6 +94,7 @@
             // 
             // typeBox
             // 
+            this.typeBox.Controls.Add(this.hiddenCheck);
             this.typeBox.Controls.Add(this.trackCheck);
             this.typeBox.Controls.Add(this.label8);
             this.typeBox.Controls.Add(this.label7);
@@ -551,6 +553,17 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // hiddenCheck
+            // 
+            this.hiddenCheck.AutoSize = true;
+            this.hiddenCheck.Enabled = false;
+            this.hiddenCheck.Location = new System.Drawing.Point(86, 127);
+            this.hiddenCheck.Name = "hiddenCheck";
+            this.hiddenCheck.Size = new System.Drawing.Size(75, 21);
+            this.hiddenCheck.TabIndex = 28;
+            this.hiddenCheck.Text = "Hidden";
+            this.hiddenCheck.UseVisualStyleBackColor = true;
+            // 
             // AdventureObjectDialog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -629,5 +642,6 @@
         private System.Windows.Forms.NumericUpDown keyUpDown;
         private System.Windows.Forms.NumericUpDown stageUpDown;
         private System.Windows.Forms.CheckBox trackCheck;
+        private System.Windows.Forms.CheckBox hiddenCheck;
     }
 }

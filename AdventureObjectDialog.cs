@@ -152,7 +152,10 @@ namespace as2edit
                 newObject.type = StoredObject.ObjectType.goldkey;
             else if (enemyRadio.Checked)
             {
-                newObject.type = StoredObject.ObjectType.enemy;
+                if (!hiddenCheck.Checked)
+                    newObject.type = StoredObject.ObjectType.enemy;
+                else
+                    newObject.type = StoredObject.ObjectType.hidden;
                 newObject.enemyType = enemyList.SelectedIndex;
             }
             else if (shooterRadio.Checked)
@@ -286,7 +289,7 @@ namespace as2edit
                 stockEntityRadio.Checked = false;
                 specialRadio.Checked = false;
             }
-            else if (toEdit.type == StoredObject.ObjectType.enemy)
+            else if ((toEdit.type == StoredObject.ObjectType.enemy) || (toEdit.type == StoredObject.ObjectType.hidden))
             {
                 keyRadio.Checked = false;
                 heartRadio.Checked = false;
@@ -299,6 +302,7 @@ namespace as2edit
                 stockEntityRadio.Checked = false;
                 specialRadio.Checked = false;
 
+                hiddenCheck.Checked = (toEdit.type == StoredObject.ObjectType.hidden);
                 enemyList.SelectedIndex = toEdit.enemyType;
             }
             else if (toEdit.type == StoredObject.ObjectType.shooter)
@@ -433,6 +437,7 @@ namespace as2edit
         private void enemyRadio_CheckedChanged(object sender, EventArgs e)
         {
             enemyList.Enabled = enemyRadio.Checked;
+            hiddenCheck.Enabled = enemyRadio.Checked;
         }
 
         private void entityRadio_CheckedChanged(object sender, EventArgs e)
